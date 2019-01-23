@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/23 15:38:10 by flbartol         ###   ########.fr       */
+/*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
+/*   Updated: 2019/01/23 16:36:16 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(int ac, char **av)
-{
-	short d = 25;
-	ft_printf(" %d", d);
-	printf(" %hd", d);
+int		ft_printf(const char * format, ...)
+{	
+	t_flag struc;
+	va_list params;
+	parser(format, params, t_flag &struc);	
+
+	va_end(params);
+	return (0);
 }
