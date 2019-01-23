@@ -6,11 +6,11 @@
 #    By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/01/15 15:05:37 by flbartol         ###   ########.fr        #
+#    Updated: 2019/01/23 13:32:27 by flbartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= libft.a
+NAME= libftprintf.a
 FLAGS= -Wall -Wextra -Werror
 SRC= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 		ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
