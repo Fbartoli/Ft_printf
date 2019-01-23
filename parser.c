@@ -6,34 +6,56 @@
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/23 16:36:18 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/23 18:02:08 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			give_param(char *format, char list[3])
+#include "includes/ft_printf.h"
 
 static void	input_to_struct(const char *format, t_flag *struc)
 {
-	char list[];
-
-	list[] = ["flag", "length", "conversion"]
-	while (*format)
-	{	if (is_flag(*format) == 1)
+	while (is_conv(*format) != 1)
+	{
+		if (is_flag(*format) == 1)
+		{
 			struc->flag = *format;
-		else
+		}
+		else if (is_taille(*format) == 1)
+		{
+			struc->taille[0] = *format;
+			if (*format + 1 == *format)
+			{
+				struc->taille[1] = *format;
+				struc->taille[2] = '\0';
+			}
+			else
+				struc->taille[1] = '\0';
+			format++;
+		}
+		format++;
 	}
+	if (is_conv(*format) == 1)
+		struc->conv = *format;
 }
 
-int			parser(const char * format, va_list params, t_flag *struc)
+int			parser(const char * format, t_flag *struc)
 {
-	char *start = format;
+	char *start;	//pour stocker l'adresse du caracteres apres le %
 
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			input_to_struct(*format, *struc);
+			format++;
+			start = format;
+			input_to_struct(format, struc); //pour stocker flag, taille et conv dans la struct.
 		}
-		format++;
+		format = start;						// reset l'adresse de format pour pouvoir parcourir la chaine et trouver le . de la precision
+//		if (*format == '.')
+//		{
+//
+//		}
+		format++
 	}
+	return (0);
 }

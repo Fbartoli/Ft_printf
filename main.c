@@ -6,15 +6,14 @@
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/23 15:38:10 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/23 18:02:02 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "includes/ft_printf.h"
 
 int		main(int ac, char **av)
 {
 	short d = 25;
-	ft_printf(" %d", d);
-	printf(" %hd", d);
+	ft_printf("%0lld", d);
 }
