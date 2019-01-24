@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 13:31:14 by flbartol         ###   ########.fr       */
+/*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
+/*   Updated: 2019/01/24 13:31:16 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
-int		main(int ac, char **av)
+int		ft_printf(const char *format, ...)
 {
-	short d = 25;
-	ft_printf("%0lld", d);
+	t_flag struc;
+	char *start;
+
+	start = (char*) format;
+	va_list params;
+	parser(format, &struc);	
+	va_end(params);
+	printf("flag %c,taille %s,conv %c\n",struc.flag, struc.taille, struc.conv);
+	return (0);
 }

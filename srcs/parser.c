@@ -6,11 +6,11 @@
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/23 18:02:08 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/24 13:31:12 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	input_to_struct(const char *format, t_flag *struc)
 {
@@ -23,7 +23,7 @@ static void	input_to_struct(const char *format, t_flag *struc)
 		else if (is_taille(*format) == 1)
 		{
 			struc->taille[0] = *format;
-			if (*format + 1 == *format)
+			if (*(format + 1) == *format)
 			{
 				struc->taille[1] = *format;
 				struc->taille[2] = '\0';
@@ -40,22 +40,18 @@ static void	input_to_struct(const char *format, t_flag *struc)
 
 int			parser(const char * format, t_flag *struc)
 {
-	char *start;	//pour stocker l'adresse du caracteres apres le %
+	char *start;
 
-	while (*format)
+	if ((start = ft_strchr(format, '%')) == NULL)
 	{
-		if (*format == '%')
-		{
-			format++;
-			start = format;
-			input_to_struct(format, struc); //pour stocker flag, taille et conv dans la struct.
-		}
-		format = start;						// reset l'adresse de format pour pouvoir parcourir la chaine et trouver le . de la precision
-//		if (*format == '.')
-//		{
-//
-//		}
-		format++
+		ft_putstr(format);
+		write(1, "\n", 1);
 	}
+	else if (*start == '%')
+	{
+		start++;
+		input_to_struct(start, struc);
+	}
+	printf("%c\n", *start);
 	return (0);
 }

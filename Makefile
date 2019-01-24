@@ -6,7 +6,7 @@
 #    By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/01/23 13:32:27 by flbartol         ###   ########.fr        #
+#    Updated: 2019/01/23 18:43:27 by flbartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 		ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 		ft_lstiter.c ft_lstmap.c ft_index_rev.c ft_index.c\
 		ft_max.c ft_max_int.c ft_min_int.c ft_min.c ft_nbrlen.c\
-		ft_itoa_base.c ft_printf.c
+		ft_itoa_base.c utils.c ft_printf.c parser.c
 
 HEADER= includes
 SRC_DIR = srcs/
