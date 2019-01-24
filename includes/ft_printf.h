@@ -6,7 +6,7 @@
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/23 17:36:06 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/24 18:18:13 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct	s_flag
 				char	conv;
 }				t_flag;
 
-int		parser(const char *format, t_flag *struc);
+int		my_printf(char *str, t_flag *struc);
+char	*parser(char *str, t_flag *struc);
 int		is_flag(char format);
 int		is_taille(char format);
 int		is_conv(char format);

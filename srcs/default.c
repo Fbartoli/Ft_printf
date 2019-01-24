@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   default.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 18:19:15 by flbartol         ###   ########.fr       */
+/*   Created: 2019/01/24 15:24:44 by flbartol          #+#    #+#             */
+/*   Updated: 2019/01/24 18:31:10 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-
-int		main()
+void	default_setting(t_flag *struc)
 {
-	short d = 25;
-	ft_printf("test %012.35lld, jndw%02.5hd", d);
-	//printf("%d",d);
-	return (1);
+	if (struc->conv == 'd' || struc->conv == 'i' || struc->conv == 'u'
+			|| struc->conv == 'o' || struc->conv == 'x' || struc->conv == 'X'
+			&& (struc->prec == 0))
+		struc->prec == 1;
+	else if (struc->conv == 'f' && (struc->prec == 0))
+		struc->prec == 6;
 }

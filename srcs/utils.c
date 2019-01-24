@@ -6,16 +6,16 @@
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 13:28:37 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/24 18:27:43 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int		is_flag(char format)
 {
 	if (format == '#' || format == '-' || format == '+' || format == '0'
-		|| format == ' ' )
+		|| format == ' ')
 		return (1);
 	else
 		return (0);
@@ -36,5 +36,5 @@ int		is_conv(char format)
 		|| format == 'X' || format == 'f' || format == '%')
 		return (1);
 	else
-		return(0);
+		return (0);
 }
