@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/25 15:46:53 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/25 15:57:14 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ void	ft_print_str(char *str, t_flag struc)
 		ft_putchar(' ');
 	if (struc.flag == '\0')
 		ft_putstr(str);
+}
+
+void	ft_print_d(int nb, t_flag struc)
+{
+	char *str;
+
+	str = ft_itoa(nb);
+	ft_print_str(str, struc);
 }
