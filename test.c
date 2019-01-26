@@ -19,9 +19,9 @@ void ft_putstr(char *str)
 
 char		conv(va_list *params)
 {
-	wint_t c;
+	char c;
 	//c = (char)va_arg(*params, int);
-	c = (wchar_t)va_arg(*params, wint_t);
+	c = (char)va_arg(*params, int);
 	return (c);
 }
 
@@ -49,7 +49,7 @@ int ft_print(const char *format, ...)
 		//printf("%c\n", conv(&params));
 		//printf("%s\n", conv_s(&params));
 		//printf("%p\n", conv_p(&params))i;
-		printf("%10.c\n", 'c');
+		//printf("%10.c\n", 'c');
 		va_end(params);
 	}
 	return (0);

@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 18:41:24 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/26 15:26:09 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		ft_printf(const char *format, ...)
 {
 	t_flag	struc;
 	char	*start;
-	int		nb_char;
+	//int		nb_char;
+
 	va_list params;
 	start = (char *)format;
-//	parser(start, &struc);
-	nb_char = my_printf(start, &struc);
+	va_start(params, format);
+	my_printf(start, &struc, &params);
 	va_end(params);
 	return (0);
 }

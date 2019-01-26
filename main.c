@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 18:41:26 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/26 18:34:51 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		main()
 {
-	short d = 25;
-	ft_printf("test %012.35lld, jndw%02.5hd", d);
-	//printf("%d",d);
+	char thisisacharacter = 0b1111010;
+	ft_printf("%#5c\n", thisisacharacter);
+	printf("%#5c\n", thisisacharacter);
 	return (1);
 }

@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 18:36:35 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/26 15:44:44 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
+
+static void	default_setting(t_flag *struc)
+{
+	if ((struc->conv == 'd' || struc->conv == 'i' || struc->conv == 'u'
+			|| struc->conv == 'o' || struc->conv == 'x' || struc->conv == 'X')
+			&& (struc->prec == 0))
+		struc->prec = 1;
+	else if (struc->conv == 'f' && (struc->prec == 0))
+		struc->prec = 6;
+	else if (struc->conv == 'c' && (struc->min == 0))
+		struc->min = 1;
+}
 
 static void	init_struc(t_flag *struc)
 {
@@ -74,6 +86,7 @@ char		*parser(char *str, t_flag *struc)
 		str++;
 		init_struc(struc);
 		str = input_to_struct(str, struc);
+		default_setting(struc);
 	}
 	return (str);
 }
