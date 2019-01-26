@@ -1,27 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   conversions_d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:15:31 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/25 11:19:08 by apsaint-         ###   ########.fr       */
+/*   Created: 2019/01/24 14:11:53 by apsaint-          #+#    #+#             */
+/*   Updated: 2019/01/24 14:14:25 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr(char const *s)
-{
-	int i;
 
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar((char)s[i]);
-		i++;
-	}
-}
