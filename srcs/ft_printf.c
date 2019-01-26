@@ -18,7 +18,6 @@ int		ft_printf(const char *format, ...)
 	char	*start;
 	int		nb_char;
 	va_list params;
-
 	start = (char *)format;
 //	parser(start, &struc);
 	nb_char = my_printf(start, &struc);
