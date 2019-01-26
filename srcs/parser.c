@@ -6,52 +6,74 @@
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 13:31:12 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/24 18:36:35 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-static void	input_to_struct(const char *format, t_flag *struc)
+static void	init_struc(t_flag *struc)
 {
-	while (is_conv(*format) != 1)
-	{
-		if (is_flag(*format) == 1)
-		{
-			struc->flag = *format;
-		}
-		else if (is_taille(*format) == 1)
-		{
-			struc->taille[0] = *format;
-			if (*(format + 1) == *format)
-			{
-				struc->taille[1] = *format;
-				struc->taille[2] = '\0';
-			}
-			else
-				struc->taille[1] = '\0';
-			format++;
-		}
-		format++;
-	}
-	if (is_conv(*format) == 1)
-		struc->conv = *format;
+	struc->flag = '\0';
+	struc->min = 0;
+	struc->prec = 0;
+	struc->taille[0] = '\0';
+	struc->conv = '\0';
 }
 
-int			parser(const char * format, t_flag *struc)
+static char	*input_field_prec(char *str, t_flag *struc)
 {
-	char *start;
+	while (*str >= '0' && *str <= '9')
+	{
+		struc->min = struc->min * 10 + (*str - '0');
+		str++;
+	}
+	if (*str == '.' && *(str + 1) > '0' && *(str + 1) <= '9')
+	{
+		str++;
+		while (*str >= '0' && *str <= '9')
+		{
+			struc->prec = (struc->prec) * 10 + (*str - '0');
+			str++;
+		}
+	}
+	return (str);
+}
 
-	if ((start = ft_strchr(format, '%')) == NULL)
+static char	*input_to_struct(char *str, t_flag *struc)
+{
+	if (is_flag(*str) == 1)
 	{
-		ft_putstr(format);
-		write(1, "\n", 1);
+		struc->flag = *str;
+		str++;
 	}
-	else if (*start == '%')
+	if (*str >= '0' && *str <= '9')
+		str = input_field_prec(str, struc);
+	if (is_taille(*str) == 1)
 	{
-		start++;
-		input_to_struct(start, struc);
+		struc->taille[0] = *str;
+		if (*(str + 1) == *str)
+		{
+			struc->taille[1] = *str;
+			struc->taille[2] = '\0';
+			str++;
+		}
+		else
+			struc->taille[1] = '\0';
+		str++;
 	}
-	printf("%c\n", *start);
-	return (0);
+	if (is_conv(*str) == 1)
+		struc->conv = *str;
+	return (str);
+}
+
+char		*parser(char *str, t_flag *struc)
+{
+	if (*str == '%')
+	{
+		str++;
+		init_struc(struc);
+		str = input_to_struct(str, struc);
+	}
+	return (str);
 }

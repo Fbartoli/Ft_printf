@@ -6,25 +6,21 @@
 /*   By: flbartol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/24 16:34:25 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/24 18:41:24 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int		ft_printf(const char *format, ...)
 {
-	t_flag struc;
-	char *start;
-
-	start = (char*) format;
+	t_flag	struc;
+	char	*start;
+	int		nb_char;
 	va_list params;
-	if (format)
-	{
-		va_start(params, format);
-		parser(format, &struc);
-		va_end(params);
-	}
-	printf("flag %c,taille %s,conv %c\n",struc.flag, struc.taille, struc.conv);
+	start = (char *)format;
+//	parser(start, &struc);
+	nb_char = my_printf(start, &struc);
+	va_end(params);
 	return (0);
 }
