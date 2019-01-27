@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/26 20:55:21 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/27 20:01:58 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int		main()
 {
-	char thisisacharacter = 0b1111010;
-	ft_printf("%5c\n", thisisacharacter);
-	printf("%#5c\n", thisisacharacter);
+	printf("%ld\n", 128);
+	ft_printf("%ld\n", 128);
 	return (1);
 }

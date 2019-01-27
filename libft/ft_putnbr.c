@@ -3,35 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:22:26 by flbartol          #+#    #+#             */
-/*   Updated: 2018/11/19 20:51:59 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/27 16:15:59 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int		ft_putnbr(int n)
 {
+	int i;
+
+	i = 0;
 	if (n > 2147483647 || n < -2147483648)
-		return ;
+		return(0);
 	if (n == -2147483648)
 	{
-		ft_putstr("-2147483648");
-		return ;
+		i = ft_putstr("-2147483648");
+		return (i);
 	}
 	if (n < 0)
 	{
 		n = n * -1;
-		ft_putchar('-');
+		i = ft_putchar('-');
 	}
 	if (n < 10)
 	{
-		ft_putchar(n + '0');
-		return ;
+		i += ft_putchar(n + '0');
+		return (i);
 	}
-	ft_putnbr(n / 10);
-	ft_putchar((n % 10) + '0');
-	return ;
+	i += ft_putnbr(n / 10);
+	i += ft_putchar((n % 10) + '0');
+	return (i);
 }

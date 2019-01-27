@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/26 21:25:21 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/27 17:19:19 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@
 
 typedef struct	s_flag
 {
-				char	flag;
+				int		force_prefix;
+				int		pad_zeroes;
+				int		right_pad;
+				int		force_sign;
+				int		blank_sign;
 				int		min;
 				int		prec;
 				char	taille[3];
 				char	conv;
 }				t_flag;
 
-int		my_printf(char *str, t_flag *struc, va_list *params);
 char	*parser(char *str, t_flag *struc);
 int		is_flag(char format);
 int		is_taille(char format);
@@ -36,4 +39,6 @@ void	*conv_s(va_list *params, t_flag *struc);
 int		ft_print_c(char c, t_flag *struc);
 int		ft_print_str(char *str, t_flag *struc);
 int		ft_print_d(int nb, t_flag *struc);
+int		ft_print_per(char c, t_flag *struc);
+int		conv_d(va_list *params, t_flag *struc);
 #endif
