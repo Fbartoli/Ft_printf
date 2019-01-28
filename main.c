@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/27 20:01:58 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:16:11 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int		main()
 {
-	printf("%ld\n", 128);
-	ft_printf("%ld\n", 128);
+	int c = 128;
+	int *b = &c;
+	ft_printf("my printf: %-15p\n", b);
+	printf("le printf: %-15p\n", b);
+	ft_printf("my printf: %-15X\n", *b);
+	printf("le printf: %-15X\n", *b);
 	return (1);
 }
