@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+         #
+#    By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/01/28 13:33:06 by apsaint-         ###   ########.fr        #
+#    Updated: 2019/01/28 16:07:25 by flbartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ LIB= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 		ft_max.c ft_max_int.c ft_min_int.c ft_min.c ft_nbrlen.c\
 		ft_itoa_base.c ft_nbchar.c ft_pow.c ft_itoa_base_hex.c
 
-SRC = conversions_csp.c ft_printf.c \
+SRC = conversions_csp.c ft_printf.c print_int.c\
 		parser.c print_args.c utils.c conversions_d.c
 
 MAIN = main.c
