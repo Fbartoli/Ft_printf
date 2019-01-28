@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 13:05:52 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/28 15:25:24 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/28 16:13:43 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ char	*ft_itoa_base_hex(uintmax_t num, uintmax_t base, char lettre, char conv)
 	char		*str;
 	char		*hex;
 
-	hex = "0x7fff";
+	hex = "0x";
 	i = 1;
 	while ((uintmax_t)(ft_pow(base, i) - 1) < num)
 		i++;
-	str = (char *)malloc(sizeof(str) * i);
+	if ((str = (char *)malloc(sizeof(str) * i)) == NULL)
+			return (NULL);
 	str[i] = '\0';
 	while (i-- > 0)
 	{
