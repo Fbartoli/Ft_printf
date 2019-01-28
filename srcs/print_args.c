@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/27 17:55:59 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 13:06:40 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int		ft_print_str(char *str, t_flag *struc)
 
 	i = 0;
 	pad = struc->min - ft_strlen(str);
+	if (*str == NULL)
+		write(1, "(null)", 6);
 	if (struc->right_pad == 1)
 		i+= ft_putstr(str);
 	while (pad-- > 0)

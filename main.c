@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/27 20:01:58 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 13:03:26 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		main()
 {
-	printf("%ld\n", 128);
-	ft_printf("%ld\n", 128);
+	printf("%s\n", NULL);
+	ft_printf("%s\n", NULL);
 	return (1);
 }

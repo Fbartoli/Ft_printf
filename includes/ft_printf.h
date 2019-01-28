@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/27 17:19:19 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 12:46:22 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-typedef struct	s_flag
+typedef struct			s_flag
 {
 				int		force_prefix;
 				int		pad_zeroes;
@@ -27,18 +27,18 @@ typedef struct	s_flag
 				int		prec;
 				char	taille[3];
 				char	conv;
-}				t_flag;
+}						t_flag;
 
-char	*parser(char *str, t_flag *struc);
-int		is_flag(char format);
-int		is_taille(char format);
-int		is_conv(char format);
-int		ft_printf(const char *format, ...);
-int		conv_c(va_list *params, t_flag *struc);
-void	*conv_s(va_list *params, t_flag *struc);
-int		ft_print_c(char c, t_flag *struc);
-int		ft_print_str(char *str, t_flag *struc);
-int		ft_print_d(int nb, t_flag *struc);
-int		ft_print_per(char c, t_flag *struc);
-int		conv_d(va_list *params, t_flag *struc);
+char					*parser(char *str, t_flag *struc);
+int						is_flag(char format);
+int						is_taille(char format);
+int						is_conv(char format);
+int						ft_printf(const char *format, ...);
+int						conv_c(va_list *params, t_flag *struc);
+void					*conv_s(va_list *params, t_flag *struc);
+int						ft_print_c(char c, t_flag *struc);
+int						ft_print_str(char *str, t_flag *struc);
+int						ft_print_d(int nb, t_flag *struc);
+int						ft_print_per(char c, t_flag *struc);
+int						conv_d(va_list *params, t_flag *struc);
 #endif
