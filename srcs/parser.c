@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 11:52:01 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:30:01 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	default_setting(t_flag *struc)
 		struc->min = 1;
 }
 
-static char *parse_flags(char *str, t_flag *struc)
+static char	*parse_flags(char *str, t_flag *struc)
 {
 	while (is_flag(*str) == 1)
 	{
@@ -37,7 +37,7 @@ static char *parse_flags(char *str, t_flag *struc)
 		else if (*str == ' ')
 			struc->blank_sign = 1;
 		else if (*str == '0')
-			struc->pad_zeroes =1;
+			struc->pad_zeroes = 1;
 		str++;
 	}
 	return (str);
