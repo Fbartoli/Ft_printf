@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/28 15:02:41 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:26:45 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <wchar.h>
 #include <limits.h>
 
-// Conversion vers un char ou wint_t en fonction de la struc
-int			conv_c(va_list *params, t_flag *struc)
+int		conv_c(va_list *params, t_flag *struc)
 {
 	wint_t	c;
 
@@ -28,8 +27,7 @@ int			conv_c(va_list *params, t_flag *struc)
 	return (c);
 }
 
-// Conversion vers un char * ou wchar_t * en fonction de la struc
-void		*conv_s(va_list *params, t_flag *struc)
+void	*conv_s(va_list *params, t_flag *struc)
 {
 	void	*s;
 
@@ -44,12 +42,12 @@ void	*conv_p(va_list *params, t_flag *struc)
 {
 	uintmax_t	s;
 	char		*hex;
-	
+
 	s = (unsigned long)va_arg(*params, unsigned long int);
 	s = (uintmax_t)s;
 	if (struc->conv == 'p' || struc->conv == 'x')
 		hex = ft_itoa_base_hex(s, 16, 'a', struc->conv);
-		else
+	else
 		hex = ft_itoa_base_hex(s, 16, 'A', struc->conv);
 	return (hex);
 }

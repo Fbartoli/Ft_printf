@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/28 15:08:45 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:30:41 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_print_str(char *str, t_flag *struc)
 	i = 0;
 	pad = struc->min - ft_strlen(str);
 	if (struc->right_pad == 1)
-		i+= ft_putstr(str);
+		i += ft_putstr(str);
 	while (pad-- > 0)
 	{
 		if (struc->pad_zeroes == 1)
