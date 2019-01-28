@@ -6,15 +6,15 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/28 15:24:42 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:37:49 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <wchar.h>
+#include <limits.h>
 
-// Conversion vers un char ou wint_t en fonction de la struc
-int			conv_c(va_list *params, t_flag *struc)
+int		conv_c(va_list *params, t_flag *struc)
 {
 	wint_t	c;
 
@@ -27,8 +27,7 @@ int			conv_c(va_list *params, t_flag *struc)
 	return (c);
 }
 
-// Conversion vers un char * ou wchar_t * en fonction de la struc
-void		*conv_s(va_list *params, t_flag *struc)
+void	*conv_s(va_list *params, t_flag *struc)
 {
 	void	*s;
 
@@ -39,10 +38,16 @@ void		*conv_s(va_list *params, t_flag *struc)
 	return (s);
 }
 
-//static void	*conv_p(va_list *params, t_flag struc)
-//{
-//	uint8_t	*s;
-//
-//	s = (uint8_t *)va_arg(*params, void *);
-//	return (s);
-//}
+void	*conv_p(va_list *params, t_flag *struc)
+{
+	uintmax_t	s;
+	char		*hex;
+
+	s = (unsigned long)va_arg(*params, unsigned long int);
+	s = (uintmax_t)s;
+	if (struc->conv == 'p' || struc->conv == 'x')
+		hex = ft_itoa_base_hex(s, 16, 'a', struc->conv);
+	else
+		hex = ft_itoa_base_hex(s, 16, 'A', struc->conv);
+	return (hex);
+}

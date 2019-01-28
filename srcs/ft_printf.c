@@ -6,19 +6,21 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 12:45:34 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:37:41 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_print(t_flag *struc, va_list *params)
+static int		ft_print(t_flag *struc, va_list *params)
 {
 	int i;
 
 	i = 0;
 	if (struc->conv == 's')
 		i += ft_print_str(conv_s(params, struc), struc);
+	else if (struc->conv == 'p')
+		i += ft_print_str(conv_p(params, struc), struc);
 	else if (struc->conv == 'c')
 		i += ft_print_c(conv_c(params, struc), struc);
 	else if (struc->conv == '%')
@@ -28,7 +30,7 @@ static int	ft_print(t_flag *struc, va_list *params)
 	return (i);
 }
 
-static int	my_printf(char *str, t_flag *struc, va_list *params)
+static int		my_printf(char *str, t_flag *struc, va_list *params)
 {
 	int i;
 
@@ -43,7 +45,6 @@ static int	my_printf(char *str, t_flag *struc, va_list *params)
 		else
 		{
 			str = parser(str, struc);
-			//printf("flag %c, min %d, prec %d,taille %s,conv %c\n", struc->flag, struc->min, struc->prec, struc->taille, struc->conv);
 			i += ft_print(struc, params);
 		}
 		str++;
@@ -51,7 +52,7 @@ static int	my_printf(char *str, t_flag *struc, va_list *params)
 	return (i);
 }
 
-static void	init_struc(t_flag *struc)
+static void		init_struc(t_flag *struc)
 {
 	struc->force_prefix = 0;
 	struc->force_sign = 0;
@@ -64,16 +65,16 @@ static void	init_struc(t_flag *struc)
 	struc->conv = '\0';
 }
 
-int			ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	t_flag	struc;
 	int		nb_char;
 	char	*start;
+	va_list params;
 
 	start = (char *)format;
 	nb_char = 0;
 	init_struc(&struc);
-	va_list params;
 	va_start(params, format);
 	nb_char = my_printf(start, &struc, &params);
 	va_end(params);

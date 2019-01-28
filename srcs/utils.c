@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/26 13:41:44 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 11:57:39 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		is_flag(char format)
 
 int		is_taille(char format)
 {
-	if (format == 'h' || format == 'l' || format == 'L' || format == 'p')
+	if (format == 'h' || format == 'l' || format == 'L')
 		return (1);
 	else
 		return (0);
