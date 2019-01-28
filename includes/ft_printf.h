@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 10:30:06 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:38:12 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-typedef struct	s_flag
+typedef struct			s_flag
 {
 				int		force_prefix;
 				int		pad_zeroes;
@@ -27,7 +27,7 @@ typedef struct	s_flag
 				int		prec;
 				char	taille[3];
 				char	conv;
-}				t_flag;
+}						t_flag;
 
 char	*parser(char *str, t_flag *struc);
 int		is_flag(char format);
