@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/27 17:55:59 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 15:08:45 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		ft_print_str(char *str, t_flag *struc)
 	}
 	if (struc->right_pad == 0)
 		i += ft_putstr(str);
+	free(str);
 	return (i);
 }
 

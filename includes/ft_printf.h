@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/27 17:19:19 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 10:30:06 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ int		ft_print_str(char *str, t_flag *struc);
 int		ft_print_d(int nb, t_flag *struc);
 int		ft_print_per(char c, t_flag *struc);
 int		conv_d(va_list *params, t_flag *struc);
+void	*conv_p(va_list *params, t_flag *struc);
 #endif
