@@ -61,7 +61,7 @@ int		ft_print_str(char *str, t_flag *struc)
 
 	i = 0;
 	pad = struc->min - ft_strlen(str);
-	if (*str == NULL)
+	if (str == NULL)
 	{
 		write(1, "(null)", 6);
 		return (6);
