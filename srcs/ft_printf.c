@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 18:06:48 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/30 13:13:20 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int		ft_print(t_flag *struc, va_list *params)
 		i += ft_print_per('%', struc);
 	else if (struc->conv == 'd' || struc->conv == 'i')
 		i += ft_print_d(conv_d(params, struc), struc);
+	else if (struc->conv == '\0')
+		return (i);
 	return (i);
 }
 

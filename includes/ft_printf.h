@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 17:42:48 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/30 16:04:17 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct			s_flag
 				int		blank_sign;
 				int		min;
 				int		prec;
+				int 	prec_default;
 				char	taille[3];
 				char	conv;
 }						t_flag;
@@ -42,5 +43,5 @@ int		ft_print_d(int nb, t_flag *struc);
 int		ft_print_per(char c, t_flag *struc);
 int		conv_d(va_list *params, t_flag *struc);
 void	*conv_p(va_list *params, t_flag *struc);
-int		padding(t_flag *struc);
+int		padding(t_flag *struc, int test, int pad);
 #endif
