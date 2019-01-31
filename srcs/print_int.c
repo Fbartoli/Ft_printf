@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 19:21:16 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 20:24:36 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,15 @@ static void	int_negjustified(int *nb, t_flag *struc)
 	struc->force_sign = 0;
 	struc->is_neg = 1;
 	*nb *= -1;
-	if (struc->right_pad == 0 && struc->prec_default == 0)
+	if (struc->right_pad == 0 && struc->prec_default == 0
+		&& struc->prec > ft_nbrlen(*nb))
 		struc->prec_0 += 1;
 	struc->right_pad = 1;
 }
 
 static void	init_print_d(t_flag *struc, int *nb)
 {
-	if (struc->prec_default == 0)
+	if (struc->prec_default == 0 && (ft_nbrlen(*nb) < struc->prec))
 		struc->prec_0 = struc->prec - ft_nbrlen(*nb);
 	else
 		struc->prec_0 = 0;
@@ -84,6 +85,7 @@ int			ft_print_d(int nb, t_flag *struc)
 	if (struc->prec_default == 0 && struc->prec == 0 && nb == 0)
 		return (format_0_prec(struc));
 	int_justified(struc, nb);
+	//printf("\npad %d, prec_0%d\n", struc->pad, struc->prec_0);
 	while (((struc->pad) - struc->prec_0) > 0 && struc->prec_0 >= 0)
 		struc->i += padding(struc);
 	if (struc->force_sign == 1 && nb >= 0
