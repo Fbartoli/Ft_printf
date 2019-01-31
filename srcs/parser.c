@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/30 16:09:00 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 17:27:45 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ static void	default_setting(t_flag *struc)
 		struc->prec = 6;
 	else if (struc->conv == 'c' && (struc->min == 0))
 		struc->min = 1;
+	if (struc->pad_zeroes == 1 && struc->right_pad == 1)
+		struc->pad_zeroes = 0;
+	if (struc->blank_sign == 1 && struc->force_sign == 1)
+		struc->blank_sign = 0;
 }
 
 static char	*parse_flags(char *str, t_flag *struc)
@@ -44,12 +48,13 @@ static char	*parse_flags(char *str, t_flag *struc)
 }
 
 static char	*input_field_prec(char *str, t_flag *struc)
-{
+{ 
 	while (*str >= '0' && *str <= '9')
 	{
 		struc->min = struc->min * 10 + (*str - '0');
 		str++;
-	}
+		struc->min_default = 0;
+	}	
 	if (*str == '.' && *(str + 1) >= '0' && *(str + 1) <= '9')
 	{
 		str++;
@@ -62,7 +67,11 @@ static char	*input_field_prec(char *str, t_flag *struc)
 		struc->prec_default = 0;
 		return (str);
 	}
-	struc->prec_default = 1;
+	if (*str == '.' && !(*(str + 1) >= '0' && *(str + 1) <= '9'))
+	{
+		str++;
+		struc->prec_default = 0;
+	}
 	return (str);
 }
 

@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 15:19:39 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/31 15:33:35 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct			s_flag
 				int		min;
 				int		prec;
 				int 	prec_default;
+				int		min_default;
 				char	taille[3];
 				char	conv;
 				int		is_neg;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 11:57:39 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/31 17:24:00 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		is_flag(char format)
 
 int		is_taille(char format)
 {
-	if (format == 'h' || format == 'l' || format == 'L')
+	if (format == 'h' || format == 'l' || format == 'L' || format == 'j'
+		|| format == 'z')
 		return (1);
 	else
 		return (0);
