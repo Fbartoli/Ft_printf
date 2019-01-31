@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 16:51:31 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 17:27:45 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	default_setting(t_flag *struc)
 		struc->min = 1;
 	if (struc->pad_zeroes == 1 && struc->right_pad == 1)
 		struc->pad_zeroes = 0;
+	if (struc->blank_sign == 1 && struc->force_sign == 1)
+		struc->blank_sign = 0;
 }
 
 static char	*parse_flags(char *str, t_flag *struc)

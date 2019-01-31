@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 16:53:07 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 17:24:01 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int			ft_print_d(int nb, t_flag *struc)
 		}
 		i += ft_putnbr(nb);
 	}
-	if (struc->blank_sign == 1 && nb > 0 && struc->force_sign == 0)
+	if (struc->blank_sign == 1 && nb >= 0 && struc->force_sign == 0)
 		i += ft_putchar(' ');
 	//printf("pad %d, test %d\n", pad ,test);
 	while (((pad--) - test) > 0 && test >=0)
