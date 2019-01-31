@@ -6,7 +6,7 @@
 #    By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/01/28 16:07:25 by flbartol         ###   ########.fr        #
+#    Updated: 2019/01/31 12:08:40 by flbartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ clean:
 fclean: clean
 	@echo "======"
 	@rm -rf $(NAME)
+	@rm -rf $(EXEC)
 	@echo "$(WAC)$(NAME):\t\tRemoving $(NAME)$(NOC)"
 
 re: fclean all
