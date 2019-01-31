@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/30 13:13:20 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 12:36:57 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ static void		init_struc(t_flag *struc)
 	struc->prec = 0;
 	struc->taille[0] = '\0';
 	struc->conv = '\0';
+	struc->is_neg = 0;
+	struc->prec_default = 1;
 }
 
 int				ft_printf(const char *format, ...)
