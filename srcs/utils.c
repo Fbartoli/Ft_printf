@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 17:24:00 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 19:22:36 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,17 @@ int		is_conv(char format)
 		return (1);
 	else
 		return (0);
+}
+
+int			padding(t_flag *struc)
+{
+	if (struc->pad >= struc->prec_0 && struc->pad_zeroes == 1 &&
+		struc->prec_default == 0 && struc->right_pad == 0)
+		ft_putchar(' ');
+	else if (struc->pad_zeroes == 1 && struc->right_pad == 0)
+		ft_putchar('0');
+	else
+		ft_putchar(' ');
+	struc->pad -= 1;
+	return (1);
 }

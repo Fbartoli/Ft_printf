@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 16:52:42 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 18:41:52 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,51 +26,48 @@ static void		init_struc(t_flag *struc)
 	struc->is_neg = 0;
 	struc->prec_default = 1;
 	struc->min_default = 1;
+	struc->pad = 0;
+	struc->prec_0 = 0;
 }
 
 static int		ft_print(t_flag *struc, va_list *params)
 {
-	int i;
-
-	i = 0;
 	if (struc->conv == 's')
-		i += ft_print_str(conv_s(params, struc), struc);
+		struc->i += ft_print_str(conv_s(params, struc), struc);
 	else if (struc->conv == 'x' || struc->conv == 'X')
-		i += ft_print_hex(conv_p(params, struc), struc);
+		struc->i += ft_print_hex(conv_p(params, struc), struc);
 	else if (struc->conv == 'p')
-		i += ft_print_str(conv_p(params, struc), struc);
+		struc->i += ft_print_str(conv_p(params, struc), struc);
 	else if (struc->conv == 'c')
-		i += ft_print_c(conv_c(params, struc), struc);
+		struc->i += ft_print_c(conv_c(params, struc), struc);
 	else if (struc->conv == '%')
-		i += ft_print_per('%', struc);
+		struc->i += ft_print_per('%', struc);
 	else if (struc->conv == 'd' || struc->conv == 'i')
-		i += ft_print_d(conv_d(params, struc), struc);
+		struc->i += ft_print_d(conv_d(params, struc), struc);
 	else if (struc->conv == '\0')
-		return (i);
-	return (i);
+		return (struc->i);
+	return (0);
 }
 
 static int		my_printf(char *str, t_flag *struc, va_list *params)
 {
-	int i;
-
-	i = 0;
+	struc->i = 0;
 	while (*str)
 	{
 		if (*str != '%')
 		{
 			write(1, &(*(str)), 1);
-			i++;
+			struc->i += 1;
 		}
 		else
 		{
 			init_struc(struc);
 			str = parser(str, struc);
-			i += ft_print(struc, params);
+			struc->i += ft_print(struc, params);
 		}
 		str++;
 	}
-	return (i);
+	return (struc->i);
 }
 
 int				ft_printf(const char *format, ...)
