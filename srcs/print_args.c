@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   print_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/28 15:40:51 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 13:54:53 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	ft_putnstr(char *str, int len)
+{
+	int i;
+
+	if (!str || len <= 0)
+		return (0);
+	i = 0;
+	while (i < len && *str)
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
+}
+
 
 int		ft_print_per(char c, t_flag *struc)
 {
@@ -39,6 +55,12 @@ int		ft_print_c(char c, t_flag *struc)
 	int i;
 
 	i = 0;
+	pad = struc->min - ft_strlen(str);
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	pad = struc->min - 1;
 	if (struc->right_pad == 1)
 		i += ft_putchar(c);
@@ -60,57 +82,22 @@ int		ft_print_str(char *str, t_flag *struc)
 	int i;
 
 	i = 0;
-	pad = struc->min - ft_strlen(str);
 	if (str == NULL)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
+	if ((int)ft_strlen(str) < struc->prec)
+		pad = struc->min;
+	else
+		pad = struc->min - (ft_strlen(str) - struc->prec);
 	if (struc->right_pad == 1)
-		i += ft_putstr(str);
+		i += ft_putnstr(str, ft_strlen(str) - struc->prec);
 	while (pad-- > 0)
-	{
-		if (struc->pad_zeroes == 1)
-			i += ft_putchar('0');
-		else
-			i += ft_putchar(' ');
-	}
+	i += padding(struc, 0, pad);
 	if (struc->right_pad == 0)
-		i += ft_putstr(str);
-	free(str);
-	return (i);
-}
-
-int		ft_print_d(int nb, t_flag *struc)
-{
-	int i;
-	int pad;
-
-	i = 0;
-	pad = struc->min - ft_nbrlen(nb);
-	if (nb < 0 && struc->pad_zeroes == 1)
-	{
-		i += ft_putchar('-');
-		nb *= -1;
-		struc->force_sign = 0;
-	}
-	if (struc->right_pad == 1)
-		i += ft_putnbr(nb);
-	else if (struc->force_sign == 1 && nb >= 0)
-	{
-		i += ft_putchar('+');
-		pad--;
-	}
-	else if (struc->blank_sign == 1 && nb > 0)
-		i += ft_putchar(' ');
-	while (pad-- > 0)
-	{
-		if (struc->pad_zeroes == 1 && struc->right_pad == 0)
-			i += ft_putchar('0');
-		else
-			i += ft_putchar(' ');
-	}
-	if (struc->right_pad == 0)
-		i += ft_putnbr(nb);
+		i += ft_putnstr(str, ft_strlen(str) - struc->prec);
+	if (struc->conv == 'p')
+		free(str);
 	return (i);
 }

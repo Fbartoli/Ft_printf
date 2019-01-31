@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 15:30:01 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/30 16:09:00 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ static char	*input_field_prec(char *str, t_flag *struc)
 			struc->prec = (struc->prec) * 10 + (*str - '0');
 			str++;
 		}
+		struc->prec_default = 0;
+		return (str);
 	}
+	struc->prec_default = 1;
 	return (str);
 }
 

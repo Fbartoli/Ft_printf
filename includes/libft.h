@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 12:36:23 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/01/31 13:56:07 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-int				ft_putnbr(int n);
+int					ft_putnbr(int n);
 int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putendl(char const *s);

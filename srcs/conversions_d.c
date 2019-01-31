@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions_d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:11:53 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/27 19:00:08 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/28 17:44:06 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 int			conv_d(va_list *params, t_flag *struc)
 {
 	int	d;
+	int l;
 
 	if (struc->taille[0] == 'l')
-		d = (long)va_arg(*params, long);
+	{
+		l = (long)va_arg(*params, long);
+		return (l);
+	}
 	else if (struc->taille[0] == 'h' && struc->taille[1] == 'h')
 		d = (char)va_arg(*params, int);
 	else if (struc->taille[0] == 'h')
