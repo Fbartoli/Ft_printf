@@ -41,6 +41,7 @@ int		conv_c(va_list *params, t_flag *struc);
 void	*conv_s(va_list *params, t_flag *struc);
 int		ft_print_c(char c, t_flag *struc);
 int		ft_print_str(char *str, t_flag *struc);
+int		ft_print_hex(char *str, t_flag *struc);
 int		ft_print_d(int nb, t_flag *struc);
 int		ft_print_per(char c, t_flag *struc);
 int		conv_d(va_list *params, t_flag *struc);

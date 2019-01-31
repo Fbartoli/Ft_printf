@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/31 14:00:31 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 17:17:14 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,15 @@ void	*conv_p(va_list *params, t_flag *struc)
 	char		*hex;
 
 	s = (uint64_t)va_arg(*params, void *);
+	if (s > 4294967295 && (struc->conv == 'x' || struc->conv == 'X'))
+		return ("0");
+	if (s == 0 && struc->conv != 'p')
+		return ("0");
+	if (s == 0 && struc->conv == 'p')
+		return ("0x0");
 	if (struc->conv == 'p' || struc->conv == 'x')
-	{
 		hex = ft_itoa_base_hex(s, 16, 'a', struc->conv);
-		if (struc->conv == 'x' && struc->force_prefix == 1)
-			hex = ft_strjoin("0x", hex);
-	}
 	else
-	{
 		hex = ft_itoa_base_hex(s, 16, 'A', struc->conv);
-		if (struc->force_prefix == 1)
-			hex = ft_strjoin("0X", hex);
-	}
 	return (hex);
 }
