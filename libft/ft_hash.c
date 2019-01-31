@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base_hex.c                                 :+:      :+:    :+:   */
+/*   ft_hash.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/28 13:05:52 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/01/31 12:47:05 by apsaint-         ###   ########.fr       */
+/*   Created: 2019/01/31 12:29:06 by apsaint-          #+#    #+#             */
+/*   Updated: 2019/01/31 12:37:10 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base_hex(uint64_t num, uint64_t base, char lettre, char conv)
+char	*ft_hash(uint64_t num, uint64_t base, char lettre)
 {
-	int		i;
-	char	*str;
-	char	*hex;
-	char	*hash;
+	int			i;
+	char		*hash;
+	uint64_t	val;
 
+	val = num;
 	i = 0;
-	hex = "0x";
-	while ((uint64_t)(ft_pow(base, i) - 1) < num)
-		i++;
-	if ((str = (char *)malloc(sizeof(str) * i)) == NULL)
-		return (NULL);
-	str[i] = '\0';
-	while (i-- > 0)
+	while (val > 0)
 	{
-		str[i] = (num % base) + (num % base > 9 ? lettre - 10 : '0');
+		val = val / base;
+		i++;
+	}
+	if ((hash = (char *)malloc(sizeof(hash) * i)) == NULL)
+		return (NULL);
+	hash[i] = '\0';
+	while (i--)
+	{
+		hash[i] = (num % base) + (num % base > 9 ? lettre - 10 : '0');
 		num = num / base;
 	}
-	hash = ft_hash(num, base, lettre);
-	if (conv == 'p')
-	{
-		str = ft_strjoin(hash, str);
-		str = ft_strjoin(hex, str);
-	}
-	return (str);
+	return (hash);
 }

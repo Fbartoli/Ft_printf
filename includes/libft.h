@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 17:43:53 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 13:56:07 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct		s_list
 ssize_t				ft_index_rev(char c, char *s);
 size_t				ft_index(char c, char *s);
 char				*ft_itoa_base(int num, int base);
-char				*ft_itoa_base_hex(uintmax_t num, uintmax_t base, char lettre, char conv);
+char				*ft_itoa_base_hex(uint64_t num, uint64_t base, char lettre, char conv);
+char				*ft_hash(uint64_t num, uint64_t base, char lettre);
 int					ft_max_int(int a, int b);
 size_t				ft_max(size_t a, size_t b);
 int					ft_min_int(int a, int b);
