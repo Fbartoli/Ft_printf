@@ -56,12 +56,6 @@ int		ft_print_c(char c, t_flag *struc)
 
 	i = 0;
 	pad = struc->min - 1;
-//	if (c == NULL)
-//	{
-//		write(1, "(null)", 6);
-//		return (6);
-//	}
-	pad = struc->min - 1;
 	if (struc->right_pad == 1)
 		i += ft_putchar(c);
 	while (pad-- > 0)
