@@ -6,11 +6,27 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 12:36:57 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 16:52:42 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void		init_struc(t_flag *struc)
+{
+	struc->force_prefix = 0;
+	struc->force_sign = 0;
+	struc->pad_zeroes = 0;
+	struc->right_pad = 0;
+	struc->blank_sign = 0;
+	struc->min = 0;
+	struc->prec = 0;
+	struc->taille[0] = '\0';
+	struc->conv = '\0';
+	struc->is_neg = 0;
+	struc->prec_default = 1;
+	struc->min_default = 1;
+}
 
 static int		ft_print(t_flag *struc, va_list *params)
 {
@@ -46,27 +62,13 @@ static int		my_printf(char *str, t_flag *struc, va_list *params)
 		}
 		else
 		{
+			init_struc(struc);
 			str = parser(str, struc);
 			i += ft_print(struc, params);
 		}
 		str++;
 	}
 	return (i);
-}
-
-static void		init_struc(t_flag *struc)
-{
-	struc->force_prefix = 0;
-	struc->force_sign = 0;
-	struc->pad_zeroes = 0;
-	struc->right_pad = 0;
-	struc->blank_sign = 0;
-	struc->min = 0;
-	struc->prec = 0;
-	struc->taille[0] = '\0';
-	struc->conv = '\0';
-	struc->is_neg = 0;
-	struc->prec_default = 1;
 }
 
 int				ft_printf(const char *format, ...)
