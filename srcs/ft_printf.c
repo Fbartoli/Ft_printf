@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 12:36:57 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/01/31 16:12:56 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ static int		ft_print(t_flag *struc, va_list *params)
 	i = 0;
 	if (struc->conv == 's')
 		i += ft_print_str(conv_s(params, struc), struc);
-	else if (struc->conv == 'p' || struc->conv == 'x' || struc->conv == 'X')
+	else if (struc->conv == 'x' || struc->conv == 'X')
+		i += ft_print_hex(conv_p(params, struc), struc);
+	else if (struc->conv == 'p')
 		i += ft_print_str(conv_p(params, struc), struc);
 	else if (struc->conv == 'c')
 		i += ft_print_c(conv_c(params, struc), struc);
