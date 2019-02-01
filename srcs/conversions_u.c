@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   conversions_u.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 13:55:13 by apsaint-         ###   ########.fr       */
+/*   Created: 2019/02/01 12:36:17 by apsaint-          #+#    #+#             */
+/*   Updated: 2019/02/01 12:39:11 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/ft_printf.h"
+#include "ft_printf.h"
 
-int		main()
+int		conv_u(va_list *params, t_flag *struc)
 {
-	ft_printf("%lu\n",-42);
-	printf("%lu\n",-42);
-	printf("%hd\n", -32768);
-	ft_printf("%hd\n", -32768);
 
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 12:06:35 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/01 13:41:24 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ typedef struct		s_list
 int					ft_putnstr(char *str, int len);
 ssize_t				ft_index_rev(char c, char *s);
 size_t				ft_index(char c, char *s);
+<<<<<<< HEAD
+char				*ft_itoa_u(uintmax_t n);
+char				*ft_itoa_base(int num, int base);
+=======
 char				*ft_itoa_base(unsigned long num, int base);
+>>>>>>> a43a04e2be5026704bc6a8bf231daa9a551a9dee
 char				*ft_itoa_base_hex(uintmax_t num, uintmax_t base, char *taille, char conv);
 char				*ft_hash(uintmax_t num, uintmax_t base, char lettre);
 int					ft_max_int(int a, int b);

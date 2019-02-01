@@ -6,7 +6,11 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2019/02/01 12:42:41 by apsaint-         ###   ########.fr       */
+=======
 /*   Updated: 2019/02/01 13:47:55 by flbartol         ###   ########.fr       */
+>>>>>>> a43a04e2be5026704bc6a8bf231daa9a551a9dee
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +54,7 @@ int				ft_print_d(long nb, t_flag *struc);
 int				ft_print_per(char c, t_flag *struc);
 long			conv_d(va_list *params, t_flag *struc);
 void			*conv_p(va_list *params, t_flag *struc);
+void			*conv_u(va_list *params, t_flag *struc);
 char			*ft_pad_hash(char *str, t_flag *struc);
 int				padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
