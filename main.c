@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 15:27:57 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/01 16:39:43 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		main()
 {
-	ft_printf("%U\n",4294967296);
-	printf("%U\n",4294967296);
+	ft_printf("@moulitest: %5.x %5.0x\n", 0, 0);
+	printf("@moulitest: %5.x %5.0x\n", 0, 0);
 
 	return (1);
 }
