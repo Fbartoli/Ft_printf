@@ -6,7 +6,7 @@
 #    By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/02/01 11:18:44 by flbartol         ###   ########.fr        #
+#    Updated: 2019/02/01 13:57:26 by flbartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ LIB= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 
 SRC = conversions_csp.c ft_printf.c print_int.c\
 		parser.c print_args.c utils.c conversions_d.c\
-		print_o.c
+		print_o.c print_hex.c
 
 MAIN = main.c
 
