@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 19:22:36 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/01 11:03:51 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,14 @@ int			padding(t_flag *struc)
 		ft_putchar(' ');
 	struc->pad -= 1;
 	return (1);
+}
+
+int		with_plus_zero(long nb, t_flag *struc)
+{
+	int count;
+
+	count = 0;
+	count += check_plus_spacel(nb, struc);
+	count += ft_putnbr(nb);
+	return (count);
 }
