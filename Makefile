@@ -3,10 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+         #
+#    By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2019/02/01 13:41:50 by apsaint-         ###   ########.fr        #
+=======
+#    Updated: 2019/02/01 11:18:44 by flbartol         ###   ########.fr        #
+>>>>>>> a43a04e2be5026704bc6a8bf231daa9a551a9dee
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +38,15 @@ LIB= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 		ft_lstiter.c ft_lstmap.c ft_index_rev.c ft_index.c\
 		ft_max.c ft_max_int.c ft_min_int.c ft_min.c ft_nbrlen.c\
 		ft_itoa_base.c ft_nbchar.c ft_pow.c ft_itoa_base_hex.c ft_hash.c\
+<<<<<<< HEAD
 		ft_putnstr.c ft_itoa_u.c
+=======
+		ft_putnstr.c ft_putnbrpf.c
+>>>>>>> a43a04e2be5026704bc6a8bf231daa9a551a9dee
 
-SRC = ft_printf.c print_hex.c print_int.c conversions_csp.c\
-		parser.c print_args.c utils.c conversions_d.c
+SRC = conversions_csp.c ft_printf.c print_int.c\
+		parser.c print_args.c utils.c conversions_d.c\
+		print_o.c
 
 MAIN = main.c
 

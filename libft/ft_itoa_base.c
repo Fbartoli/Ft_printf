@@ -6,13 +6,13 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 18:16:34 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/28 13:03:20 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/01 11:20:33 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(int value, int base)
+char	*ft_itoa_base(unsigned long value, int base)
 {
 	int		i;
 	char	*nbr;
