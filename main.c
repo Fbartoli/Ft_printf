@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 13:55:13 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/01 14:50:40 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		main()
 {
-	ft_printf("%lu\n",-42);
-	printf("%lu\n",-42);
-	printf("%hd\n", -32768);
-	ft_printf("%hd\n", -32768);
+	int a =123;
+	int *i = &a;
+	ft_printf("%p\n",&i);
+	printf("%p\n",&i);
 
 	return (1);
 }
