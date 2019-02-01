@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 11:03:51 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/01 15:40:25 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int		is_taille(char format)
 int		is_conv(char format)
 {
 	if (format == 'c' || format == 's' || format == 'p' || format == 'd'
-		|| format == 'i' || format == 'o' || format == 'u' || format == 'x'
-		|| format == 'X' || format == 'f' || format == '%')
+		|| format == 'i' || format == 'o' || format == 'u'
+		|| format == 'x' || format == 'X' || format == 'f'
+		|| format == '%')
 		return (1);
 	else
 		return (0);
