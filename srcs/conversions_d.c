@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:11:53 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/01 13:44:23 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/01 16:33:21 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 long		conv_d(va_list *params, t_flag *struc)
 {
-	if (!ft_strcmp(struc->taille, "l") || !ft_strcmp(struc->taille, "ll")
-		|| !ft_strcmp(struc->taille, "j"))
+	if (!ft_strcmp(struc->taille, "l") || struc->conv == 'D')
 		return (va_arg(*params, long));
 	else if (!ft_strcmp(struc->taille, "hh"))
 		return ((char)va_arg(*params, int));

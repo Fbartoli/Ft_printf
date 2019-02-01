@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/01 12:10:56 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/01 16:51:23 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_pad_hash(char *str, t_flag *struc)
+static int	prec_null(t_flag *struc)
+{
+	while (struc->min-- > 0)
+		struc->i += ft_putchar(' ');
+	return (0);
+}
+
+char		*ft_pad_hash(char *str, t_flag *struc)
 {
 	if (struc->force_prefix == 1 && struc->conv == 'x'
 			&& struc->pad_zeroes == 1)
@@ -29,10 +36,12 @@ char	*ft_pad_hash(char *str, t_flag *struc)
 	return (str);
 }
 
-int		ft_print_hex(char *str, t_flag *struc)
+int			ft_print_hex(char *str, t_flag *struc)
 {
-	if (ft_strcmp("0", str) == 0)
+	if (ft_strcmp("0", str) == 0 && struc->prec_default == 1)
 		return (ft_putnstr("0", 1));
+	if (*str == '0' && !struc->prec)
+		return (prec_null(struc));
 	str = ft_pad_hash(str, struc);
 	if (struc->pad < 0)
 		struc->i += 2;
@@ -44,7 +53,7 @@ int		ft_print_hex(char *str, t_flag *struc)
 		struc->i += ft_putnstr(str, ft_strlen(str));
 	while (struc->pad > 0)
 		struc->i += padding(struc);
-	if (struc->right_pad == 0)
+	if (struc->right_pad == 0 && ft_strcmp("0", str))
 		struc->i += ft_putnstr(str, ft_strlen(str));
 	return (0);
 }
