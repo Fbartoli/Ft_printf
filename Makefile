@@ -6,7 +6,7 @@
 #    By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/02/01 10:16:53 by apsaint-         ###   ########.fr        #
+#    Updated: 2019/02/01 13:41:50 by apsaint-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ LIB= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 		ft_lstiter.c ft_lstmap.c ft_index_rev.c ft_index.c\
 		ft_max.c ft_max_int.c ft_min_int.c ft_min.c ft_nbrlen.c\
 		ft_itoa_base.c ft_nbchar.c ft_pow.c ft_itoa_base_hex.c ft_hash.c\
-		ft_putnstr.c
+		ft_putnstr.c ft_itoa_u.c
 
 SRC = ft_printf.c print_hex.c print_int.c conversions_csp.c\
 		parser.c print_args.c utils.c conversions_d.c
