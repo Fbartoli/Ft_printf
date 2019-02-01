@@ -50,6 +50,7 @@ int				ft_print_d(long nb, t_flag *struc);
 int				ft_print_per(char c, t_flag *struc);
 long			conv_d(va_list *params, t_flag *struc);
 void			*conv_p(va_list *params, t_flag *struc);
+char			*ft_pad_hash(char *str, t_flag *struc);
 int				padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
 int				check_plus_spacel(long nb, t_flag *struc);
