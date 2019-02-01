@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/01 13:50:59 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/01 15:04:31 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ void		*conv_p(va_list *params, t_flag *struc)
 	uintmax_t	s;
 	char		*hex;
 
-	s = get_type(params, struc);
+	if (struc->conv == 'x' || struc->conv == 'X')
+		s = get_type(params, struc);
+	else
+		s = (uintmax_t)va_arg(*params, void *);
 	if (s == 0 && struc->conv != 'p')
 		return ("0");
 	if (s == 0 && struc->conv == 'p')
