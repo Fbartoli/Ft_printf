@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/01/31 13:56:07 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/01 11:24:35 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ typedef struct		s_list
 
 ssize_t				ft_index_rev(char c, char *s);
 size_t				ft_index(char c, char *s);
-char				*ft_itoa_base(int num, int base);
+char				*ft_itoa_base(unsigned long num, int base);
 char				*ft_itoa_base_hex(uint64_t num, uint64_t base, char lettre, char conv);
 char				*ft_hash(uint64_t num, uint64_t base, char lettre);
 int					ft_max_int(int a, int b);
 size_t				ft_max(size_t a, size_t b);
 int					ft_min_int(int a, int b);
 size_t				ft_min(size_t a, size_t b);
-int					ft_pow(int nb, int pow);
+unsigned long		ft_pow(int nb, int pow);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				ft_putchar_fd(char c, int fd);
@@ -41,6 +41,7 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_putnbr(int n);
+void				ft_putnbrpf(long nb, int prec);
 int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putendl(char const *s);
