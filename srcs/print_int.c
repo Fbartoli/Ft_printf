@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 13:23:23 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/02 11:03:16 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ static int		with_minl(long nb, t_flag *struc)
 
 int		ft_print_d(long nb, t_flag *struc)
 {
-	long	count;
+	int	count;
 
 	count = 0;
 	if (!nb && !struc->prec)
