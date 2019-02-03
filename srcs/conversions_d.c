@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 14:11:53 by *paramssaint-          #+#    #+#             */
-/*   Updated: 2019/02/02 11:15:18 by flbartol         ###   ########.fr       */
+/*   Created: 2019/01/24 14:11:53 by *paramssain       #+#    #+#             */
+/*   Updated: 2019/02/03 20:47:00 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,16 @@ unsigned long	conv_ud(va_list *params, t_flag *struc)
 		return ((unsigned char)va_arg(*params, unsigned int));
 	else
 		return (va_arg(*params, ssize_t));
+}
+
+long double		conv_f(va_list *params, t_flag *struc)
+{
+	if (!*struc->taille || !ft_strcmp(struc->taille, "l"))
+		return (va_arg(*params, double));
+	else if (struc->prec == 0)
+		return (va_arg(*params, long));
+	else if (!ft_strcmp(struc->taille, "L"))
+		return (va_arg(*params, long double));
+	else
+		return(va_arg(*params, double));
 }
