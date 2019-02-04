@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/04 15:47:10 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:54:23 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void		*conv_p(va_list *params, t_flag *struc)
 {
 	uintmax_t	s;
 	char		*hex;
-	int p;
+	int			p;
 
 	p = struc->prec;
 	if (struc->conv == 'x' || struc->conv == 'X')
