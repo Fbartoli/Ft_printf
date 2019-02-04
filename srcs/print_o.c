@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 11:28:56 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 12:41:31 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		end_o(char *str, int count, t_flag *struc)
 {
-	if (struc->prec != -1 && (size_t)struc->prec > ft_strlen(str))
+	if (struc->prec != 0 && (size_t)struc->prec > ft_strlen(str))
 		count += struc->prec - ft_strlen(str);
 	if (struc->force_prefix && str[0] != '0' &&
 		struc->prec < (int)ft_strlen(str))
@@ -29,7 +29,7 @@ void	ft_puto(char *str, t_flag *struc)
 {
 	int i;
 
-	if ((struc->prec != -1) && ((size_t)struc->prec > ft_strlen(str)))
+	if ((struc->prec != 0) && ((size_t)struc->prec > ft_strlen(str)))
 	{
 		i = struc->prec - ft_strlen(str);
 		while (i--)

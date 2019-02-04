@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/03 11:08:51 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 13:18:22 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	default_setting(t_flag *struc)
 {
-
 	if (struc->conv == 'f' && (struc->prec_default == 1))
 		struc->prec = 6;
 	else if (struc->conv == 'c' && (struc->min == 0))
@@ -23,6 +22,23 @@ static void	default_setting(t_flag *struc)
 		struc->pad_zeroes = 0;
 	if (struc->blank_sign == 1 && struc->force_sign == 1)
 		struc->blank_sign = 0;
+	if (struc->conv == 'U')
+	{
+		struc->conv = 'u';
+		struc->taille = L;
+	}
+	if (struc->conv == 'D')
+	{
+		struc->conv = 'd';
+		struc->taille = L;
+	}
+		if (struc->conv == 'O')
+	{
+		struc->conv = 'o';
+		struc->taille = L;
+	}
+		if (struc->conv == 'S')
+		struc->conv = 's';
 }
 
 static char	*parse_flags(char *str, t_flag *struc)
@@ -81,18 +97,7 @@ static char	*input_to_struct(char *str, t_flag *struc)
 	if ((*str >= '0' && *str <= '9') || *str == '.')
 		str = input_field_prec(str, struc);
 	if (is_taille(*str) == 1)
-	{
-		struc->taille[0] = *str;
-		if (*(str + 1) == *str)
-		{
-			struc->taille[1] = *str;
-			struc->taille[2] = '\0';
-			str++;
-		}
-		else
-			struc->taille[1] = '\0';
-		str++;
-	}
+		str = taille_to_int(str, struc);
 	if (is_conv(*str) == 1)
 		struc->conv = *str;
 	return (str);
