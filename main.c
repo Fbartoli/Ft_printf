@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 15:46:14 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:58:10 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		main()
 {
-	printf("Le printf: %.0p, %.p\n", 0, 0);
-	ft_printf("My printf: %.0p, %.p\n", 0, 0);
+	printf("Le printf: %.4x\n", 42);
+	ft_printf("My printf: %.4x\n", 42);
 	return (1);
 }
