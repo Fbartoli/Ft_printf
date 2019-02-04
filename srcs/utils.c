@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/02 10:33:04 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 13:18:18 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int		is_conv(char format)
 	if (format == 'c' || format == 's' || format == 'p' || format == 'd'
 		|| format == 'i' || format == 'o' || format == 'u'
 		|| format == 'x' || format == 'X' || format == 'f'
-		|| format == '%' || format == 'D')
+		|| format == '%' || format == 'D' || format == 'U' || format == 'S'
+		|| format == 'S' || format == 'O')
 		return (1);
 	else
 		return (0);
@@ -62,4 +63,28 @@ int		with_plus_zero(long nb, t_flag *struc)
 	count += check_plus_spacel(nb, struc);
 	count += ft_putnbr(nb);
 	return (count);
+}
+
+char	*taille_to_int(char *str, t_flag *struc)
+{
+	if (*str == 'l' && *(str + 1) == 'l')
+		struc->taille = LL;
+	else if (*str == 'h' && *(str + 1) == 'h')
+		struc->taille = HH;
+	else if (*str == 'l')
+		struc->taille = L;
+	else if (*str == 'h')
+		struc->taille = H;
+	else if (*str == 'j')
+		struc->taille = J;
+	else if (*str == 'z')
+		struc->taille = Z;
+	else if (*str == 'L')
+		struc->taille = LLL;
+	if ((*str == 'l' && *(str + 1) == 'l')
+		|| (*str == 'h' && *(str + 1) == 'h'))
+		str += 2;
+	else
+		str += 1;
+	return (str);
 }

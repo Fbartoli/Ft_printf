@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base_hex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 13:05:52 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/01 15:06:49 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 13:07:13 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_itoa_base_hex(uintmax_t num, uintmax_t base,
-		char *taille, char conv)
+		int taille, char conv)
 {
 	int		i;
 	char	*str;
@@ -36,8 +36,7 @@ char	*ft_itoa_base_hex(uintmax_t num, uintmax_t base,
 		num = num / base;
 	}
 	hash = ft_hash(num, base, lettre);
-	if (conv == 'p' || ft_strcmp(taille, "ll")
-			|| ft_strcmp(taille, "l"))
+	if (conv == 'p' || taille == 2 || taille == 1)
 		str = ft_strjoin(hash, str);
 	return (str);
 }

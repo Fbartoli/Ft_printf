@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions_d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:11:53 by *paramssain       #+#    #+#             */
-/*   Updated: 2019/02/03 20:47:00 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 13:08:27 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 long 	conv_d(va_list *params, t_flag *struc)
 {
-	if (!*struc->taille)
+	if (!struc->taille)
 		return (va_arg(*params, int));
-	if (!ft_strcmp(struc->taille, "l") || !ft_strcmp(struc->taille, "ll")
-	|| !ft_strcmp(struc->taille, "j")||	struc->conv == 'D')
+	if (struc->taille == L || struc->taille == LL
+	|| struc->taille == J || struc->conv == 'D')
 		return (va_arg(*params, long));
-	else if (!ft_strcmp(struc->taille, "hh"))
+	else if (struc->taille == HH)
 		return ((char)va_arg(*params, int));
-	else if (!ft_strcmp(struc->taille, "h"))
+	else if (struc->taille == H)
 		return ((short)va_arg(*params, int));
 	else
 		return (va_arg(*params, size_t));
@@ -29,14 +29,13 @@ long 	conv_d(va_list *params, t_flag *struc)
 
 unsigned long	conv_ud(va_list *params, t_flag *struc)
 {
-	if (!*struc->taille)
+	if (!struc->taille)
 		return (va_arg(*params, unsigned int));
-	else if (!ft_strcmp(struc->taille, "l") || !ft_strcmp(struc->taille, "ll") ||
-				!ft_strcmp(struc->taille, "j"))
+	else if (struc->taille == L || struc->taille == LL || struc->taille == J)
 		return (va_arg(*params, unsigned long));
-	else if (!ft_strcmp(struc->taille, "h"))
+	else if (struc->taille == H)
 		return ((unsigned short)va_arg(*params, unsigned int));
-	else if (!ft_strcmp(struc->taille, "hh"))
+	else if (struc->taille == HH)
 		return ((unsigned char)va_arg(*params, unsigned int));
 	else
 		return (va_arg(*params, ssize_t));
@@ -44,11 +43,11 @@ unsigned long	conv_ud(va_list *params, t_flag *struc)
 
 long double		conv_f(va_list *params, t_flag *struc)
 {
-	if (!*struc->taille || !ft_strcmp(struc->taille, "l"))
+	if (!struc->taille || struc->taille == L)
 		return (va_arg(*params, double));
 	else if (struc->prec == 0)
 		return (va_arg(*params, long));
-	else if (!ft_strcmp(struc->taille, "L"))
+	else if (struc->taille == LLL)
 		return (va_arg(*params, long double));
 	else
 		return(va_arg(*params, double));

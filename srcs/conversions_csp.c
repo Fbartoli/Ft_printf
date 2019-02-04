@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/01 15:36:27 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 12:55:11 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ int			conv_c(va_list *params, t_flag *struc)
 {
 	wint_t	c;
 
-	if (struc->taille[0] == 'l' || struc->conv == 'C')
+	if (struc->taille == L || struc->conv == 'C')
 		c = (wchar_t)va_arg(*params, wint_t);
 	else
-	{
 		c = (char)va_arg(*params, int);
-	}
 	return (c);
 }
 
@@ -31,7 +29,7 @@ void		*conv_s(va_list *params, t_flag *struc)
 {
 	void	*s;
 
-	if (struc->taille[0] == 'l' || struc->conv == 'S')
+	if (struc->taille == L || struc->conv == 'S')
 		s = (wchar_t *)va_arg(*params, wchar_t *);
 	else
 		s = (char *)va_arg(*params, char *);
@@ -42,17 +40,17 @@ uintmax_t	get_type(va_list *params, t_flag *struc)
 {
 	uintmax_t n;
 
-	if (ft_strcmp(struc->taille, "hh") == 0)
+	if (struc->taille == HH)
 		n = (unsigned char)va_arg(*params, unsigned int);
-	else if (ft_strcmp(struc->taille, "h") == 0)
+	else if (struc->taille == H)
 		n = (unsigned short)va_arg(*params, unsigned int);
-	else if (ft_strcmp(struc->taille, "ll") == 0)
+	else if (struc->taille == LL)
 		n = (unsigned long long)va_arg(*params, unsigned long long int);
-	else if (ft_strcmp(struc->taille, "l") == 0)
+	else if (struc->taille == L)
 		n = (unsigned long)va_arg(*params, unsigned long int);
-	else if (ft_strcmp(struc->taille, "j") == 0)
+	else if (struc->taille == J)
 		n = (uintmax_t)va_arg(*params, uintmax_t);
-	else if (ft_strcmp(struc->taille, "z") == 0)
+	else if (struc->taille == Z)
 		n = (size_t)va_arg(*params, size_t);
 	else
 		n = (unsigned int)va_arg(*params, unsigned int);

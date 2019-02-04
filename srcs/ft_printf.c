@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/03 11:05:51 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 12:41:26 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		init_struc(t_flag *struc)
 	struc->blank_sign = 0;
 	struc->min = 0;
 	struc->prec = 0;
-	struc->taille[0] = '\0';
+	struc->taille = 0;
 	struc->conv = '\0';
 	struc->is_neg = 0;
 	struc->prec_default = 1;
@@ -61,10 +61,7 @@ static int		my_printf(char *str, t_flag *struc, va_list *params)
 	while (*str)
 	{
 		if (*str != '%')
-		{
-			write(1, &(*(str)), 1);
-			struc->i += 1;
-		}
+			struc->i += ft_putchar(*str);
 		else
 		{
 			init_struc(struc);

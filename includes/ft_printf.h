@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/03 20:45:41 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 13:07:49 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 # include "libft.h"
 # include <stdarg.h>
 # include <stdio.h>
+# define L 1
+# define LL 2
+# define H 3
+# define HH 4
+# define J 5
+# define Z 6
+# define LLL 7
 
 typedef struct	s_flag
 {
@@ -27,7 +34,7 @@ typedef struct	s_flag
 	int		prec;
 	int		prec_default;
 	int		min_default;
-	char	taille[3];
+	int		taille;
 	char	conv;
 	int		is_neg;
 	int		prec_0;
@@ -58,4 +65,5 @@ char			*ft_pad_hash(char *str, t_flag *struc);
 int				padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
 int				check_plus_spacel(long nb, t_flag *struc);
+char			*taille_to_int(char *str, t_flag *struc);
 #endif
