@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 14:31:55 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:20:31 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_putnbr(long n);
+int					ft_putunbr(unsigned long n);
 int     			ft_putflt(long double f, int prec);
 void				ft_putnbrpf(long nb, int prec);
+void				ft_putunbrpf(unsigned long nb, int prec);
 int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -57,6 +59,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 int					ft_nbrlen(long n);
+int					ft_unbrlen(unsigned long n);
 int					ft_nbchar(const char *s, int c);
 size_t				ft_strlen(const char *s);
 char				*ft_strcpy(char *dst, const char *src);

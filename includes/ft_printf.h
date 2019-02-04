@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 15:20:01 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 14:59:37 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ char			*ft_pad_hash(char *str, t_flag *struc);
 int				padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
 int				check_plus_spacel(long nb, t_flag *struc);
+int				ft_print_ud(unsigned long nb, t_flag *struc);
 char			*taille_to_int(char *str, t_flag *struc);
 #endif

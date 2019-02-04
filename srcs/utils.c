@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 13:18:18 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 16:16:25 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,25 @@ int			padding(t_flag *struc)
 int		with_plus_zero(long nb, t_flag *struc)
 {
 	int count;
+	int tmp;
 
 	count = 0;
+	tmp = struc->min - ft_nbrlen(nb);
 	count += check_plus_spacel(nb, struc);
+	if (struc->pad_zeroes == 1)
+	{
+		while ((struc->min - count - ft_nbrlen(nb)) > 0)
+			count += ft_putchar('0');
+	}
 	count += ft_putnbr(nb);
+	if (struc->right_pad == 1)
+	{
+		while (tmp > 0)
+		{
+			count += ft_putchar(' ');
+			tmp--;
+		}
+	}
 	return (count);
 }
 
