@@ -14,6 +14,7 @@
 
 int		main()
 {
+	printf("@moulitest: %e\n", 1204.5);
 	ft_printf("%0+10.3f!\n", 14.123456789);
 	printf("%0+10.3f!\n", 14.123456789);
 	return (1);
