@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 16:16:25 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 17:43:51 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ int		is_conv(char format)
 		return (0);
 }
 
-int			padding(t_flag *struc)
+int		is_default(t_flag *struc)
 {
-	if (struc->pad >= struc->prec_0 && struc->pad_zeroes == 1 &&
-		struc->prec_default == 0 && struc->right_pad == 0)
-		ft_putchar(' ');
-	else if (struc->pad_zeroes == 1 && struc->right_pad == 0)
-		ft_putchar('0');
-	else
-		ft_putchar(' ');
-	struc->pad -= 1;
-	return (1);
+	if (struc->force_prefix == 0 && struc->force_sign == 0
+		&& struc->pad_zeroes == 0 && struc->right_pad == 0
+		&& struc->blank_sign == 0 && struc->min == 0
+		&& struc->prec == 0 && struc->taille == 0
+		&& struc->conv == '\0' && struc->is_neg == 0
+		&& struc->prec_default == 1 && struc->min_default == 1
+		&& struc->pad == 0 && struc->prec_0 == 0)
+		return (1);
+	return (0);
 }
 
 int		with_plus_zero(long nb, t_flag *struc)
@@ -78,28 +78,4 @@ int		with_plus_zero(long nb, t_flag *struc)
 		}
 	}
 	return (count);
-}
-
-char	*taille_to_int(char *str, t_flag *struc)
-{
-	if (*str == 'l' && *(str + 1) == 'l')
-		struc->taille = LL;
-	else if (*str == 'h' && *(str + 1) == 'h')
-		struc->taille = HH;
-	else if (*str == 'l')
-		struc->taille = L;
-	else if (*str == 'h')
-		struc->taille = H;
-	else if (*str == 'j')
-		struc->taille = J;
-	else if (*str == 'z')
-		struc->taille = Z;
-	else if (*str == 'L')
-		struc->taille = LLL;
-	if ((*str == 'l' && *(str + 1) == 'l')
-		|| (*str == 'h' && *(str + 1) == 'h'))
-		str += 2;
-	else
-		str += 1;
-	return (str);
 }
