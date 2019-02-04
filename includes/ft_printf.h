@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 13:07:49 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:20:01 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void			*conv_u(va_list *params, t_flag *struc);
 int				ft_print_c(char c, t_flag *struc);
 int				ft_print_o(unsigned long nb, t_flag *struc);
 int				ft_print_str(char *str, t_flag *struc);
+int				ft_print_p(char *str, t_flag *struc);
 int				ft_print_hex(char *str, t_flag *struc);
 int				ft_print_d(long nb, t_flag *struc);
 int				ft_print_f(long double nb, t_flag *struc);

@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/01 16:51:23 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:37:50 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_print_hex(char *str, t_flag *struc)
 	if ((int)ft_strlen(str) < struc->prec)
 		struc->pad += struc->min;
 	else
-		struc->pad += (struc->min - (ft_strlen(str)));
+		struc->pad += (struc->min - ft_strlen(str));
 	if (struc->right_pad == 1)
 		struc->i += ft_putnstr(str, ft_strlen(str));
 	while (struc->pad > 0)
