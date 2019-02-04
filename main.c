@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 16:39:43 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 09:53:06 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int		main()
 {
-	ft_printf("@moulitest: %5.x %5.0x\n", 0, 0);
-	printf("@moulitest: %5.x %5.0x\n", 0, 0);
+	printf("@moulitest: %e\n", 1204.5);
 
 	return (1);
 }
