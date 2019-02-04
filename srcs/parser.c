@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/01 16:19:55 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/03 11:08:51 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	default_setting(t_flag *struc)
 {
 
-	if (struc->conv == 'f' && (struc->prec == 0))
+	if (struc->conv == 'f' && (struc->prec_default == 1))
 		struc->prec = 6;
 	else if (struc->conv == 'c' && (struc->min == 0))
 		struc->min = 1;
