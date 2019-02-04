@@ -37,7 +37,7 @@ static int		ft_print(t_flag *struc, va_list *params)
 	else if (struc->conv == 'x' || struc->conv == 'X')
 		struc->i += ft_print_hex(conv_p(params, struc), struc);
 	else if (struc->conv == 'p')
-		struc->i += ft_print_str(conv_p(params, struc), struc);
+		struc->i += ft_print_p(conv_p(params, struc), struc);
 	else if (struc->conv == 'u')
 		struc->i += ft_print_ud(conv_ud(params, struc), struc);
 	else if (struc->conv == 'c')

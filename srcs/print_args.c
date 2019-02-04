@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/04 14:31:45 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:45:18 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,22 @@ int				ft_print_str(char *str, t_flag *struc)
 		struc->i += padding(struc);
 	if (struc->right_pad == 0)
 		struc->i += ft_putnstr(str, p);
+	return (0);
+}
+
+int				ft_print_p(char *str, t_flag *struc)
+{
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	struc->pad = struc->min - ft_strlen(str);
+	if (struc->right_pad == 1)
+		struc->i += ft_putnstr(str, ft_strlen(str));
+	while (struc->pad > 0)
+		struc->i += padding(struc);
+	if (struc->right_pad == 0)
+		struc->i += ft_putnstr(str, ft_strlen(str));
 	return (0);
 }

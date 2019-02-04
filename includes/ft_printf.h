@@ -57,6 +57,7 @@ void			*conv_u(va_list *params, t_flag *struc);
 int				ft_print_c(char c, t_flag *struc);
 int				ft_print_o(unsigned long nb, t_flag *struc);
 int				ft_print_str(char *str, t_flag *struc);
+int				ft_print_p(char *str, t_flag *struc);
 int				ft_print_hex(char *str, t_flag *struc);
 int				ft_print_d(long nb, t_flag *struc);
 int				ft_print_f(long double nb, t_flag *struc);
