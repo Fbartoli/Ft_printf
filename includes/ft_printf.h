@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/02 11:15:46 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/03 20:45:41 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,18 @@ int				is_conv(char format);
 int				ft_printf(const char *format, ...);
 int				conv_c(va_list *params, t_flag *struc);
 void			*conv_s(va_list *params, t_flag *struc);
+long			conv_d(va_list *params, t_flag *struc);
 unsigned long	conv_ud(va_list *params, t_flag *struc);
+long double		conv_f(va_list *params, t_flag *struc);
+void			*conv_p(va_list *params, t_flag *struc);
+void			*conv_u(va_list *params, t_flag *struc);
 int				ft_print_c(char c, t_flag *struc);
 int				ft_print_o(unsigned long nb, t_flag *struc);
 int				ft_print_str(char *str, t_flag *struc);
 int				ft_print_hex(char *str, t_flag *struc);
 int				ft_print_d(long nb, t_flag *struc);
+int				ft_print_f(long double nb, t_flag *struc);
 int				ft_print_per(char c, t_flag *struc);
-long			conv_d(va_list *params, t_flag *struc);
-void			*conv_p(va_list *params, t_flag *struc);
-void			*conv_u(va_list *params, t_flag *struc);
 char			*ft_pad_hash(char *str, t_flag *struc);
 int				padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
