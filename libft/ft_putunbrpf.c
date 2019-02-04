@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putunbrpf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:22:26 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 15:06:47 by flbartol         ###   ########.fr       */
+/*   Created: 2019/02/04 14:51:54 by flbartol          #+#    #+#             */
+/*   Updated: 2019/02/04 15:20:35 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putnbr(long n)
+void	ft_putunbrpf(unsigned long nb, int prec)
 {
-	int i;
+	int count;
 
-	i = 0;
-	if (n == -9223372036854775807 - 1)
+	if (prec > 0)
 	{
-		i += ft_putnbr(-9);
-		i += ft_putnbr(223372036854775808);
+		count = ft_unbrlen(nb);
+		count = prec - count;
+		while (count-- > 0)
+			ft_putchar('0');
 	}
-	else if (n < 0)
-	{
-		i += ft_putchar('-');
-		i += ft_putnbr(-n);
-	}
-	else if (n > 9)
-	{
-		i += ft_putnbr(n / 10);
-		i += ft_putnbr(n % 10);
-	}
-	else
-		i += ft_putchar((char)(n + 48));
-	return (i);
+	if (nb || prec)
+		ft_putunbr(nb);
 }
