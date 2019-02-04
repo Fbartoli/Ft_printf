@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/01 10:23:42 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 14:31:45 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,29 @@ int				ft_print_c(char c, t_flag *struc)
 
 int				ft_print_str(char *str, t_flag *struc)
 {
+	int p;
+
 	if (str == NULL)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
-	if ((int)ft_strlen(str) < struc->prec)
-		struc->pad = struc->min;
+	if ((int)ft_strlen(str) <= struc->prec ||
+			(!struc->prec && struc->prec_default == 1))
+	{
+		struc->pad = struc->min - ft_strlen(str);
+		p = (int)ft_strlen(str);
+	}
 	else
-		struc->pad = struc->min - (ft_strlen(str) - struc->prec);
+	{
+		p = struc->prec;
+		struc->pad = struc->min - struc->prec;
+	}
 	if (struc->right_pad == 1)
-		struc->i += ft_putnstr(str, ft_strlen(str) - struc->prec);
+		struc->i += ft_putnstr(str, p);
 	while (struc->pad > 0)
 		struc->i += padding(struc);
 	if (struc->right_pad == 0)
-		struc->i += ft_putnstr(str, ft_strlen(str) - struc->prec);
+		struc->i += ft_putnstr(str, p);
 	return (0);
 }
