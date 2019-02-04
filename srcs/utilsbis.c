@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:36:52 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 17:43:53 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:35:02 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ char	*taille_to_int(char *str, t_flag *struc)
 
 int			padding(t_flag *struc)
 {
-	if (struc->pad >= struc->prec_0 && struc->pad_zeroes == 1 &&
+	if (struc->pad_zeroes == 1 && struc->right_pad == 0)
+		ft_putchar('0');
+	else if (struc->pad >= struc->prec_0 && struc->pad_zeroes == 1 &&
 		struc->prec_default == 0 && struc->right_pad == 0)
 		ft_putchar(' ');
-	else if (struc->pad_zeroes == 1 && struc->right_pad == 0)
-		ft_putchar('0');
 	else
 		ft_putchar(' ');
 	struc->pad -= 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 15:58:10 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:40:58 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int		main()
 {
-	printf("Le printf: %.4x\n", 42);
-	ft_printf("My printf: %.4x\n", 42);
+	int d1,d2,d3,d4;
+	d1 = printf("{%#.5x}", 1);
+	d2 = ft_printf("{%#.5x}", 1);
+	//d3 = printf("%15.4u", 42);
+	//d4 = ft_printf("%15.4u", 42);
+	printf("\n%d, %d\n", d1 , d2);
 	return (1);
 }
