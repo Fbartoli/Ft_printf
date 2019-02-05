@@ -6,15 +6,14 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 16:14:03 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 17:50:23 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	check_plus_spacel(long nb, t_flag *struc)
+int				check_plus_spacel(long nb, t_flag *struc)
 {
 	int	count;
 
@@ -26,7 +25,8 @@ int	check_plus_spacel(long nb, t_flag *struc)
 	return (count);
 }
 
-static int		check_complet_charl(long nb, int count, char letter, t_flag *struc)
+static int		check_complet_charl(long nb, int count,
+	char letter, t_flag *struc)
 {
 	int	tmp;
 
@@ -96,20 +96,13 @@ static int		with_minl(long nb, t_flag *struc)
 	return (count);
 }
 
-int		ft_print_d(long nb, t_flag *struc)
+int				ft_print_d(long nb, t_flag *struc)
 {
 	int	count;
 
 	count = 0;
 	if (!nb && !struc->prec)
-	{
-		if (struc->prec_default == 1)
-			return (with_plus_zero(nb, struc));
-		count = struc->min > 0 ? struc->min : 0;
-		while (struc->min-- > 0)
-			ft_putchar(' ');
-		return (count);
-	}
+		return (nb_null_prec_null(nb, struc));
 	if (struc->min)
 		count = with_minl(nb, struc);
 	else
@@ -117,7 +110,7 @@ int		ft_print_d(long nb, t_flag *struc)
 		count = check_plus_spacel(nb, struc) + ft_nbrlen(nb);
 		ft_putnbrpf(nb, struc->prec);
 		if (struc->prec >= ft_nbrlen(nb))
-			count++;
+			count += struc->prec - ft_nbrlen(nb);
 	}
 	if (nb && struc->prec > ft_nbrlen(nb))
 	{

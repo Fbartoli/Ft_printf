@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 14:11:53 by *paramssain       #+#    #+#             */
-/*   Updated: 2019/02/04 13:08:27 by flbartol         ###   ########.fr       */
+/*   Created: 2019/02/05 16:49:11 by flbartol          #+#    #+#             */
+/*   Updated: 2019/02/05 16:49:39 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long 	conv_d(va_list *params, t_flag *struc)
+long			conv_d(va_list *params, t_flag *struc)
 {
 	if (!struc->taille)
 		return (va_arg(*params, int));
@@ -50,5 +50,5 @@ long double		conv_f(va_list *params, t_flag *struc)
 	else if (struc->taille == LLL)
 		return (va_arg(*params, long double));
 	else
-		return(va_arg(*params, double));
+		return (va_arg(*params, double));
 }

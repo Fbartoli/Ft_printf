@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 17:45:44 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 17:59:31 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct	s_flag
 	int		i;
 }				t_flag;
 
-char			*parser(char *str, t_flag *struc);
+char			*get_min(char *str, t_flag *struc, va_list *params);
+char			*parser(char *str, t_flag *struc, va_list *params);
 int				is_flag(char format);
 int				is_taille(char format);
 int				is_conv(char format);
@@ -62,6 +63,7 @@ int				ft_print_hex(char *str, t_flag *struc);
 int				ft_print_d(long nb, t_flag *struc);
 int				ft_print_f(long double nb, t_flag *struc);
 int				ft_print_per(char c, t_flag *struc);
+void			ft_puto(char *str, t_flag *struc);
 char			*ft_pad_hash(char *str, t_flag *struc);
 int				padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
@@ -69,4 +71,6 @@ int				check_plus_spacel(long nb, t_flag *struc);
 int				ft_print_ud(unsigned long nb, t_flag *struc);
 char			*taille_to_int(char *str, t_flag *struc);
 int				is_default(t_flag *struc);
+void			convup_to_min(t_flag *struc);
+int				nb_null_prec_null(long nb, t_flag *struc);
 #endif

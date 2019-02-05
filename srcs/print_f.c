@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_f.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 10:35:45 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/03 20:45:02 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:58:23 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	check_plus_spacef(long double nb, t_flag *struc)
 	return (count);
 }
 
-static int	check_complet_charf(long double nb, int count, char letter, t_flag *struc)
+static int	check_complet_charf(long double nb, int count, char letter,
+	t_flag *struc)
 {
 	int	tmp;
 
@@ -84,7 +85,7 @@ static int	with_minf(long double nb, t_flag *struc)
 	return (count);
 }
 
-int		ft_print_f(long double nb, t_flag *struc)
+int			ft_print_f(long double nb, t_flag *struc)
 {
 	int count;
 

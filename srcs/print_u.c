@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 14:44:49 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 16:36:30 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 17:53:05 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int		count_characters(t_flag *struc)
 {
 	int count;
+
 	if (struc->prec >= struc->min)
 		count = struc->prec;
 	else
@@ -22,7 +23,8 @@ static int		count_characters(t_flag *struc)
 	return (count);
 }
 
-static int		check_complet_charul(unsigned long nb, int count, char letter, t_flag *struc)
+static int		check_complet_charul(unsigned long nb, int count,
+	char letter, t_flag *struc)
 {
 	int	tmp;
 
@@ -81,7 +83,7 @@ static int		with_minul(unsigned long nb, t_flag *struc)
 	return (count);
 }
 
-int		ft_print_ud(unsigned long nb, t_flag *struc)
+int				ft_print_ud(unsigned long nb, t_flag *struc)
 {
 	int	count;
 

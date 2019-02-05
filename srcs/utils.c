@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 17:43:51 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 17:51:57 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		is_conv(char format)
 		|| format == 'i' || format == 'o' || format == 'u'
 		|| format == 'x' || format == 'X' || format == 'f'
 		|| format == '%' || format == 'D' || format == 'U' || format == 'S'
-		|| format == 'S' || format == 'O')
+		|| format == 'S' || format == 'O' || format == 'F')
 		return (1);
 	else
 		return (0);
@@ -68,14 +68,16 @@ int		with_plus_zero(long nb, t_flag *struc)
 		while ((struc->min - count - ft_nbrlen(nb)) > 0)
 			count += ft_putchar('0');
 	}
+	else if (struc->right_pad == 0)
+	{
+		while (tmp-- > 0)
+			count += ft_putchar(' ');
+	}
 	count += ft_putnbr(nb);
 	if (struc->right_pad == 1)
 	{
-		while (tmp > 0)
-		{
+		while (tmp-- > 0)
 			count += ft_putchar(' ');
-			tmp--;
-		}
 	}
 	return (count);
 }

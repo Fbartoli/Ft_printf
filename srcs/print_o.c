@@ -6,13 +6,13 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 12:41:31 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 18:04:29 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		end_o(char *str, int count, t_flag *struc)
+static int		end_o(char *str, int count, t_flag *struc)
 {
 	if (struc->prec != 0 && (size_t)struc->prec > ft_strlen(str))
 		count += struc->prec - ft_strlen(str);
@@ -25,20 +25,7 @@ int		end_o(char *str, int count, t_flag *struc)
 	return (count);
 }
 
-void	ft_puto(char *str, t_flag *struc)
-{
-	int i;
-
-	if ((struc->prec != 0) && ((size_t)struc->prec > ft_strlen(str)))
-	{
-		i = struc->prec - ft_strlen(str);
-		while (i--)
-			ft_putchar('0');
-	}
-	ft_putstr(str);
-}
-
-int		check_complet_charo(char *nb, char letter, t_flag *struc)
+static	int		check_complet_charo(char *nb, char letter, t_flag *struc)
 {
 	int	tmp;
 	int count;
@@ -64,14 +51,14 @@ int		check_complet_charo(char *nb, char letter, t_flag *struc)
 	return (count);
 }
 
-void	putzero_ifsharp(char *nb, t_flag *struc)
+static void		putzero_ifsharp(char *nb, t_flag *struc)
 {
 	if (struc->force_prefix && !(ft_strlen(nb) == 1 && nb[0] == '0') &&
 		struc->prec < (int)ft_strlen(nb))
 		ft_putchar('0');
 }
 
-int		with_mino(char *nb, t_flag *struc)
+static int		with_mino(char *nb, t_flag *struc)
 {
 	int count;
 
@@ -96,7 +83,7 @@ int		with_mino(char *nb, t_flag *struc)
 	return (count);
 }
 
-int		ft_print_o(unsigned long nb, t_flag *struc)
+int				ft_print_o(unsigned long nb, t_flag *struc)
 {
 	char	*str;
 	int		count;
