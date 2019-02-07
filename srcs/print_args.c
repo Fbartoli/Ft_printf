@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/04 15:45:18 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:50:46 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,8 @@ int				ft_print_str(char *str, t_flag *struc)
 {
 	int p;
 
-	if (str == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
+	if (str == NULL && struc->prec_default == 1)
+		return (ft_putstr("(null)"));
 	if ((int)ft_strlen(str) <= struc->prec ||
 			(!struc->prec && struc->prec_default == 1))
 	{
@@ -68,11 +65,11 @@ int				ft_print_str(char *str, t_flag *struc)
 		p = struc->prec;
 		struc->pad = struc->min - struc->prec;
 	}
-	if (struc->right_pad == 1)
+	if (struc->right_pad == 1 && str != NULL)
 		struc->i += ft_putnstr(str, p);
 	while (struc->pad > 0)
 		struc->i += padding(struc);
-	if (struc->right_pad == 0)
+	if (struc->right_pad == 0 && str != NULL)
 		struc->i += ft_putnstr(str, p);
 	return (0);
 }
@@ -80,10 +77,7 @@ int				ft_print_str(char *str, t_flag *struc)
 int				ft_print_p(char *str, t_flag *struc)
 {
 	if (str == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
+		return (ft_putstr("(null)"));
 	struc->pad = struc->min - ft_strlen(str);
 	if (struc->right_pad == 1)
 		struc->i += ft_putnstr(str, ft_strlen(str));

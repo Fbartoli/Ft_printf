@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 13:05:52 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/04 13:07:13 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 20:07:36 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_itoa_base_hex(uintmax_t num, uintmax_t base,
 	i = 0;
 	while ((uintmax_t)(ft_pow(base, i) - 1) < num)
 		i++;
-	if ((str = (char *)malloc(sizeof(str) * i)) == NULL)
+	if ((str = (char *)malloc(sizeof(str) * (i + 1))) == NULL)
 		return (NULL);
 	str[i] = '\0';
 	if (conv == 'p' || conv == 'x')

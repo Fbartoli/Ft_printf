@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/04 15:20:31 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:48:43 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int					ft_putnstr(char *str, int len);
 ssize_t				ft_index_rev(char c, char *s);
 size_t				ft_index(char c, char *s);
 char				*ft_itoa_u(uintmax_t n);
-//char				*ft_itoa_base(int num, int base);
 char				*ft_itoa_base(unsigned long num, int base);
-char				*ft_itoa_base_hex(uintmax_t num, uintmax_t base, int taille, char conv);
+char				*ft_itoa_base_hex(uintmax_t num,
+						uintmax_t base, int taille, char conv);
 char				*ft_hash(uintmax_t num, uintmax_t base, char lettre);
 int					ft_max_int(int a, int b);
 size_t				ft_max(size_t a, size_t b);
@@ -45,7 +45,7 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_putnbr(long n);
 int					ft_putunbr(unsigned long n);
-int     			ft_putflt(long double f, int prec);
+int					ft_putflt(long double f, int prec);
 void				ft_putnbrpf(long nb, int prec);
 void				ft_putunbrpf(unsigned long nb, int prec);
 int					ft_putchar(char c);

@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 17:30:23 by flbartol          #+#    #+#             */
-/*   Updated: 2018/11/14 21:56:40 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:39:04 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t i;
 
+	if (s == NULL)
+		return (0);
 	i = 0;
 	while (s[i])
 	{
