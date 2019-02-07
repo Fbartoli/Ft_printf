@@ -3,52 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putflt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 11:15:14 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/05 16:40:28 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/07 09:03:27 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static void	rounding_float(long double f)
+static float	ft_fabs(float f)
 {
-	f *= 10;
-	if (((long long)f % 10) == 0)
-		ft_putchar('0');
-	else if (((long long)f % 10) >= 0 && ((long long)f % 10) < 5)
-		ft_putchar(48 + ((long long)f % 10 - 1));
-	else
-		ft_putchar(48 + ((long long)f % 10));
+	f = (f < 0 ? -f : f);
+	return (f);
 }
 
-int			ft_putflt(long double f, int prec)
+int				ft_putflt(long double nbr, int p)
 {
-	int	ret;
-	int	intpart;
-	int	i;
+	long long	l;
+	float		r;
+	int			count;
 
-	ret = 0;
-	i = 0;
-	intpart = (long long)f;
-	ft_putnbr(intpart);
-	ret = ft_nbrlen(intpart) + prec;
-	if (prec != 0)
-		ret += ft_putchar('.');
-	f = -f;
-	while (i++ < prec)
+	l = (long)nbr;
+	r = 0.5;
+	count = 0;
+	if ((ft_fabs(nbr - l) >= r) && (p == 0))
+		l = ((l > 0) ? l + 1 : l - 1);
+	count = ft_putnbr(l);
+	nbr = ft_fabs(nbr - l);
+	if (nbr > 0 && p != 0)
 	{
-		f *= 10;
-		if (i == prec && (long long)f > 0)
-			rounding_float(f);
-		else if ((long long)f > 0)
+		write(1, ".", 1);
+		count += 1;
+		while (p--)
 		{
-			ft_putchar(48 + ((long long)f % 10));
+			nbr = nbr * 10;
+			l = (long)nbr;
+			l = l % 10;
+			nbr = nbr - l;
+			count += ft_putchar(l + 48);
 		}
-		else
-			ft_putchar('0');
 	}
-	return (ret);
+	return (count);
 }
