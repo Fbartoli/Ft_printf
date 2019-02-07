@@ -30,7 +30,7 @@ static void		init_struc(t_flag *struc)
 	struc->prec_0 = 0;
 }
 
-static int		ft_print(t_flag *struc, va_list *params)
+static int		ft_print(char *str, t_flag *struc, va_list *params)
 {
 	if (struc->conv == 's')
 		struc->i += ft_print_str(conv_s(params, struc), struc);
@@ -50,10 +50,10 @@ static int		ft_print(t_flag *struc, va_list *params)
 		struc->i += ft_print_o(conv_ud(params, struc), struc);
 	else if (struc->conv == 'd' || struc->conv == 'i')
 		struc->i += ft_print_d(conv_d(params, struc), struc);
-	else if (struc->conv == 'f')
+	else if (struc->conv == 'f' || struc->conv == 'F')
 		struc->i += ft_print_f(conv_f(params, struc), struc);
 	else if (struc->conv == '\0')
-		return (struc->i);
+		struc->i += ft_print_c(*str, struc);
 	return (0);
 }
 
@@ -67,8 +67,8 @@ static int		my_printf(char *str, t_flag *struc, va_list *params)
 		else
 		{
 			init_struc(struc);
-			str = parser(str, struc);
-			struc->i += ft_print(struc, params);
+			str = parser(str, struc, params);
+			ft_print(str, struc, params);
 		}
 		str++;
 	}

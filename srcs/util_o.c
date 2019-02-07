@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   util_o.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 22:00:20 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/05 18:52:09 by flbartol         ###   ########.fr       */
+/*   Created: 2019/02/05 17:55:43 by flbartol          #+#    #+#             */
+/*   Updated: 2019/02/05 18:16:30 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void	ft_puto(char *str, t_flag *struc)
 {
-	size_t i;
+	int i;
 
-	i = 0;
-	while (1)
+	if ((struc->prec != 0) && ((size_t)struc->prec > ft_strlen(str)))
 	{
-		dst[i] = src[i];
-		if (dst[i] == '\0')
-		{
-			return (dst);
-		}
-		i++;
+		i = struc->prec - ft_strlen(str);
+		while (i--)
+			ft_putchar('0');
 	}
+	ft_putstr(str);
 }

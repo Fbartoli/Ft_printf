@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/04 16:10:45 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/05 14:51:25 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static int	prec_null(t_flag *struc)
 char		*ft_pad_hash(char *str, t_flag *struc)
 {
 	if (struc->force_prefix == 1 && struc->conv == 'x'
-			&& struc->pad_zeroes == 1)
+			&& (struc->pad_zeroes == 1 || struc->prec > 0))
 		struc->pad -= ft_putnstr("0x", 2);
 	if (struc->force_prefix == 1 && struc->conv == 'X'
 			&& struc->pad_zeroes == 1)
 		struc->pad -= ft_putnstr("0X", 2);
 	if (struc->force_prefix == 1 && struc->conv == 'x'
-			&& struc->pad_zeroes == 0)
+			&& struc->pad_zeroes == 0 && struc->prec == 0)
 		str = ft_strjoin("0x", str);
 	if (struc->force_prefix == 1 && struc->conv == 'X'
 			&& struc->pad_zeroes == 0)
