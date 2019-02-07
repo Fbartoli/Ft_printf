@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 # include "includes/ft_printf.h"
-
+# include <wchar.h>
 int		main()
 {
-	int d1;
-	int d2;
-	printf("1 %d, 2 %d\n", d1, d2);
+	ft_printf("My printf: %.4S\n", L"我是一只猫。");
+	printf("Le printf: %.4S\n", L"我是一只猫。");
+	ft_printf("My printf: %15.4S\n", L"我是一只猫。");
+	printf("Le printf: %15.4S\n", L"我是一只猫。");
+	return (1);
 }

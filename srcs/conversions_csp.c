@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/05 19:08:18 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/07 11:47:53 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		*conv_s(va_list *params, t_flag *struc)
 {
 	void	*s;
 
-	if (struc->taille == L || struc->conv == 'S')
+	if (struc->taille == L)
 		s = (wchar_t *)va_arg(*params, wchar_t *);
 	else
 		s = (char *)va_arg(*params, char *);
