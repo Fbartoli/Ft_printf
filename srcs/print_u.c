@@ -6,13 +6,13 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 14:44:49 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/05 17:53:05 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/07 17:46:11 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		count_characters(t_flag *struc)
+static int			count_characters(t_flag *struc)
 {
 	int count;
 

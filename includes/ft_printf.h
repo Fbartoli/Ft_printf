@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 12:30:58 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/07 17:50:22 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ long double		conv_f(va_list *params, t_flag *struc);
 void			*conv_p(va_list *params, t_flag *struc);
 void			*conv_u(va_list *params, t_flag *struc);
 int				ft_print_c(char c, t_flag *struc);
+int				ft_print_ud(unsigned long nb, t_flag *struc);
 int				ft_print_o(unsigned long nb, t_flag *struc);
 int				ft_print_str(char *str, t_flag *struc);
 int				ft_print_p(char *str, t_flag *struc);
@@ -69,7 +70,6 @@ char			*ft_pad_hash(char *str, t_flag *struc);
 int				padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
 int				check_plus_spacel(long nb, t_flag *struc);
-int				ft_print_ud(unsigned long nb, t_flag *struc);
 char			*taille_to_int(char *str, t_flag *struc);
 int				is_default(t_flag *struc);
 void			convup_to_min(t_flag *struc);

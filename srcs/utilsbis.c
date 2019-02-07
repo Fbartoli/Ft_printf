@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:36:52 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/05 18:03:31 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/07 18:52:41 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ int		nb_null_prec_null(long nb, t_flag *struc)
 	count = struc->min > 0 ? struc->min : 0;
 	while (struc->min-- > 0)
 		ft_putchar(' ');
+	if (struc->blank_sign == 1)
+		count += ft_putchar(' ');
+	if (struc->force_sign == 1)
+		count += ft_putchar('+');
 	return (count);
 }
 
