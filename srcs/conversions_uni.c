@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/07 11:36:46 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/07 12:14:30 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int		get_code_uni(wchar_t u)
 
 char	*get_uni(wchar_t uni)
 {
-	char		*hex;
+	char	*hex;
 
-	hex = ft_strnew(4);
+	hex = ft_strnew(5);
 	if (get_code_uni(uni) == 0)
 		hex[0] = (uni & 0x7F) | 0x00;
 	else if (get_code_uni(uni) == 1)

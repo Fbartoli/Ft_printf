@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 10:03:07 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/07 12:40:16 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		is_conv(char format)
 		|| format == 'i' || format == 'o' || format == 'u'
 		|| format == 'x' || format == 'X' || format == 'f'
 		|| format == '%' || format == 'D' || format == 'U' || format == 'S'
-		|| format == 'O')
+		|| format == 'O' || format == 'C')
 		return (1);
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 11:18:58 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/07 12:42:13 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ static void	default_setting(t_flag *struc)
 	}
 	if (struc->conv == 's' && struc->taille == L)
 		struc->conv = 'S';
+	if (struc->conv == 'C')
+	{
+		struc->conv = 'c';
+		struc->taille = L;
+	}
 }
 
 static char	*parse_flags(char *str, t_flag *struc)
