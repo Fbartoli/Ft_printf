@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 20:01:45 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:19:46 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,18 @@
 
 static	int				ft_print_o_null(t_flag *struc)
 {
-	int count;
-
-	count = 0;
-	if (struc->prec_default ==  0)
-	{
-		count = struc->min > 0 ? struc->min - struc->prec : 0;
-		struc->min -= struc->prec - 1;
-	}
+	if (struc->prec_default == 1 || (struc->prec_default != 1
+		&& struc->prec != 0))
+		struc->pad = struc->min - struc->prec - 1;
 	else
-		count = struc->min > 0 ? struc->min - struc->prec- 1 : 0;
+		struc->pad = struc->min - struc->prec;
 	if (struc->right_pad == 0)
-	
-		while (struc->min-- > 1)
-			padding(struc);
-	}
-	if (struc->prec_default == 1)
-		count += ft_putnbr(0);
+		padding(struc);
+	if ((struc->prec_default == 1 && struc->min == 0) || struc->min != 0)
+		struc->i += ft_putnbr(0);
 	if (struc->right_pad == 1)
-	{
-		while(struc->min-- > 1)
 			padding(struc);
-	}
-	return (count);
+	return (0);
 }
 
 static int		end_o(char *str, int count, t_flag *struc)
@@ -59,7 +48,7 @@ static	int		check_complet_charo(char *nb, char letter, t_flag *struc)
 
 	if (ft_strlen(nb) < (size_t)(struc->min))
 	{
-		if ((struc->prec != -1) && ((size_t)struc->prec > ft_strlen(nb)))
+		if ((struc->prec != 0) && ((size_t)struc->prec > ft_strlen(nb)))
 			tmp = struc->min - struc->prec;
 		else
 			tmp = struc->min - ft_strlen(nb);

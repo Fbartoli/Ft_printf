@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 15:01:31 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:26:41 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int		is_default(t_flag *struc)
 		&& struc->blank_sign == 0 && struc->min == 0
 		&& struc->prec == 0 && struc->taille == 0
 		&& struc->conv == '\0' && struc->is_neg == 0
-		&& struc->prec_default == 1 && struc->min_default == 1
-		&& struc->pad == 0 && struc->prec_0 == 0)
+		&& struc->prec_default == 1 && struc->pad == 0
+		&& struc->prec_0 == 0)
 		return (1);
 	return (0);
 }

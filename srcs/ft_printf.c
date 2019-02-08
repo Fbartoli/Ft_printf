@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 12:41:26 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:25:34 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static void		init_struc(t_flag *struc)
 	struc->conv = '\0';
 	struc->is_neg = 0;
 	struc->prec_default = 1;
-	struc->min_default = 1;
 	struc->pad = 0;
 	struc->prec_0 = 0;
 }

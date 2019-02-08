@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:36:52 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 18:52:41 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:31:40 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,37 @@ char	*taille_to_int(char *str, t_flag *struc)
 
 int		padding(t_flag *struc)
 {
-	if (struc->pad_zeroes == 1 && struc->right_pad == 0)
-		ft_putchar('0');
-	else if (struc->pad >= struc->prec_0 && struc->pad_zeroes == 1 &&
-		struc->prec_default == 0 && struc->right_pad == 0)
-		ft_putchar(' ');
+	if (struc->pad_zeroes == 1 && struc->prec > 0)
+	{
+		while(struc->prec-- > 0)
+			struc->i += ft_putchar(' ');
+	}
+	else if (struc->pad_zeroes == 0 && struc->prec > 0
+		&& struc->conv == 'o')
+	{
+		while(struc->prec-- > 0)
+			struc->i += ft_putchar('0');
+	}
+	if (struc->pad_zeroes == 1)
+	{
+		while(struc->pad-- > 0)
+			struc->i += ft_putchar('0');
+	}
 	else
-		ft_putchar(' ');
-	struc->pad -= 1;
-	return (1);
+	{
+		while(struc->pad-- > 0)
+			struc->i += ft_putchar(' ');
+	}
+	return (0);
 }
 
 char	*get_min(char *str, t_flag *struc, va_list *params)
 {
 	struc->min = struc->min * 10 + (*str - '0');
 	str++;
-	struc->min_default = 0;
 	if (*str == '*')
 	{
 		struc->min = va_arg(*params, int);
-		struc->min_default = 0;
 		str++;
 	}
 	return (str);
