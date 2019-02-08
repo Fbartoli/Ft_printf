@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/05 16:48:43 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 12:05:39 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int					ft_putnstr(char *str, int len);
 ssize_t				ft_index_rev(char c, char *s);
 size_t				ft_index(char c, char *s);
 char				*ft_itoa_u(uintmax_t n);
+char				*ft_itoa_binaire(long value);
 char				*ft_itoa_base(unsigned long num, int base);
 char				*ft_itoa_base_hex(uintmax_t num,
 						uintmax_t base, int taille, char conv);

@@ -110,6 +110,4 @@ void	convup_to_min(t_flag *struc)
 		struc->conv = 'o';
 		struc->taille = L;
 	}
-	else if (struc->conv == 'S')
-		struc->conv = 's';
 }

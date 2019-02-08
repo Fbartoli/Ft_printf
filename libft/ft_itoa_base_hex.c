@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 13:05:52 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/05 20:07:36 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:18:16 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ char	*ft_itoa_base_hex(uintmax_t num, uintmax_t base,
 	hash = ft_hash(num, base, lettre);
 	if (conv == 'p' || taille == 2 || taille == 1)
 		str = ft_strjoin(hash, str);
+	free(hash);
 	return (str);
 }

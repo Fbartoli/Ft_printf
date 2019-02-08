@@ -7,6 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
 /*   Updated: 2019/02/08 13:07:30 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 09:48:17 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,19 +98,7 @@ int				ft_print_str(char *str, t_flag *struc)
 		struc->i += ft_putnstr(str, p);
 	return (0);
 }
-/*
-int				ft_print_uni(char *str, t_flag *struc)
-{
-	struc->pad = struc->min - ft_strlen(str);
-	if (struc->right_pad == 1)
-		struc->i += ft_putnstr(str, ft_strlen(str));
-	while (struc->pad > 0)
-		struc->i += padding(struc);
-	if (struc->right_pad == 0)
-		struc->i += ft_putnstr(str, ft_strlen(str));
-	return (0);
-}
-*/
+
 int				ft_print_p(char *str, t_flag *struc)
 {
 	if (str == NULL)

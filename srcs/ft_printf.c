@@ -43,6 +43,8 @@ static int		ft_print(char *str, t_flag *struc, va_list *params)
 		struc->i += ft_print_ud(conv_ud(params, struc), struc);
 	else if (struc->conv == 'c')
 		struc->i += ft_print_c(conv_c(params, struc), struc);
+	else if (struc->conv == 'b')
+		struc->i += ft_print_str(conv_b(params), struc);
 	else if (struc->conv == '%')
 		struc->i += ft_print_per('%', struc);
 	else if (struc->conv == 'o')

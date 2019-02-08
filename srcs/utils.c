@@ -33,11 +33,10 @@ int		is_taille(char format)
 int		is_conv(char format)
 {
 	if (format == 'c' || format == 's' || format == 'p' || format == 'd'
-		|| format == 'i' || format == 'o' || format == 'u'
+		|| format == 'i' || format == 'o' || format == 'u' || format == 'b'
 		|| format == 'x' || format == 'X' || format == 'f' || format == 'F'
 		|| format == '%' || format == 'D' || format == 'U' || format == 'S'
 		|| format == 'O' || format == 'C')
-
 		return (1);
 	else
 		return (0);
@@ -66,7 +65,7 @@ int		with_plus_zero(long nb, t_flag *struc)
 	count += check_plus_spacel(nb, struc);
 	if (struc->pad_zeroes == 1)
 	{
-		while ((struc->min - count - ft_nbrlen(nb)) > 0)
+	while ((struc->min - count - ft_nbrlen(nb)) > 0)
 			count += ft_putchar('0');
 	}
 	else if (struc->right_pad == 0)
