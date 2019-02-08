@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 11:15:14 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 14:42:04 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/07 16:04:05 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,29 @@ static float	ft_fabs(float f)
 {
 	f = (f < 0 ? -f : f);
 	return (f);
+}
+
+int				print_decimals(long double nbr, int p)
+{
+	int			count;
+	float		r;
+	long long	l;
+
+	count = 0;
+	r = 0.5;
+	write(1, ".", 1);
+	count += 1;
+	while (p--)
+	{
+		nbr = nbr * 10 + 0.000001;
+		l = (long long)nbr;
+		nbr = nbr - l;
+		if (nbr >= r && p == 0)
+			count += ft_putchar(l + 48);
+		else
+			count += ft_putnbr(l);
+	}
+	return (count);
 }
 
 int				ft_putflt(long double nbr, int p)
@@ -33,20 +56,6 @@ int				ft_putflt(long double nbr, int p)
 	count = ft_putnbr(l);
 	nbr = ft_fabs(nbr - l);
 	if (nbr > 0 && p != 0)
-	{
-		write(1, ".", 1);
-		count += 1;
-		while (p--)
-		{
-			nbr = nbr * 10;
-			l = (long long)nbr;
-			nbr = nbr - l;
-			if ((long long)(nbr * 10) >= 5 && p == 0)
-				count += ft_putchar(l + 48 + 1);
-			else
-				count += ft_putchar(l + 48);
-		}
-	}
-	printf("\n%d\n", count);
+		count += print_decimals(nbr, p);
 	return (count);
 }

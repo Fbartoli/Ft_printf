@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 12:42:13 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/08 13:26:04 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ static char	*input_to_struct(char *str, t_flag *struc, va_list *params)
 	if (*str == '*')
 	{
 		struc->min = va_arg(*params, int);
-		struc->min_default = 0;
 		str++;
 	}
 	if ((*str >= '0' && *str <= '9') || *str == '.')
