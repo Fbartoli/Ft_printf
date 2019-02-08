@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/08 09:48:17 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:09:26 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int				ft_print_per(char c, t_flag *struc)
 {
 	struc->pad = struc->min - 1;
-	if (struc->conv == 'C')
-		c = c - 32;
+	//if (struc->conv == 'C')
+	//	c = c - 32;
 	if (struc->right_pad == 1)
 		struc->i += ft_putchar(c);
 	while (struc->pad-- > 0)
@@ -71,6 +71,9 @@ int				ft_print_str(char *str, t_flag *struc)
 		struc->i += padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
 		struc->i += ft_putnstr(str, p);
+	/*if (struc->conv == 'b' || struc->conv == 'x'
+		|| struc->conv == 'X' || struc->conv == 'S')
+		free(str);*/
 	return (0);
 }
 
@@ -85,5 +88,7 @@ int				ft_print_p(char *str, t_flag *struc)
 		struc->i += padding(struc);
 	if (struc->right_pad == 0)
 		struc->i += ft_putnstr(str, ft_strlen(str));
+	if (ft_strcmp("0x0", str) != 0)
+		free(str);
 	return (0);
 }
