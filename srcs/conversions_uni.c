@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/08 09:13:11 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:20 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,45 +52,23 @@ char	*get_uni(wchar_t uni)
 	}
 	return (hex);
 }
-/*
-void	unicode_conversion(wchar_t uni)
-{
-	int		unicode_size;
 
-	unicode_size = get_code_uni(uni);
-	if (unicode_size == 1)
-	
-	if (unicode_size == 2)
-	{
-		put_char_to_buf((e->nbr >> 6 & 31) + 192 & 2047, e);
-		put_char_to_buf((e->nbr & 63) + 128 & 2047, e);
-	}
-	if (unicode_size == 3)
-	{
-		put_char_to_buf((e->nbr >> 12 & 15) + 224 & 65535, e);
-		put_char_to_buf((e->nbr >> 6 & 63) + 128 & 65535, e);
-		put_char_to_buf((e->nbr & 63) + 128 & 65535, e);
-	}
-	if (unicode_size == 4)
-	{
-		put_char_to_buf((e->nbr >> 18 & 7) + 240 & 1114111, e);
-		put_char_to_buf((e->nbr >> 12 & 63) + 128 & 1114111, e);
-		put_char_to_buf((e->nbr >> 6 & 63) + 128 & 1114111, e);
-		put_char_to_buf((e->nbr & 63) + 128 & 1114111, e);
-	}
-}
-*/
 char	*conv_unicode(va_list *params)
 {
 	wchar_t *unicode;
 	char	*s;
+	char	*code;
 
 	unicode = va_arg(*params, wchar_t *);
 	if (unicode == NULL)
 		return ("(null)");
-	if (get_uni(*unicode))
-		s = ft_strdup(get_uni(*unicode));
+	code = get_uni(*unicode);
+	if (code)
+		s = ft_strdup(code);
 	while (*unicode++)
-		s = ft_strcat(s, get_uni(*unicode));
+	{
+		code = get_uni(*unicode);
+		s = ft_strcat(s, code);
+	}
 	return (s);
 }

@@ -63,7 +63,7 @@ char		*ft_pad_hash(char *str, t_flag *struc)
 
 char		*ft_hex_prec(char *str, t_flag *struc)
 {
-	int p;
+	int		p;
 
 	p = struc->prec - ft_strlen(str);
 	while (p-- > 0)
@@ -94,7 +94,7 @@ int			ft_print_hex(char *str, t_flag *struc)
 	if (struc->right_pad == 1)
 		struc->i += ft_putnstr(str, ft_strlen(str));
 	struc->i += padding_hex(struc, len);
-	if (struc->right_pad == 0 && ft_strcmp("0", str))
+	if (struc->right_pad == 0)
 		struc->i += ft_putnstr(str, ft_strlen(str));
 	return (0);
 }
