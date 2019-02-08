@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 08:58:48 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/07 18:42:49 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,11 @@ static int		with_min_zero(long nb, t_flag *struc)
 
 	count = 0;
 	if (struc->prec != 0)
+	{
+		if (struc->force_sign == 1)
+			count++;
 		count = check_complet_charl(nb, count, ' ', struc);
+	}
 	count += check_plus_spacel(nb, struc);
 	if (nb < 0)
 		ft_putchar('-');
@@ -104,7 +108,11 @@ int				ft_print_d(long nb, t_flag *struc)
 	if (!nb && !struc->prec)
 		return (nb_null_prec_null(nb, struc));
 	if (struc->min)
+	{
 		count = with_minl(nb, struc);
+		if (struc->force_sign == 1 && struc->prec_default == 0)
+			count--;
+	}
 	else
 	{
 		count = check_plus_spacel(nb, struc) + ft_nbrlen(nb);
@@ -113,7 +121,7 @@ int				ft_print_d(long nb, t_flag *struc)
 			count += struc->prec - ft_nbrlen(nb);
 	}
 	if (nb && struc->prec > ft_nbrlen(nb))
-	{
+	{	
 		count = (nb < 0) ? struc->prec + 1 : struc->prec;
 		count = (struc->min > struc->prec) ? struc->min : count;
 	}

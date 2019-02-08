@@ -12,6 +12,31 @@
 
 #include "ft_printf.h"
 
+static	int				ft_print_str_null(t_flag *struc)
+{
+	int		p;
+	char 	*tofree;
+
+	tofree = ft_strdup("(null)");
+	if ((int)ft_strlen(tofree) <= struc->prec
+		|| (!struc->prec && struc->prec_default == 1))
+	{
+		struc->pad = struc->min - ft_strlen(tofree);
+		p = (int)ft_strlen(tofree);
+	}
+	else
+	{
+		p = struc->prec;
+		struc->pad = struc->min - struc->prec;
+	}
+	if (struc->right_pad == 1 && tofree != NULL)
+		struc->i += ft_putnstr(tofree, p);
+	padding(struc);
+	if (struc->right_pad == 0 && tofree != NULL)
+		struc->i += ft_putnstr(tofree, p);
+	return (0);
+}
+
 int				ft_print_per(char c, t_flag *struc)
 {
 	struc->pad = struc->min - 1;
@@ -52,8 +77,8 @@ int				ft_print_str(char *str, t_flag *struc)
 {
 	int p;
 
-	if (str == NULL && struc->prec_default == 1)
-		return (ft_putstr("(null)"));
+	if (str == NULL)
+		return (ft_print_str_null(struc));
 	if ((int)ft_strlen(str) <= struc->prec ||
 			(!struc->prec && struc->prec_default == 1))
 	{
@@ -67,8 +92,7 @@ int				ft_print_str(char *str, t_flag *struc)
 	}
 	if (struc->right_pad == 1 && str != NULL)
 		struc->i += ft_putnstr(str, p);
-	while (struc->pad > 0)
-		struc->i += padding(struc);
+	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
 		struc->i += ft_putnstr(str, p);
 	/*if (struc->conv == 'b' || struc->conv == 'x'
@@ -84,8 +108,7 @@ int				ft_print_p(char *str, t_flag *struc)
 	struc->pad = struc->min - ft_strlen(str);
 	if (struc->right_pad == 1)
 		struc->i += ft_putnstr(str, ft_strlen(str));
-	while (struc->pad > 0)
-		struc->i += padding(struc);
+	padding(struc);
 	if (struc->right_pad == 0)
 		struc->i += ft_putnstr(str, ft_strlen(str));
 	if (ft_strcmp("0x0", str) != 0)
