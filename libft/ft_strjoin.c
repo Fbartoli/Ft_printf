@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:15:56 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/05 19:15:27 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 16:49:41 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strcpy(string, s1);
 	ft_strcpy(&string[ft_strlen(s1)], s2);
-	free((void *)s2);
 	return (string);
 }

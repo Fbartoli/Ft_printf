@@ -6,8 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 17:08:27 by apsaint-         ###   ########.fr       */
-/*   Updated: 2019/02/07 19:56:34 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:45:09 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +49,8 @@ int		main()
 	return (0);
 	int d1;
 	int d2;
-	d1 = ft_printf("{%04.2o}\n", 0);
-	d2 = printf("{%04.2o}\n", 0);
+	d1 = ft_printf("{%#7.5X}\n", 0xab);
+	d2 = printf("{%#7.5X}\n", 0xab);
 	printf("%d, %d\n", d1, d2);
 	//ft_printf("My printf: %15.4S\n", L"我是一只猫。");
 	ft_printf("My printf: %-10b\n", -2);

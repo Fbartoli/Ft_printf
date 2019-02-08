@@ -6,16 +6,41 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/08 16:50:34 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:59:35 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int		padding_hex(t_flag *struc, size_t len)
+{
+	if ((size_t)struc->prec <= len && struc->prec_default == 0)
+		struc->pad_zeroes = 0;
+	if (struc->pad_zeroes == 1)
+	{
+		while(struc->pad-- > 0)
+			struc->i += ft_putchar('0');
+	}
+	else
+	{
+		while(struc->pad-- > 0)
+			struc->i += ft_putchar(' ');
+	}
+	return (0);
+}
+
 static int	prec_null(t_flag *struc)
 {
-	while (struc->min-- > 0)
-		struc->i += ft_putchar(' ');
+	if(struc->min)
+	{
+		while (struc->min-- > 0)
+			struc->i += ft_putchar(' ');
+	}
+	else
+	{
+		while (struc->prec-- > 0)
+			struc->i += ft_putchar('0');
+	}
 	return (0);
 }
 
@@ -48,9 +73,14 @@ char		*ft_hex_prec(char *str, t_flag *struc)
 
 int			ft_print_hex(char *str, t_flag *struc)
 {
+	size_t len;
+
+	len = ft_strlen(str);
 	if (ft_strcmp("0", str) == 0 && struc->prec_default == 1)
 		return (ft_putnstr("0", 1));
 	if (*str == '0' && !struc->prec)
+		return (prec_null(struc));
+	if (*str == '0' && struc->prec)
 		return (prec_null(struc));
 	str = ft_pad_hash(str, struc);
 	if (struc->pad < 0)
@@ -63,8 +93,7 @@ int			ft_print_hex(char *str, t_flag *struc)
 		struc->pad += (struc->min - ft_strlen(str));
 	if (struc->right_pad == 1)
 		struc->i += ft_putnstr(str, ft_strlen(str));
-	while (struc->pad > 0)
-		struc->i += padding(struc);
+	struc->i += padding_hex(struc, len);
 	if (struc->right_pad == 0)
 		struc->i += ft_putnstr(str, ft_strlen(str));
 	return (0);
