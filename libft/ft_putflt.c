@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putflt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 11:15:14 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 09:03:27 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/07 14:42:04 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int				ft_putflt(long double nbr, int p)
 	float		r;
 	int			count;
 
-	l = (long)nbr;
+	l = (long long)nbr;
 	r = 0.5;
 	count = 0;
 	if ((ft_fabs(nbr - l) >= r) && (p == 0))
@@ -39,11 +39,14 @@ int				ft_putflt(long double nbr, int p)
 		while (p--)
 		{
 			nbr = nbr * 10;
-			l = (long)nbr;
-			l = l % 10;
+			l = (long long)nbr;
 			nbr = nbr - l;
-			count += ft_putchar(l + 48);
+			if ((long long)(nbr * 10) >= 5 && p == 0)
+				count += ft_putchar(l + 48 + 1);
+			else
+				count += ft_putchar(l + 48);
 		}
 	}
+	printf("\n%d\n", count);
 	return (count);
 }
