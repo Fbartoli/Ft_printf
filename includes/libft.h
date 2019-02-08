@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 12:05:39 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/08 20:26:09 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ size_t				ft_min(size_t a, size_t b);
 unsigned long		ft_pow(int nb, int pow);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
-void				ft_putchar_fd(char c, int fd);
+int					ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
+int					ft_putnbr_fd(long n, int fd);
 int					ft_putnbr(long n);
 int					ft_putunbr(unsigned long n);
 int					ft_putflt(long double f, int prec);
