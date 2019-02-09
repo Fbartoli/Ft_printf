@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 20:26:09 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/09 17:16:56 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_list
 }					t_list;
 
 int					ft_putnstr(char *str, int len);
+int					ft_putnstr_fd(char *str, int len, int fd);
 ssize_t				ft_index_rev(char c, char *s);
 size_t				ft_index(char c, char *s);
 char				*ft_itoa_u(uintmax_t n);
@@ -41,14 +42,15 @@ unsigned long		ft_pow(int nb, int pow);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 int					ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char const *s, int fd);
+int					ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 int					ft_putnbr_fd(long n, int fd);
 int					ft_putnbr(long n);
 int					ft_putunbr(unsigned long n);
+int					ft_putunbr_fd(unsigned long n, int fd);
 int					ft_putflt(long double f, int prec);
-void				ft_putnbrpf(long nb, int prec);
-void				ft_putunbrpf(unsigned long nb, int prec);
+void				ft_putnbrpf(long nb, int prec, int fd);
+void				ft_putunbrpf(unsigned long nb, int prec, int fd);
 int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putendl(char const *s);

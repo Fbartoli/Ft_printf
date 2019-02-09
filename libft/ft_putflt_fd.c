@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 20:13:02 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 20:15:22 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/09 15:37:44 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int				ft_putflt_fd(long double nbr, int p, int fd)
 	count = 0;
 	if ((ft_fabs(nbr - l) >= r) && (p == 0))
 		l = ((l > 0) ? l + 1 : l - 1);
-	count = ft_putnbr(l);
+	count = ft_putnbr_fd(l, fd);
 	nbr = ft_fabs(nbr - l);
 	if (nbr > 0 && p != 0)
 		count += print_decimals(nbr, p, fd);

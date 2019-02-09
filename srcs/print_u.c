@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 14:44:49 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/07 17:46:11 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/09 15:49:55 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int		check_complet_charul(unsigned long nb, int count,
 		else
 			tmp = struc->min - count - ft_unbrlen(nb);
 		while (tmp-- > 0)
-			ft_putchar(letter);
+			ft_putchar_fd(letter, struc->fd);
 		return (struc->min);
 	}
 	else
@@ -55,7 +55,7 @@ static int		with_min_zero(unsigned long nb, t_flag *struc)
 		count = check_complet_charul(nb, count, ' ', struc);
 	if (struc->prec == 0)
 		count = check_complet_charul(nb, count, '0', struc);
-	ft_putunbrpf(nb, struc->prec);
+	ft_putunbrpf(nb, struc->prec, struc->fd);
 	return (count);
 }
 
@@ -66,7 +66,7 @@ static int		with_minul(unsigned long nb, t_flag *struc)
 	count = 0;
 	if (struc->right_pad)
 	{
-		ft_putunbrpf(nb, struc->prec);
+		ft_putunbrpf(nb, struc->prec, struc->fd);
 		count = check_complet_charul(nb, count, ' ', struc);
 	}
 	else if (struc->pad_zeroes)
@@ -78,7 +78,7 @@ static int		with_minul(unsigned long nb, t_flag *struc)
 		count = check_complet_charul(nb, count, ' ', struc);
 		if ((struc->force_sign || struc->right_pad))
 			count--;
-		ft_putunbrpf(nb, struc->prec);
+		ft_putunbrpf(nb, struc->prec, struc->fd);
 	}
 	return (count);
 }
@@ -94,7 +94,7 @@ int				ft_print_ud(unsigned long nb, t_flag *struc)
 			return (with_plus_zero(nb, struc));
 		count = struc->min > 0 ? struc->min : 0;
 		while (struc->min-- > 0)
-			ft_putchar(' ');
+			ft_putchar_fd(' ', struc->fd);
 		return (count);
 	}
 	if (struc->min)
@@ -102,7 +102,7 @@ int				ft_print_ud(unsigned long nb, t_flag *struc)
 	else
 	{
 		count = ft_unbrlen(nb);
-		ft_putunbrpf(nb, struc->prec);
+		ft_putunbrpf(nb, struc->prec, struc->fd);
 		if (struc->prec >= ft_unbrlen(nb))
 			count += struc->prec - ft_unbrlen(nb);
 	}

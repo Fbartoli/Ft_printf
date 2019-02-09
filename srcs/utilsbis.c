@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:36:52 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 19:27:21 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/09 17:54:49 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,13 @@ void	convup_to_min(t_flag *struc)
 	else if (struc->conv == 'O')
 	{
 		struc->conv = 'o';
+		struc->taille = L;
+	}
+	if (struc->conv == 's' && struc->taille == L)
+		struc->conv = 'S';
+	if (struc->conv == 'C')
+	{
+		struc->conv = 'c';
 		struc->taille = L;
 	}
 }

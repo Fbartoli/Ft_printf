@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 11:40:36 by ftrujill          #+#    #+#             */
-/*   Updated: 2018/12/27 11:40:36 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/02/09 18:56:45 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 size_t			ft_max(size_t a, size_t b)
 {
-	return (a < b ? b : a);
+	return (a > b ? a : b);
 }
