@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/09 20:11:41 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/09 20:22:52 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		padding_hex(t_flag *struc, char *str)
 
 static int	prec_null(t_flag *struc)
 {
-	if(struc->min && struc->pad_zeroes == 0)
+	if(struc->min && (struc->pad_zeroes == 0 || (struc->prec_default == 0 && struc->prec == 0)))
 	{
 		while (struc->min-- > 0)
 			struc->i += ft_putchar(' ');
@@ -76,7 +76,7 @@ int			ft_print_hex(char *str, t_flag *struc)
 	if (ft_strcmp("0", str) == 0 && struc->prec_default == 1
 		&& struc->min == 0)
 		return (ft_putnstr("0", 1));
-	if (*str == '0' && !struc->prec)
+	if (*str == '0')
 		return (prec_null(struc));
 	str = ft_pad_hash(str, struc);
 	if (struc->pad < 0)
