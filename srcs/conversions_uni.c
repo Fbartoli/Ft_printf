@@ -14,13 +14,13 @@
 
 int		get_code_uni(wchar_t u)
 {
-	if (u <= 127)
+	if (u <= 0x7F && u >= 0)
 		return (1);
-	else if (u <= 2047)
+	else if (u <= 0x7FF)
 		return (2);
-	else if (u <= 65535)
+	else if (u <= 0xFFFF)
 		return (3);
-	else if (u <= 1114111)
+	else if (u <= 0x10FFFF)
 		return (4);
 	return (0);
 }
