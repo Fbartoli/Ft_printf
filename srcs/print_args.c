@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static	int				ft_print_str_null(t_flag *struc)
+static	void	ft_print_str_null(t_flag *struc)
 {
 	int		p;
 	char 	*tofree;
@@ -29,8 +29,8 @@ static	int				ft_print_str_null(t_flag *struc)
 		p = struc->prec;
 		struc->pad = struc->min - struc->prec;
 	}
-	if (struc->right_pad == 1 && tofree != NULL)
-		struc->i += ft_putnstr(tofree, p);
+	if (struc->right_pad && tofree != NULL)
+		struc->i += ft_putnstr_fd(tofree, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && tofree != NULL)
 		struc->i += ft_putnstr(tofree, p);
@@ -38,43 +38,41 @@ static	int				ft_print_str_null(t_flag *struc)
 	return (0);
 }
 
-int				ft_print_per(char c, t_flag *struc)
+void			ft_print_per(char c, t_flag *struc)
 {
 	struc->pad = struc->min - 1;
 	//if (struc->conv == 'C')
 	//	c = c - 32;
 	if (struc->right_pad == 1)
-		struc->i += ft_putchar(c);
+		struc->i += ft_putchar_fd(c, struc->fd);
 	while (struc->pad-- > 0)
 	{
 		if (struc->pad_zeroes == 1)
-			struc->i += ft_putchar('0');
+			struc->i += ft_putchar_fd('0', struc->fd);
 		else
-			struc->i += ft_putchar(' ');
+			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
 	if (struc->right_pad == 0)
-		struc->i += ft_putchar(c);
-	return (0);
+		struc->i += ft_putchar_fd(c, struc->fd);
 }
 
-int				ft_print_c(char c, t_flag *struc)
+void			ft_print_c(char c, t_flag *struc)
 {
 	struc->pad = struc->min - 1;
 	if (struc->right_pad == 1)
-		struc->i += ft_putchar(c);
+		struc->i += ft_putchar_fd(c, struc->fd);
 	while (struc->pad-- > 0)
 	{
 		if (struc->pad_zeroes == 1)
-			struc->i += ft_putchar('0');
+			struc->i += ft_putchar_fd('0', struc->fd);
 		else
-			struc->i += ft_putchar(' ');
+			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
 	if (struc->right_pad == 0)
-		struc->i += ft_putchar(c);
-	return (0);
+		struc->i += ft_putchar_fd(c, struc->fd);
 }
 
-int				ft_print_str(char *str, t_flag *struc)
+void			ft_print_str(char *str, t_flag *struc)
 {
 	int p;
 
@@ -92,7 +90,7 @@ int				ft_print_str(char *str, t_flag *struc)
 		struc->pad = struc->min - struc->prec;
 	}
 	if (struc->right_pad == 1 && str != NULL)
-		struc->i += ft_putnstr(str, p);
+		struc->i += ft_putnstr_fd(str, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
 		struc->i += ft_putnstr(str, p);
@@ -101,17 +99,19 @@ int				ft_print_str(char *str, t_flag *struc)
 	return (0);
 }
 
-int				ft_print_p(char *str, t_flag *struc)
+void			ft_print_p(char *str, t_flag *struc)
 {
 	if (str == NULL)
-		return (ft_putstr("(null)"));
+	{
+		ft_putstr_fd("(null)", struc->fd);
+		return ;
+	}
 	struc->pad = struc->min - ft_strlen(str);
 	if (struc->right_pad == 1)
-		struc->i += ft_putnstr(str, ft_strlen(str));
+		struc->i += ft_putnstr_fd(str, ft_strlen(str), struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0)
-		struc->i += ft_putnstr(str, ft_strlen(str));
+		struc->i += ft_putnstr_fd(str, ft_strlen(str), struc->fd);
 	if (ft_strcmp("0x0", str) != 0)
 		free(str);
-	return (0);
 }

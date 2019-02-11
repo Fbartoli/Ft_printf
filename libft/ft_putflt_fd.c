@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putflt.c                                        :+:      :+:    :+:   */
+/*   ft_putflt_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 11:15:14 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 20:12:25 by flbartol         ###   ########.fr       */
+/*   Created: 2019/02/08 20:13:02 by flbartol          #+#    #+#             */
+/*   Updated: 2019/02/09 15:37:44 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static float	ft_fabs(float f)
 	return (f);
 }
 
-int				print_decimals(long double nbr, int p)
+int				print_decimals(long double nbr, int p, int fd)
 {
 	int			count;
 	float		r;
@@ -34,14 +34,14 @@ int				print_decimals(long double nbr, int p)
 		l = (long long)nbr;
 		nbr = nbr - l;
 		if (nbr >= r && p == 0)
-			count += ft_putchar(l + 48);
+			count += ft_putchar_fd(l + 48, fd);
 		else
-			count += ft_putnbr(l);
+			count += ft_putnbr_fd(l, fd);
 	}
 	return (count);
 }
 
-int				ft_putflt(long double nbr, int p)
+int				ft_putflt_fd(long double nbr, int p, int fd)
 {
 	long long	l;
 	float		r;
@@ -52,9 +52,9 @@ int				ft_putflt(long double nbr, int p)
 	count = 0;
 	if ((ft_fabs(nbr - l) >= r) && (p == 0))
 		l = ((l > 0) ? l + 1 : l - 1);
-	count = ft_putnbr(l);
+	count = ft_putnbr_fd(l, fd);
 	nbr = ft_fabs(nbr - l);
 	if (nbr > 0 && p != 0)
-		count += print_decimals(nbr, p);
+		count += print_decimals(nbr, p, fd);
 	return (count);
 }
