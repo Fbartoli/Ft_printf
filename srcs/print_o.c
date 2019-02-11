@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 19:32:18 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:40:42 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static	int				ft_print_o_null(t_flag *struc)
 		padding(struc);
 	if ((struc->prec_default == 1) || (struc->min != 0 && struc->prec != 0)
 		|| struc->force_prefix == 1)
-		struc->i += ft_putnbr(0);
+		struc->i += ft_putnbr_fd(0, struc->fd);
 	if (struc->right_pad == 1)
 			padding(struc);
 	return (0);
@@ -62,7 +62,7 @@ static	int		check_complet_charo(char *nb, char letter, t_flag *struc)
 		if (struc->force_prefix)
 			tmp--;
 		while (tmp-- > 0)
-			ft_putchar(letter);
+			ft_putchar_fd(letter, struc->fd);
 		if (struc->prec < struc->min)
 			count = struc->min;
 		else
@@ -77,7 +77,7 @@ static void		putzero_ifsharp(char *nb, t_flag *struc)
 {
 	if (struc->force_prefix && !(ft_strlen(nb) == 1 && nb[0] == '0') &&
 		struc->prec <= (int)ft_strlen(nb))
-		ft_putchar('0');
+		ft_putchar_fd('0', struc->fd);
 }
 
 static int		with_mino(char *nb, t_flag *struc)

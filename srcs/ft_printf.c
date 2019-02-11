@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/09 17:47:59 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:32:15 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int		my_printf(char *str, t_flag *struc, va_list *params)
 	while (*str)
 	{
 		if (*str != '%')
-			struc->i += ft_putchar(*str);
+			struc->i += ft_putchar_fd(*str, struc->fd);
 		else
 		{
 			if (*(str + 1) == '\0')

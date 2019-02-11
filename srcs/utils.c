@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 13:26:41 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:44:25 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,18 @@ int		with_plus_zero(long nb, t_flag *struc)
 	if (struc->pad_zeroes == 1)
 	{
 	while ((struc->min - count - ft_nbrlen(nb)) > 0)
-			count += ft_putchar('0');
+			count += ft_putchar_fd('0', struc->fd);
 	}
 	else if (struc->right_pad == 0)
 	{
 		while (tmp-- > 0)
-			count += ft_putchar(' ');
+			count += ft_putchar_fd(' ', struc->fd);
 	}
 	count += ft_putnbr(nb);
 	if (struc->right_pad == 1)
 	{
 		while (tmp-- > 0)
-			count += ft_putchar(' ');
+			count += ft_putchar_fd(' ', struc->fd);
 	}
 	return (count);
 }
