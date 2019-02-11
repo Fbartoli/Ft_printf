@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:09:23 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 13:26:04 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:56:01 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,6 @@ static void	default_setting(t_flag *struc)
 		struc->pad_zeroes = 0;
 	if (struc->blank_sign == 1 && struc->force_sign == 1)
 		struc->blank_sign = 0;
-	if (struc->conv == 'U')
-	{
-		struc->conv = 'u';
-		struc->taille = L;
-	}
-	if (struc->conv == 'D')
-	{
-		struc->conv = 'd';
-		struc->taille = L;
-	}
-		if (struc->conv == 'O')
-	{
-		struc->conv = 'o';
-		struc->taille = L;
-	}
-	if (struc->conv == 's' && struc->taille == L)
-		struc->conv = 'S';
-	if (struc->conv == 'C')
-	{
-		struc->conv = 'c';
-		struc->taille = L;
-	}
 }
 
 static char	*parse_flags(char *str, t_flag *struc)
@@ -115,21 +93,20 @@ static char	*input_to_struct(char *str, t_flag *struc, va_list *params)
 
 char		*parser(char *str, t_flag *struc, va_list *params)
 {
-	if (*str == '%')
+	str++;
+	if (*str == '\0')
+		return (str);
+	str = input_to_struct(str, struc, params);
+	default_setting(struc);
+	if (struc->min < 0)
 	{
-		str++;
-		str = input_to_struct(str, struc, params);
-		default_setting(struc);
-		if (struc->min < 0)
-		{
-			struc->min = -struc->min;
-			struc->right_pad = 1;
-		}
-		if (struc->prec < 0)
-		{
-			struc->prec = 0;
-			struc->prec_default = 1;
-		}
+		struc->min = -struc->min;
+		struc->right_pad = 1;
+	}
+	if (struc->prec < 0)
+	{
+		struc->prec = 0;
+		struc->prec_default = 1;
 	}
 	return (str);
 }

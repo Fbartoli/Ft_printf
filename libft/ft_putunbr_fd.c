@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_binaire.c                                  :+:      :+:    :+:   */
+/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/08 11:44:54 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/08 20:00:37 by flbartol         ###   ########.fr       */
+/*   Created: 2019/02/09 15:42:00 by flbartol          #+#    #+#             */
+/*   Updated: 2019/02/09 17:11:14 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_binaire(long value)
+int		ft_putunbr_fd(unsigned long n, int fd)
 {
-	int		i;
-	int		neg;
-	char	*bin;
+	int i;
 
-	i = 1;
-	if (value < 0)
+	i = 0;
+	if (n > 9)
 	{
-		neg = 1;
-		value = -value;
+		i += ft_putnbr_fd((n / 10), fd);
+		i += ft_putnbr_fd((n % 10), fd);
 	}
 	else
-		neg = 0;
-	while (ft_pow(2, i) - 1 < (unsigned long)value)
-		i++;
-	bin = (char *)malloc(sizeof(bin) * (i + 1));
-	bin[i++] = '\0';
-	bin[0] = neg + '0';
-	while (--i > 0)
-	{
-		bin[i] = (value % 2) + (value % 2 > 9 ? 'A' - 10 : '0');
-		value = value >> 1;
-	}
-	return (bin);
+		i += ft_putchar_fd((char)(n + 48), fd);
+	return (i);
 }

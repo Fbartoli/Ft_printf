@@ -6,32 +6,33 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:46:00 by flbartol          #+#    #+#             */
-/*   Updated: 2018/11/19 20:25:13 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/09 15:37:34 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int		ft_putnbr_fd(long n, int fd)
 {
-	if (n > 2147483647 || n < -2147483648)
-		return ;
-	if (n == -2147483648)
+	int i;
+
+	i = 0;
+	if (n == -9223372036854775807 - 1)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		i += ft_putnbr_fd(-9, fd);
+		i += ft_putnbr_fd(223372036854775808, fd);
 	}
-	if (n < 0)
+	else if (n < 0)
 	{
-		n = n * -1;
-		ft_putchar_fd('-', fd);
+		i += ft_putchar_fd('-', fd);
+		i += ft_putnbr_fd(-n, fd);
 	}
-	if (n < 10)
+	else if (n > 9)
 	{
-		ft_putchar_fd(n + '0', fd);
-		return ;
+		i += ft_putnbr_fd(n / 10, fd);
+		i += ft_putnbr_fd(n % 10, fd);
 	}
-	ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
-	return ;
+	else
+		i += ft_putchar_fd((char)(n + 48), fd);
+	return (i);
 }

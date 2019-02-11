@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:36:52 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 17:19:33 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/09 17:54:49 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		padding(t_flag *struc)
 
 char	*get_min(char *str, t_flag *struc, va_list *params)
 {
-	struc->min = struc->min * 10 + (*str - '0');
+	struc->min = (struc->min << 3 ) + (struc->min << 1) + (*str - '0');
 	str++;
 	if (*str == '*')
 	{
@@ -109,6 +109,13 @@ void	convup_to_min(t_flag *struc)
 	else if (struc->conv == 'O')
 	{
 		struc->conv = 'o';
+		struc->taille = L;
+	}
+	if (struc->conv == 's' && struc->taille == L)
+		struc->conv = 'S';
+	if (struc->conv == 'C')
+	{
+		struc->conv = 'c';
 		struc->taille = L;
 	}
 }

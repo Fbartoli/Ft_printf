@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:34:51 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/08 17:45:09 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/08 19:28:56 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # include <wchar.h>
 int		main()
 {
+	int i = 10 ;
 	//ft_printf("%p\n", 0);
-
-	ft_printf("\n");
-	ft_printf("%%\n");
-	ft_printf("%d\n", 42);
+	printf("min %d, min << %d", i / 2, (i >> 1));
+	ft_printf("%lhl\n", 9223372036854775807);
+	//printf("%\n");
+	/*ft_printf("%d\n", 42);
 	ft_printf("%d%d\n", 42, 41);
 	ft_printf("%d%d%d\n", 42, 43, 44);
 	ft_printf("%ld\n", 2147483647);
@@ -56,6 +57,6 @@ int		main()
 	ft_printf("My printf: %-10b\n", -2);
 	ft_printf("My printf: %-10b\n", 300);
 	ft_printf("%s\n", ft_itoa_base(300, 2));
-	//ft_printf("Le printf: {%05.S}", L"42 c est cool");
+	//ft_printf("Le printf: {%05.S}", L"42 c est cool");*/
 	return (1);
 }
