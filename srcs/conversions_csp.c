@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions_csp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 15:17:55 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:15:45 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void		*conv_p(va_list *params, t_flag *struc)
 			while (p-- > 0)
 				hex = ft_strjoinfree("0", hex);
 		}
-		if (s == 0 && (!struc->prec && struc->prec_default == 1))
+		if (s == 0 && struc->prec_default == 1)
 		{
 			free(hex);
 			return ("0x0");
