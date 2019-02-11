@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/09 17:17:56 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:04:09 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ static	void	ft_print_str_null(t_flag *struc)
 	if (struc->right_pad && tofree != NULL)
 		struc->i += ft_putnstr_fd(tofree, p, struc->fd);
 	padding(struc);
-	if (!struc->right_pad && tofree != NULL)
-		struc->i += ft_putnstr_fd(tofree, p, struc->fd);
+	if (struc->right_pad == 0 && tofree != NULL)
+		struc->i += ft_putnstr(tofree, p);
+	free(tofree);
+	return (0);
 }
 
 void			ft_print_per(char c, t_flag *struc)
@@ -74,13 +76,10 @@ void			ft_print_str(char *str, t_flag *struc)
 {
 	int p;
 
-	if (str == NULL)
-	{
-		ft_print_str_null(struc);
-		return ;
-	}
-	if ((int)ft_strlen(str) <= struc->prec
-		|| (!struc->prec && struc->prec_default == 1))
+	if (str == NULL || ft_strcmp(str, "(null)") == 0)
+		return (ft_print_str_null(struc));
+	if ((int)ft_strlen(str) <= struc->prec ||
+			(!struc->prec && struc->prec_default == 1))
 	{
 		struc->pad = struc->min - ft_strlen(str);
 		p = (int)ft_strlen(str);
@@ -94,10 +93,10 @@ void			ft_print_str(char *str, t_flag *struc)
 		struc->i += ft_putnstr_fd(str, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
-		struc->i += ft_putnstr_fd(str, p, struc->fd);
-	/*if (struc->conv == 'b' || struc->conv == 'x'
-		|| struc->conv == 'X' || struc->conv == 'S')
-		free(str);*/
+		struc->i += ft_putnstr(str, p);
+	if (struc->conv == 'S' && ft_strcmp(str, "\0") != 0)
+		free(str);
+	return (0);
 }
 
 void			ft_print_p(char *str, t_flag *struc)

@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 09:58:40 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:02:10 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_uni(wchar_t uni)
 {
 	char	*hex;
 
-	hex = ft_strnew(5);
+	hex = ft_strnew(get_code_uni(uni) + 1);
 	if (get_code_uni(uni) == 1)
 		hex[0] = (uni & 0x7F) | 0x00;
 	if (get_code_uni(uni) == 2)
@@ -62,13 +62,19 @@ char	*conv_unicode(va_list *params)
 	unicode = va_arg(*params, wchar_t *);
 	if (unicode == NULL)
 		return ("(null)");
-	code = get_uni(*unicode);
+	if (ft_strlen((char *)unicode) == 0)
+		return ("\0");
+	code = get_uni(*unicode++);
 	if (code)
-		s = ft_strdup(code);
-	while (*unicode++)
 	{
-		code = get_uni(*unicode);
-		s = ft_strcat(s, code);
+		s = ft_strdup(code);
+		free(code);
+		while (*unicode)
+		{
+			code = get_uni(*unicode++);
+			s = ft_strjoinfree(s, code);
+		}
+		return (s);
 	}
-	return (s);
+	return (0);
 }

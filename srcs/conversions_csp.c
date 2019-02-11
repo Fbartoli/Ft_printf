@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/08 14:58:35 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:17:55 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,14 @@ void		*conv_p(va_list *params, t_flag *struc)
 		{
 			p -= (int)ft_strlen(hex);
 			while (p-- > 0)
-				hex = ft_strjoin("0", hex);
+				hex = ft_strjoinfree("0", hex);
 		}
 		if (s == 0 && (!struc->prec && struc->prec_default == 1))
+		{
+			free(hex);
 			return ("0x0");
-		hex = ft_strjoin("0x", hex);
+		}
+		hex = ft_strjoinfree("0x", hex);
 	}
 	return (hex);
 }
