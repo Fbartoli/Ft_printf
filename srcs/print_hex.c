@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/08 17:59:35 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:24:49 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ char		*ft_pad_hash(char *str, t_flag *struc)
 		struc->pad -= ft_putnstr("0X", 2);
 	if (struc->force_prefix == 1 && struc->conv == 'x'
 			&& struc->pad_zeroes == 0 && struc->prec == 0)
-		str = ft_strjoin("0x", str);
+		str = ft_strjoinfree("0x", str);
 	if (struc->force_prefix == 1 && struc->conv == 'X'
 			&& struc->pad_zeroes == 0)
-		str = ft_strjoin("0X", str);
+		str = ft_strjoinfree("0X", str);
 	return (str);
 }
 
@@ -96,5 +96,6 @@ int			ft_print_hex(char *str, t_flag *struc)
 	struc->i += padding_hex(struc, len);
 	if (struc->right_pad == 0)
 		struc->i += ft_putnstr(str, ft_strlen(str));
+	free(str);
 	return (0);
 }

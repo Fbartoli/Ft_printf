@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/08 17:09:26 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:04:09 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static	int				ft_print_str_null(t_flag *struc)
 	padding(struc);
 	if (struc->right_pad == 0 && tofree != NULL)
 		struc->i += ft_putnstr(tofree, p);
+	free(tofree);
 	return (0);
 }
 
@@ -77,7 +78,7 @@ int				ft_print_str(char *str, t_flag *struc)
 {
 	int p;
 
-	if (str == NULL)
+	if (str == NULL || ft_strcmp(str, "(null)") == 0)
 		return (ft_print_str_null(struc));
 	if ((int)ft_strlen(str) <= struc->prec ||
 			(!struc->prec && struc->prec_default == 1))
@@ -95,9 +96,8 @@ int				ft_print_str(char *str, t_flag *struc)
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
 		struc->i += ft_putnstr(str, p);
-	/*if (struc->conv == 'b' || struc->conv == 'x'
-		|| struc->conv == 'X' || struc->conv == 'S')
-		free(str);*/
+	if (struc->conv == 'S' && ft_strcmp(str, "\0") != 0)
+		free(str);
 	return (0);
 }
 
