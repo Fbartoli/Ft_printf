@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 10:18:40 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 17:17:00 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:49:19 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int		main()
 {
 
-	ft_printf("{%05p}\n", 0);
-	printf("{%05p}\n", 0);
+	ft_printf("{%0#10.0x}\n", 12345);
+	printf("{%0#10.0x}\n", 12345);
 //	ft_printf("%p\n", 0);
 //	setlocale(LC_ALL, "");
 //	ft_printf("\n");
