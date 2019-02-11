@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 15:24:49 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:04:10 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char		*ft_hex_prec(char *str, t_flag *struc)
 
 	p = struc->prec - ft_strlen(str);
 	while (p-- > 0)
-		str = ft_strjoin("0", str);
+		str = ft_strjoinfree("0", str);
 	return (str);
 }
 

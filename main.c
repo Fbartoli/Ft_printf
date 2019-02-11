@@ -43,20 +43,13 @@ int		main()
 	ft_printf("%#X\n", 1000);
 	ft_printf("%s\n", NULL);
 	ft_printf("%S\n", L"ݗݜशব");
-	//ft_printf("%ls\n", L"我是一只猫。");
+	ft_printf("%ls\n", L"我是一只猫。");
 	ft_printf("%s%s\n", "test", "test");
 	ft_printf("%s%s%s\n", "test", "test", "test");
 	ft_printf("%C\n", 15000);
-/*
-	int d1;
-	int d2;
-	d1 = ft_printf("{%#7.5X}\n", 0xab);
-	d2 = printf("{%#7.5X}\n", 0xab);
-	printf("%d, %d\n", d1, d2);*/
-	//ft_printf("My printf: %S\n", L"我是一只猫。");
-	/*ft_printf("My printf: %-10b\n", -2);
+	ft_printf("{%#7.5X}\n", 0xab);
+	ft_printf("My printf: %S\n", L"我是一只猫。");
+	ft_printf("My printf: %b\n", -2);
 	ft_printf("My printf: %-10b\n", 300);
-	ft_printf("%s\n", ft_itoa_base(300, 2));*/
-	//ft_printf("Le printf: {%05.S}", L"42 c est cool");
 	return (1);
 }

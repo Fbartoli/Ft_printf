@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 16:02:10 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:54:25 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,12 @@ char	*conv_unicode(va_list *params)
 	if (ft_strlen((char *)unicode) == 0)
 		return ("\0");
 	code = get_uni(*unicode++);
-	if (code)
+	s = ft_strdup(code);
+	free(code);
+	while (*unicode)
 	{
-		s = ft_strdup(code);
-		free(code);
-		while (*unicode)
-		{
-			code = get_uni(*unicode++);
-			s = ft_strjoinfree(s, code);
-		}
-		return (s);
+		code = get_uni(*unicode++);
+		s = ft_strjoinfree_uni(s, code);
 	}
-	return (0);
+	return (s);
 }
