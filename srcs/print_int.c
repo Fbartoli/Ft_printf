@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/09 17:16:52 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:40:12 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int				check_plus_spacel(long nb, t_flag *struc)
 
 	count = 0;
 	if (struc->force_sign && nb >= 0)
-		count += ft_putchar('+');
+		count += ft_putchar_fd('+', struc->fd);
 	else if (struc->blank_sign && nb >= 0)
-		count += ft_putchar(' ');
+		count += ft_putchar_fd(' ', struc->fd);
 	return (count);
 }
 
@@ -44,7 +44,7 @@ static int		check_complet_charl(long nb, int count,
 		else
 			tmp = struc->min - count - ft_nbrlen(nb);
 		while (tmp-- > 0)
-			ft_putchar(letter);
+			ft_putchar_fd(letter, struc->fd);
 		return (struc->min);
 	}
 	else
@@ -65,7 +65,7 @@ static int		with_min_zero(long nb, t_flag *struc)
 	}
 	count += check_plus_spacel(nb, struc);
 	if (nb < 0)
-		ft_putchar('-');
+		ft_putchar_fd('-', struc->fd);
 	if (struc->prec == 0)
 		count = check_complet_charl(nb, count, '0', struc);
 	if (nb < 0)
@@ -121,7 +121,7 @@ int				ft_print_d(long nb, t_flag *struc)
 			count += struc->prec - ft_nbrlen(nb);
 	}
 	if (nb && struc->prec > ft_nbrlen(nb))
-	{	
+	{
 		count = (nb < 0) ? struc->prec + 1 : struc->prec;
 		count = (struc->min > struc->prec) ? struc->min : count;
 	}

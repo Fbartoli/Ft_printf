@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 15:04:09 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:35:43 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ static	void	ft_print_str_null(t_flag *struc)
 		struc->i += ft_putnstr_fd(tofree, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && tofree != NULL)
-		struc->i += ft_putnstr(tofree, p);
+		struc->i += ft_putnstr_fd(tofree, p, struc->fd);
 	free(tofree);
-	return (0);
 }
 
 void			ft_print_per(char c, t_flag *struc)
@@ -93,10 +92,9 @@ void			ft_print_str(char *str, t_flag *struc)
 		struc->i += ft_putnstr_fd(str, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
-		struc->i += ft_putnstr(str, p);
+		struc->i += ft_putnstr_fd(str, p, struc->fd);
 	if (struc->conv == 'S' && ft_strcmp(str, "\0") != 0)
 		free(str);
-	return (0);
 }
 
 void			ft_print_p(char *str, t_flag *struc)

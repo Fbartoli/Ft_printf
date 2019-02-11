@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+         #
+#    By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/02/11 12:09:46 by apsaint-         ###   ########.fr        #
+#    Updated: 2019/02/11 16:34:38 by flbartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ LIB= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 		ft_itoa_base.c ft_nbchar.c ft_pow.c ft_itoa_base_hex.c ft_hash.c\
 		ft_putnstr.c ft_itoa_u.c ft_putnbrpf.c ft_putflt.c ft_putunbrpf.c\
 		ft_putunbr.c ft_unbrlen.c ft_itoa_binaire.c ft_putunbr_fd.c\
-		ft_putnstr_fd.c ft_strjoinfree.c
+		ft_putnstr_fd.c ft_strjoinfree.c ft_putflt_fd.c
 
 SRC = conversions_csp.c ft_printf.c print_int.c print_u.c\
 		parser.c print_args.c utils.c  utilsbis.c conversions_d.c\
