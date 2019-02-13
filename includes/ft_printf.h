@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/09 18:27:58 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 10:46:18 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ int				ft_printfd(int fd, const char *format, ...);
 int				conv_c(va_list *params, t_flag *struc);
 void			*conv_s(va_list *params, t_flag *struc);
 char			*conv_unicode(va_list *params);
+char			*conv_unicode_single(va_list *params, t_flag *struc);
 long			conv_d(va_list *params, t_flag *struc);
+uintmax_t		get_type(va_list *params, t_flag *struc);
 unsigned long	conv_ud(va_list *params, t_flag *struc);
 long double		conv_f(va_list *params, t_flag *struc);
 void			*conv_p(va_list *params, t_flag *struc);

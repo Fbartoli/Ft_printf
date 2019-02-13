@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 16:02:10 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:27:08 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,21 @@ char	*get_uni(wchar_t uni)
 	return (hex);
 }
 
+char	*conv_unicode_single(va_list *params, t_flag *struc)
+{
+	wchar_t unicode;
+	char	*code;
+	char	*s;
+
+	unicode = va_arg(*params, wchar_t);
+	if (unicode == 0)
+		struc->i += 1;
+	code = get_uni(unicode);
+	s = ft_strdup(code);
+	free(code);
+	return (s);
+}
+
 char	*conv_unicode(va_list *params)
 {
 	wchar_t *unicode;
@@ -61,20 +76,16 @@ char	*conv_unicode(va_list *params)
 
 	unicode = va_arg(*params, wchar_t *);
 	if (unicode == NULL)
-		return ("(null)");
+		return (NULL);
 	if (ft_strlen((char *)unicode) == 0)
 		return ("\0");
 	code = get_uni(*unicode++);
-	if (code)
+	s = ft_strdup(code);
+	free(code);
+	while (*unicode)
 	{
-		s = ft_strdup(code);
-		free(code);
-		while (*unicode)
-		{
-			code = get_uni(*unicode++);
-			s = ft_strjoinfree(s, code);
-		}
-		return (s);
+		code = get_uni(*unicode++);
+		s = ft_strjoinfree_uni(s, code);
 	}
-	return (0);
+	return (s);
 }

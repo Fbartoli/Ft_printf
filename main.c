@@ -14,7 +14,25 @@
 # include <locale.h>
 int		main()
 {
-
+	//ft_printf("%p\n", 0);
+	setlocale(LC_ALL, "");
+	//printf("My printf: %d\n",ft_printf("{% C}", 0));
+	//printf("Le printf: %d\n",printf("{% C}", 0));
+	printf("My printf: %d\n", ft_printf("%hhC, %hhC", 0, L'米'));
+	printf("Le printf: %d\n", printf("%hhC, %hhC", 0, L'米'));
+	/*ft_printf("%S\n", L"ݗݜशব");
+	ft_printf("%15.3S\n", L"我是一只猫。");
+	//ft_printf("my printf: %#X", 42);
+	//printf("\n");
+	//printf("Le printf: %#X", 42);
+	ft_printf("\n");
+	ft_printf("%%\n");
+	ft_printf("%d\n", 42);
+	int i = 10 ;
+	ft_printf("%p\n", 0);
+	ft_printf("%lhl\n", 9223372036854775807);
+	printf("%\n");
+	ft_printf("%d\n", 42);
 	ft_printf("{%0#10.0x}\n", 12345);
 	printf("{%0#10.0x}\n", 12345);
 //	ft_printf("%p\n", 0);
@@ -27,7 +45,6 @@ int		main()
 //	printf("min %d, min << %d", i / 2, (i >> 1));
 	//ft_printf("%lhl\n", 9223372036854775807);
 	//printf("%\n");
-	/*ft_printf("%d\n", 42);
 	ft_printf("%d%d\n", 42, 41);
 	ft_printf("%d%d%d\n", 42, 43, 44);
 	ft_printf("%ld\n", 2147483647);
@@ -52,11 +69,17 @@ int		main()
 	ft_printf("%#X\n", 1000);
 	ft_printf("%s\n", NULL);
 	ft_printf("%S\n", L"ݗݜशব");
-	//ft_printf("%ls\n", L"我是一只猫。");
+	ft_printf("%ls\n", L"我是一只猫。");
 	ft_printf("%s%s\n", "test", "test");
 	ft_printf("%s%s%s\n", "test", "test", "test");
 	ft_printf("%C\n", 15000);
-
+	ft_printf("{%#7.5X}\n", 0xab);
+	ft_printf("My printf: %S\n", L"我是一只猫。");
+	ft_printf("My printf: %b\n", -2);
+	ft_printf("My printf: %-10b\n", 300);
+	ft_printf("%s\n", ft_itoa_base(300, 2));*/
+	//ft_printf("Le printf: {%05.S}", L"42 c est cool");
+	//ft_printf("%s\n", ft_itoa_base(300, 2));
 	int d1;
 	int d2;
 	d1 = ft_printf("{%#7.5X}\n", 0xab);

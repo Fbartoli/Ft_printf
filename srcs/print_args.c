@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 17:37:02 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:28:05 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static	void	ft_print_str_null(t_flag *struc)
 {
 	int		p;
-	char 	*tofree;
+	char	*tofree;
 
 	tofree = ft_strdup("(null)");
 	if ((int)ft_strlen(tofree) <= struc->prec
@@ -40,8 +40,6 @@ static	void	ft_print_str_null(t_flag *struc)
 void			ft_print_per(char c, t_flag *struc)
 {
 	struc->pad = struc->min - 1;
-	//if (struc->conv == 'C')
-	//	c = c - 32;
 	if (struc->right_pad == 1)
 		struc->i += ft_putchar_fd(c, struc->fd);
 	while (struc->pad-- > 0)
@@ -75,7 +73,7 @@ void			ft_print_str(char *str, t_flag *struc)
 {
 	int p;
 
-	if (str == NULL || ft_strcmp(str, "(null)") == 0)
+	if (str == NULL /*|| ft_strcmp(str, "(null)") == 0*/)
 		return (ft_print_str_null(struc));
 	if ((int)ft_strlen(str) <= struc->prec ||
 			(!struc->prec && struc->prec_default == 1))
@@ -92,8 +90,10 @@ void			ft_print_str(char *str, t_flag *struc)
 		struc->i += ft_putnstr_fd(str, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
-		struc->i += ft_putnstr_fd(str, p, struc->fd);
-	if (struc->conv == 'S' && ft_strcmp(str, "\0") != 0)
+		struc->i += ft_putnstr(str, p);
+	if ((struc->conv == 'S' && ft_strcmp(str, "\0") != 0) || struc->conv == 'b'
+		|| struc->conv == 'C')
+
 		free(str);
 }
 
