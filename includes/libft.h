@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
 /*   Updated: 2019/02/13 14:35:33 by apsaint-         ###   ########.fr       */
@@ -31,8 +31,7 @@ size_t				ft_index(char c, char *s);
 char				*ft_itoa_u(uintmax_t n);
 char				*ft_itoa_binaire(long value);
 char				*ft_itoa_base(unsigned long num, int base);
-char				*ft_itoa_base_hex(uintmax_t num,
-						uintmax_t base, int taille, char conv);
+char				*ft_itoa_base_hex(uintmax_t num, int taille, char conv);
 char				*ft_hash(uintmax_t num, uintmax_t base, char lettre);
 int					ft_max_int(int a, int b);
 size_t				ft_max(size_t a, size_t b);

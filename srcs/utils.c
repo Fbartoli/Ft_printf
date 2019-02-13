@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/11 16:44:25 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 14:45:55 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ int		is_default(t_flag *struc)
 		&& struc->blank_sign == 0 && struc->min == 0
 		&& struc->prec == 0 && struc->taille == 0
 		&& struc->conv == '\0' && struc->is_neg == 0
-		&& struc->prec_default == 1 && struc->pad == 0
-		&& struc->prec_0 == 0)
+		&& struc->prec_default == 1 && struc->pad == 0)
 		return (1);
 	return (0);
 }
@@ -65,7 +64,7 @@ int		with_plus_zero(long nb, t_flag *struc)
 	count += check_plus_spacel(nb, struc);
 	if (struc->pad_zeroes == 1)
 	{
-	while ((struc->min - count - ft_nbrlen(nb)) > 0)
+		while ((struc->min - count - ft_nbrlen(nb)) > 0)
 			count += ft_putchar_fd('0', struc->fd);
 	}
 	else if (struc->right_pad == 0)

@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <stdio.h>
+
 char	*ft_itoa_binaire(long value)
 {
 	int		i;
@@ -29,7 +30,7 @@ char	*ft_itoa_binaire(long value)
 	while (ft_pow(2, i) - 1 <= (unsigned long)value)
 		i++;
 	i++;
-	if ( (bin = (char *)malloc(sizeof(bin) * (i + 1))) == NULL)
+	if ((bin = (char *)malloc(sizeof(bin) * (i + 1))) == NULL)
 		return (NULL);
 	bin[i] = '\0';
 	bin[0] = neg + '0';
