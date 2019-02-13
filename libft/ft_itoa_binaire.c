@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_binaire.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 11:44:54 by apsaint-          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/02/11 17:19:49 by apsaint-         ###   ########.fr       */
+=======
+/*   Updated: 2019/02/08 20:00:37 by flbartol         ###   ########.fr       */
+>>>>>>> 4245d9a4ce1c197011b1698e3e51d0daae12f923
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +40,7 @@ char	*ft_itoa_binaire(long value)
 	while (--i > 0)
 	{
 		bin[i] = (value % 2) + (value % 2 > 9 ? 'A' - 10 : '0');
-		value = value / 2;
+		value = value >> 1;
 	}
 	return (bin);
 }
