@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 12:28:54 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 14:09:32 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ char	*conv_unicode_single(va_list *params, t_flag *struc)
 	unicode = va_arg(*params, wchar_t);
 	if (unicode == 0)
 		struc->i += 1;
-	if (unicode < 0)
+	if (unicode < 0 || unicode == 0xd800)
 	{
 		struc->i = -1;
 		return ("\0");
 	}
+	if (unicode == 0x11ffff )
+		struc->i = -1;
 	code = get_uni(unicode);
 	s = ft_strdup(code);
 	free(code);

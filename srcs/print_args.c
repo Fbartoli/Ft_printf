@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 12:32:20 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 14:47:45 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void			ft_print_str(char *str, t_flag *struc)
 {
 	int p;
 
-	if (str == NULL /*|| ft_strcmp(str, "(null)") == 0*/)
+	if (str == NULL)
 		return (ft_print_str_null(struc));
 	if ((int)ft_strlen(str) <= struc->prec ||
 			(!struc->prec && struc->prec_default == 1))
@@ -91,7 +91,8 @@ void			ft_print_str(char *str, t_flag *struc)
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
 		struc->i += ft_putnstr(str, p);
-	if ((struc->conv == 'S' && ft_strcmp(str, "\0") != 0) || struc->conv == 'b'
+	if ((struc->conv == 'S' && ft_strcmp(str, "\0") != 0)
+		|| (struc->conv == 'b' && ft_strcmp(str, "0") != 0)
 		|| (struc->conv == 'C' && ft_strcmp(str, "\0") != 0))
 		free(str);
 }
