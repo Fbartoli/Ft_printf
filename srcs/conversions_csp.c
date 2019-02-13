@@ -6,13 +6,11 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 10:44:25 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 12:06:15 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <wchar.h>
-#include <limits.h>
 
 int			conv_c(va_list *params, t_flag *struc)
 {
