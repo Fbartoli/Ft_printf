@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 14:36:02 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 15:16:19 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 # include "libft.h"
 # include <stdarg.h>
-# include <stdio.h>
 # include <wchar.h>
 # include <limits.h>
 # define L 1
@@ -48,8 +47,8 @@ char			*parser(char *str, t_flag *struc, va_list *params);
 int				is_flag(char format);
 int				is_taille(char format);
 int				is_conv(char format);
-int				ft_printf(const char *format, ...);
-int				ft_printfd(int fd, const char *format, ...);
+int				ft_printf(const char *format, ...)__attribute__((format (printf, 1, 2)));
+int				ft_printfd(int fd, const char *format, ...)__attribute__((format (printf, 2, 3)));
 int				conv_c(va_list *params, t_flag *struc);
 void			*conv_s(va_list *params, t_flag *struc);
 char			*conv_unicode(va_list *params);
