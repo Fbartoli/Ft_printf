@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 12:07:39 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 18:54:59 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		check_complet_charl(long nb, int count,
 {
 	int	tmp;
 
-	if (ft_nbrlen(nb) < (struc->min + count))
+	if ((struc->min + count) > ft_nbrlen(nb))
 	{
 		if (letter == ' ' && struc->blank_sign && struc->force_prefix &&
 			!struc->right_pad)
@@ -37,7 +37,7 @@ static int		check_complet_charl(long nb, int count,
 		if (struc->prec >= ft_nbrlen(nb))
 		{
 			tmp = struc->min - count - struc->prec;
-			if (nb < 0)
+			if (nb < 0 && !struc->pad_zeroes)
 				tmp--;
 		}
 		else
@@ -58,7 +58,8 @@ static int		with_min_zero(long nb, t_flag *struc)
 	count = 0;
 	if (struc->prec != 0)
 	{
-		if (struc->force_sign == 1)
+		if (struc->force_sign || struc->blank_sign
+			|| (struc->pad_zeroes && nb < 0))
 			count++;
 		count = check_complet_charl(nb, count, ' ', struc);
 	}
