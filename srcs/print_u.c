@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 14:44:49 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 14:34:12 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 17:45:58 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int		with_min_zero(unsigned long nb, t_flag *struc)
 	int count;
 
 	count = 0;
-	if (struc->prec != 0)
+	if (struc->prec != 0 || struc->prec_default == 0)
 		count = check_complet_charul(nb, count, ' ', struc);
 	if (struc->prec == 0)
 		count = check_complet_charul(nb, count, '0', struc);
