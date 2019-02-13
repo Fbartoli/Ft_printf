@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_f.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 10:35:45 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/11 16:37:26 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 14:33:25 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int			ft_print_f(long double nb, t_flag *struc)
 		ft_putflt_fd(nb, struc->prec, struc->fd);
 	}
 	if (nb && struc->min > ft_nbrlen(nb) + struc->prec + 1)
-		count =	struc->min;
+		count = struc->min;
 	else
 		count = struc->prec + 1 + ft_nbrlen(nb);
 	return (count);
