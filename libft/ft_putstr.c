@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:15:31 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/09 17:12:22 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:54:05 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ int		ft_putstr(char const *s)
 
 	if (!s)
 		return (0);
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar((char)s[i]);
-		i++;
-	}
+	i = ft_strlen(s);
+	write(1, s, i);
 	return (i);
 }
