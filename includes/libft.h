@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 15:26:57 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 19:20:46 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int					ft_putnbr_fd(long n, int fd);
 int					ft_putnbr(long n);
 int					ft_putunbr(unsigned long n);
 int					ft_putunbr_fd(unsigned long n, int fd);
-int					ft_putflt_fd(long double f, int prec, int fd);
+int					ft_putflt_fd(long double f, int prec, int fd, int p_default);
 int					ft_putflt(long double f, int prec);
 void				ft_putnbrpf(long nb, int prec, int fd);
 void				ft_putunbrpf(unsigned long nb, int prec, int fd);
