@@ -6,20 +6,21 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 10:18:40 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 17:49:19 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 12:02:24 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <wchar.h>
-# include <locale.h>
+#include "includes/ft_printf.h"
+//# include <wchar.h>
+//# include <locale.h>
 int		main()
 {
 	//ft_printf("%p\n", 0);
-	setlocale(LC_ALL, "");
-	//printf("My printf: %d\n",ft_printf("{% C}", 0));
-	//printf("Le printf: %d\n",printf("{% C}", 0));
-	printf("My printf: %d\n", ft_printf("%hhC, %hhC", 0, L'米'));
-	printf("Le printf: %d\n", printf("%hhC, %hhC", 0, L'米'));
+/*	setlocale(LC_ALL, "");
+	printf("My printf: %d\n",ft_printf("{% C}", 0));
+	printf("Le printf: %d\n",printf("{% C}", 0));
+	printf("My printf: %d\n", ft_printf("{%hhC}, {%hhC}", 0, L'米'));
+	printf("Le printf: %d\n", printf("{%hhC}, {%hhC}", 0, L'米'));*/
 	/*ft_printf("%S\n", L"ݗݜशব");
 	ft_printf("%15.3S\n", L"我是一只猫。");
 	//ft_printf("my printf: %#X", 42);
@@ -80,7 +81,7 @@ int		main()
 	ft_printf("%s\n", ft_itoa_base(300, 2));*/
 	//ft_printf("Le printf: {%05.S}", L"42 c est cool");
 	//ft_printf("%s\n", ft_itoa_base(300, 2));
-	int d1;
+/*	int d1;
 	int d2;
 	d1 = ft_printf("{%#7.5X}\n", 0xab);
 	d2 = printf("{%#7.5X}\n", 0xab);

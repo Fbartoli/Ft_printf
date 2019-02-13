@@ -6,12 +6,11 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/11 16:40:12 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 12:07:39 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int				check_plus_spacel(long nb, t_flag *struc)
 {

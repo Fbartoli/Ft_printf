@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 10:46:18 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 12:05:38 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include "libft.h"
 # include <stdarg.h>
 # include <stdio.h>
+# include <wchar.h>
+# include <limits.h>
 # define L 1
 # define LL 2
 # define H 3
