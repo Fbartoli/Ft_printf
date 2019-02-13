@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/11 15:17:55 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 10:44:25 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,23 @@ uintmax_t	get_type(va_list *params, t_flag *struc)
 	return (n);
 }
 
+void		*gestion_p(char *hex, uintmax_t s, t_flag *struc, int p)
+{
+	if (p)
+	{
+		p -= (int)ft_strlen(hex);
+		while (p-- > 0)
+			hex = ft_strjoinfree("0", hex);
+	}
+	if (s == 0 && (!struc->prec && struc->prec_default == 1))
+	{
+		free(hex);
+		return ("0x0");
+	}
+	hex = ft_strjoinfree("0x", hex);
+	return (hex);
+}
+
 void		*conv_p(va_list *params, t_flag *struc)
 {
 	uintmax_t	s;
@@ -73,29 +90,6 @@ void		*conv_p(va_list *params, t_flag *struc)
 		return ("0");
 	hex = ft_itoa_base_hex(s, 16, struc->taille, struc->conv);
 	if (struc->conv == 'p')
-	{
-		if (p)
-		{
-			p -= (int)ft_strlen(hex);
-			while (p-- > 0)
-				hex = ft_strjoinfree("0", hex);
-		}
-		if (s == 0 && (!struc->prec && struc->prec_default == 1))
-		{
-			free(hex);
-			return ("0x0");
-		}
-		hex = ft_strjoinfree("0x", hex);
-	}
+		hex = gestion_p(hex, s, struc, p);
 	return (hex);
-}
-
-void		*conv_u(va_list *params, t_flag *struc)
-{
-	uintmax_t	s;
-	char		*str;
-
-	s = get_type(params, struc);
-	str = ft_itoa_u(s);
-	return (str);
 }

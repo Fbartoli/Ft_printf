@@ -6,24 +6,24 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 09:20:11 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 10:51:32 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		padding_hex(t_flag *struc, char *str)
+int			padding_hex(t_flag *struc, char *str)
 {
 	if ((size_t)struc->prec <= ft_strlen(str) && struc->prec_default == 0)
 		struc->pad_zeroes = 0;
 	if (struc->pad_zeroes == 1)
 	{
-		while(struc->pad-- > 0)
+		while (struc->pad-- > 0)
 			struc->i += ft_putchar('0');
 	}
 	else
 	{
-		while(struc->pad-- > 0)
+		while (struc->pad-- > 0)
 			struc->i += ft_putchar(' ');
 	}
 	return (0);
@@ -31,14 +31,16 @@ int		padding_hex(t_flag *struc, char *str)
 
 static int	prec_null(t_flag *struc)
 {
-	if(struc->min && (struc->pad_zeroes == 0 || (struc->prec_default == 0 && struc->prec == 0)))
+	if (struc->min && (struc->pad_zeroes == 0
+		|| (struc->prec_default == 0 && struc->prec == 0)))
 	{
 		while (struc->min-- > 0)
 			struc->i += ft_putchar(' ');
 	}
 	else
 	{
-		while (struc->prec-- > 0 || (struc->min-- > 0 && struc->pad_zeroes == 1))
+		while (struc->prec-- > 0
+				|| (struc->min-- > 0 && struc->pad_zeroes == 1))
 			struc->i += ft_putchar('0');
 	}
 	return (0);
@@ -47,7 +49,8 @@ static int	prec_null(t_flag *struc)
 char		*ft_pad_hash(char *str, t_flag *struc)
 {
 	if (struc->force_prefix == 1 && struc->conv == 'x'
-			&& (struc->pad_zeroes == 1 && (struc->prec >= struc->min - 2 || struc->prec_default == 1)))
+			&& (struc->pad_zeroes == 1
+			&& (struc->prec >= struc->min - 2 || struc->prec_default == 1)))
 		struc->pad -= ft_putnstr("0x", 2);
 	else if (struc->force_prefix == 1 && struc->conv == 'X'
 			&& (struc->pad_zeroes == 1 || struc->prec >= 0))

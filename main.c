@@ -16,10 +16,16 @@ int		main()
 {
 	//ft_printf("%p\n", 0);
 	setlocale(LC_ALL, "");
-	ft_printf("my printf: %#X", 42);
-	printf("\n");
-	printf("Le printf: %#X", 42);
-	/*ft_printf("\n");
+	//printf("My printf: %d\n",ft_printf("{% C}", 0));
+	//printf("Le printf: %d\n",printf("{% C}", 0));
+	printf("My printf: %d\n", ft_printf("%hhC, %hhC", 0, L'米'));
+	printf("Le printf: %d\n", printf("%hhC, %hhC", 0, L'米'));
+	/*ft_printf("%S\n", L"ݗݜशব");
+	ft_printf("%15.3S\n", L"我是一只猫。");
+	//ft_printf("my printf: %#X", 42);
+	//printf("\n");
+	//printf("Le printf: %#X", 42);
+	ft_printf("\n");
 	ft_printf("%%\n");
 	ft_printf("%d\n", 42);
 	int i = 10 ;

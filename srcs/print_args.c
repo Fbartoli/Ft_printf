@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 08:49:59 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 10:48:18 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static	void	ft_print_str_null(t_flag *struc)
 {
 	int		p;
-	char 	*tofree;
+	char	*tofree;
 
 	tofree = ft_strdup("(null)");
 	if ((int)ft_strlen(tofree) <= struc->prec
@@ -35,14 +35,11 @@ static	void	ft_print_str_null(t_flag *struc)
 	if (struc->right_pad == 0 && tofree != NULL)
 		struc->i += ft_putnstr(tofree, p);
 	free(tofree);
-	//return (0);
 }
 
 void			ft_print_per(char c, t_flag *struc)
 {
 	struc->pad = struc->min - 1;
-	//if (struc->conv == 'C')
-	//	c = c - 32;
 	if (struc->right_pad == 1)
 		struc->i += ft_putchar_fd(c, struc->fd);
 	while (struc->pad-- > 0)
@@ -94,9 +91,9 @@ void			ft_print_str(char *str, t_flag *struc)
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
 		struc->i += ft_putnstr(str, p);
-	if ((struc->conv == 'S' && ft_strcmp(str, "\0") != 0 ) || struc->conv == 'b')
+	if ((struc->conv == 'S' && ft_strcmp(str, "\0") != 0) || struc->conv == 'b'
+		|| struc->conv == 'C')
 		free(str);
-	//return (0);
 }
 
 void			ft_print_p(char *str, t_flag *struc)
