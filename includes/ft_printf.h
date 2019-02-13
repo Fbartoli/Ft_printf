@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 12:05:38 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 14:36:02 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct	s_flag
 	int		taille;
 	char	conv;
 	int		is_neg;
-	int		prec_0;
 	int		pad;
 	int		i;
 	int		fd;
@@ -80,4 +79,5 @@ char			*taille_to_int(char *str, t_flag *struc);
 int				is_default(t_flag *struc);
 void			convup_to_min(t_flag *struc);
 int				nb_null_prec_null(long nb, t_flag *struc);
+int				ft_print_o_null(t_flag *struc);
 #endif
