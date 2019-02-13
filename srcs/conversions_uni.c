@@ -6,7 +6,7 @@
 /*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 10:45:51 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:27:08 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*conv_unicode(va_list *params)
 
 	unicode = va_arg(*params, wchar_t *);
 	if (unicode == NULL)
-		return ("(null)");
+		return (NULL);
 	if (ft_strlen((char *)unicode) == 0)
 		return ("\0");
 	code = get_uni(*unicode++);
