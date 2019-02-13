@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversions_S.c                                    :+:      :+:    :+:   */
+/*   conversions_uni.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apsaint- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 09:13:10 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 14:09:32 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 15:30:13 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*conv_unicode_single(va_list *params, t_flag *struc)
 		struc->i = -1;
 		return ("\0");
 	}
-	if (unicode == 0x11ffff )
+	if (unicode == 0x11ffff)
 		struc->i = -1;
 	code = get_uni(unicode);
 	s = ft_strdup(code);

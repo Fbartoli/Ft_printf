@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 14:45:55 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 18:11:14 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,21 @@ int		with_plus_zero(long nb, t_flag *struc)
 	int tmp;
 
 	count = 0;
-	tmp = struc->min - ft_nbrlen(nb);
-	count += check_plus_spacel(nb, struc);
-	if (struc->pad_zeroes == 1)
+	if ((struc->prec || struc->pad_zeroes) 
+		&& (!struc->blank_sign || !struc->force_sign))
+		count += check_plus_spacel(nb, struc);
+	tmp = struc->min - ft_nbrlen(nb) - struc->force_sign - struc->blank_sign;
+	while ((struc->min - count - ft_nbrlen(nb)) > 0 && struc->pad_zeroes)
+		count += ft_putchar_fd('0', struc->fd);
+	while (tmp > 0 && !struc->right_pad && !struc->pad_zeroes)
 	{
-		while ((struc->min - count - ft_nbrlen(nb)) > 0)
-			count += ft_putchar_fd('0', struc->fd);
+		count += ft_putchar_fd(' ', struc->fd);
+		tmp--;
 	}
-	else if (struc->right_pad == 0)
-	{
-		while (tmp-- > 0)
-			count += ft_putchar_fd(' ', struc->fd);
-	}
+	if ((struc->force_sign || struc->blank_sign) && !struc->pad_zeroes)
+		count += check_plus_spacel(nb, struc);
 	count += ft_putnbr(nb);
-	if (struc->right_pad == 1)
-	{
-		while (tmp-- > 0)
-			count += ft_putchar_fd(' ', struc->fd);
-	}
+	while (tmp-- > 0 && struc->right_pad)
+		count += ft_putchar_fd(' ', struc->fd);
 	return (count);
 }
