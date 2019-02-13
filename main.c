@@ -6,17 +6,20 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 10:18:40 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 12:02:24 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/13 12:31:13 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 //# include <wchar.h>
-//# include <locale.h>
+# include <locale.h>
 int		main()
 {
 	//ft_printf("%p\n", 0);
-/*	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "");
+	printf("My printf: %d\n",ft_printf("%C", (wint_t)-2));
+	printf("My printf: %d\n",ft_printf("%C", (wint_t)-2));
+	/*
 	printf("My printf: %d\n",ft_printf("{% C}", 0));
 	printf("Le printf: %d\n",printf("{% C}", 0));
 	printf("My printf: %d\n", ft_printf("{%hhC}, {%hhC}", 0, L'米'));
