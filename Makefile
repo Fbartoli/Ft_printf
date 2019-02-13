@@ -3,16 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+         #
+#    By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 15:47:25 by flbartol          #+#    #+#              #
-#    Updated: 2019/02/13 10:36:38 by apsaint-         ###   ########.fr        #
+#    Updated: 2019/02/13 13:48:53 by flbartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME= libftprintf.a
-EXEC = printf
 FLAGS= -Wall -Wextra -Werror
 
 NOC=\033[0m	  #Reset text
@@ -45,7 +44,6 @@ SRC = conversions_csp.c ft_printf.c print_int.c print_u.c\
 		conversions_b.c conversions_u.c
 
 
-MAIN = main.c
 
 HEADER= includes
 LIB_DIR = libft/
@@ -57,15 +55,10 @@ OBJ_SRC:= $(addprefix $(OBJ_DIR),$(SRC:.c=.o))
 LIB := $(addprefix $(LIB_DIR),$(LIB))
 SRC := $(addprefix $(SRC_DIR),$(SRC))
 
-all: $(EXEC)
+all: $(NAME)
 
 $(OBJ_DIR):
 	@mkdir $@
-
-$(EXEC): $(NAME) $(MAIN)
-	@echo "======"
-	@gcc -o $(EXEC) $(NAME) $(MAIN)
-	@echo "$(OKC)$(EXEC):\t\t$(EXEC) ready$(NOC)"
 
 $(NAME): $(OBJ_DIR) $(OBJ_SRC) $(OBJ_LIB)
 	@echo "======"

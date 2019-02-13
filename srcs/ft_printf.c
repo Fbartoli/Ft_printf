@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 12:16:50 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 14:30:17 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		init_struc(t_flag *struc)
 	struc->pad = 0;
 }
 
-static void		ft_print(char *str, t_flag *struc, va_list *params)
+static void		ft_print(t_flag *struc, va_list *params)
 {
 	if (struc->conv == 's')
 		ft_print_str(conv_s(params, struc), struc);
@@ -54,8 +54,6 @@ static void		ft_print(char *str, t_flag *struc, va_list *params)
 		ft_print_per('%', struc);
 	else if (struc->conv == 'o')
 		struc->i += ft_print_o(conv_ud(params, struc), struc);
-	else if (struc->conv == '\0')
-		ft_print_c(*str, struc);
 }
 
 static int		my_printf(char *str, t_flag *struc, va_list *params)
@@ -73,7 +71,9 @@ static int		my_printf(char *str, t_flag *struc, va_list *params)
 			str = parser(str, struc, params);
 			if (*str == '\0')
 				return (struc->i);
-			ft_print(str, struc, params);
+			if (struc->conv == '\0')
+				ft_print_c(*str, struc);
+			ft_print(struc, params);
 		}
 		str++;
 	}

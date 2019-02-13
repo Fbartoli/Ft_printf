@@ -3,35 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/11 16:40:42 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/13 14:49:01 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static	int				ft_print_o_null(t_flag *struc)
-{
-	if ((struc->prec_default == 1 || (struc->prec_default == 0 && struc->prec != 0)))
-		struc->pad = struc->min - struc->prec - 1;
-	else
-		struc->pad = struc->min - struc->prec;
-	if (struc->force_prefix && struc->prec > 0)
-	{
-		struc->prec--;
-		struc->pad++;
-	}
-	if (struc->right_pad == 0)
-		padding(struc);
-	if ((struc->prec_default == 1) || (struc->min != 0 && struc->prec != 0)
-		|| struc->force_prefix == 1)
-		struc->i += ft_putnbr_fd(0, struc->fd);
-	if (struc->right_pad == 1)
-			padding(struc);
-	return (0);
-}
 
 static int		end_o(char *str, int count, t_flag *struc)
 {
@@ -53,7 +32,7 @@ static	int		check_complet_charo(char *nb, char letter, t_flag *struc)
 	int	tmp;
 	int count;
 
-	if ( (size_t)(struc->min) > ft_strlen(nb))
+	if ((size_t)(struc->min) > ft_strlen(nb))
 	{
 		if ((struc->prec != 0) && ((size_t)struc->prec > ft_strlen(nb)))
 			tmp = struc->min - struc->prec;
