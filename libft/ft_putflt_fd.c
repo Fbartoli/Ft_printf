@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putflt_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 20:13:02 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/09 15:37:44 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:53:25 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				print_decimals(long double nbr, int p, int fd)
 
 	count = 0;
 	r = 0.5;
-	write(1, ".", 1);
+	write(fd, ".", 1);
 	count += 1;
 	while (p--)
 	{

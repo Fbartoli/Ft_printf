@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   conversions_csp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:09:23 by apsaint-          #+#    #+#             */
 /*   Updated: 2019/02/13 10:44:25 by apsaint-         ###   ########.fr       */

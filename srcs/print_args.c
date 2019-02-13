@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   print_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
 /*   Updated: 2019/02/13 11:28:05 by apsaint-         ###   ########.fr       */
@@ -33,7 +33,7 @@ static	void	ft_print_str_null(t_flag *struc)
 		struc->i += ft_putnstr_fd(tofree, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && tofree != NULL)
-		struc->i += ft_putnstr(tofree, p);
+		struc->i += ft_putnstr_fd(tofree, p, struc->fd);
 	free(tofree);
 }
 
@@ -93,6 +93,7 @@ void			ft_print_str(char *str, t_flag *struc)
 		struc->i += ft_putnstr(str, p);
 	if ((struc->conv == 'S' && ft_strcmp(str, "\0") != 0) || struc->conv == 'b'
 		|| struc->conv == 'C')
+
 		free(str);
 }
 
@@ -104,11 +105,16 @@ void			ft_print_p(char *str, t_flag *struc)
 		return ;
 	}
 	struc->pad = struc->min - ft_strlen(str);
-	if (struc->right_pad == 1)
+	if (struc->right_pad || struc->pad_zeroes)
+	{
 		struc->i += ft_putnstr_fd(str, ft_strlen(str), struc->fd);
-	padding(struc);
-	if (struc->right_pad == 0)
+		padding(struc);
+	}
+	else
+	{
+		padding(struc);
 		struc->i += ft_putnstr_fd(str, ft_strlen(str), struc->fd);
+	}
 	if (ft_strcmp("0x0", str) != 0)
 		free(str);
 }

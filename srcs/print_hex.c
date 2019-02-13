@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 09:50:38 by apsaint-          #+#    #+#             */
 /*   Updated: 2019/02/13 10:51:32 by apsaint-         ###   ########.fr       */
@@ -19,12 +19,12 @@ int			padding_hex(t_flag *struc, char *str)
 	if (struc->pad_zeroes == 1)
 	{
 		while (struc->pad-- > 0)
-			struc->i += ft_putchar('0');
+			struc->i += ft_putchar_fd('0', struc->fd);
 	}
 	else
 	{
 		while (struc->pad-- > 0)
-			struc->i += ft_putchar(' ');
+			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
 	return (0);
 }
@@ -35,7 +35,7 @@ static int	prec_null(t_flag *struc)
 		|| (struc->prec_default == 0 && struc->prec == 0)))
 	{
 		while (struc->min-- > 0)
-			struc->i += ft_putchar(' ');
+			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
 	else
 	{
@@ -54,11 +54,11 @@ char		*ft_pad_hash(char *str, t_flag *struc)
 		struc->pad -= ft_putnstr("0x", 2);
 	else if (struc->force_prefix == 1 && struc->conv == 'X'
 			&& (struc->pad_zeroes == 1 || struc->prec >= 0))
-		struc->pad -= ft_putnstr("0X", 2);
-	if (struc->force_prefix == 1 && struc->conv == 'x'
-			&& struc->pad_zeroes == 0 && struc->prec == 0)
+		struc->pad -= ft_putnstr_fd("0X", 2, struc->fd);
+	else if (struc->force_prefix == 1 && struc->conv == 'x'
+			&& (struc->pad_zeroes == 0 || struc->prec == 0))
 		str = ft_strjoinfree("0x", str);
-	if (struc->force_prefix == 1 && struc->conv == 'X'
+	else if (struc->force_prefix == 1 && struc->conv == 'X'
 			&& struc->pad_zeroes == 0)
 		str = ft_strjoinfree("0X", str);
 	return (str);
@@ -78,7 +78,7 @@ int			ft_print_hex(char *str, t_flag *struc)
 {
 	if (ft_strcmp("0", str) == 0 && struc->prec_default == 1
 		&& struc->min == 0)
-		return (ft_putnstr("0", 1));
+		return (ft_putnstr_fd("0", 1, struc->fd));
 	if (*str == '0')
 		return (prec_null(struc));
 	str = ft_pad_hash(str, struc);
@@ -88,10 +88,10 @@ int			ft_print_hex(char *str, t_flag *struc)
 		str = ft_hex_prec(str, struc);
 	struc->pad += ft_max_int(0, struc->min - ft_strlen(str));
 	if (struc->right_pad == 1)
-		struc->i += ft_putnstr(str, ft_strlen(str));
+		struc->i += ft_putnstr_fd(str, ft_strlen(str), struc->fd);
 	struc->i += padding_hex(struc, str);
 	if (struc->right_pad == 0)
-		struc->i += ft_putnstr(str, ft_strlen(str));
+		struc->i += ft_putnstr_fd(str, ft_strlen(str), struc->fd);
 	free(str);
 	return (0);
 }

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
 /*   Updated: 2019/02/11 16:50:27 by apsaint-         ###   ########.fr       */
@@ -48,6 +48,7 @@ int					ft_putnbr_fd(long n, int fd);
 int					ft_putnbr(long n);
 int					ft_putunbr(unsigned long n);
 int					ft_putunbr_fd(unsigned long n, int fd);
+int					ft_putflt_fd(long double f, int prec, int fd);
 int					ft_putflt(long double f, int prec);
 void				ft_putnbrpf(long nb, int prec, int fd);
 void				ft_putunbrpf(unsigned long nb, int prec, int fd);

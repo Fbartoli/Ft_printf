@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   utilsbis.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:36:52 by flbartol          #+#    #+#             */
 /*   Updated: 2019/02/13 10:04:17 by apsaint-         ###   ########.fr       */
@@ -21,11 +21,11 @@ int		nb_null_prec_null(long nb, t_flag *struc)
 		return (with_plus_zero(nb, struc));
 	count = struc->min > 0 ? struc->min : 0;
 	while (struc->min-- > 0)
-		ft_putchar(' ');
+		ft_putchar_fd(' ', struc->fd);
 	if (struc->blank_sign == 1)
-		count += ft_putchar(' ');
+		count += ft_putchar_fd(' ', struc->fd);
 	if (struc->force_sign == 1)
-		count += ft_putchar('+');
+		count += ft_putchar_fd('+', struc->fd);
 	return (count);
 }
 
@@ -59,23 +59,23 @@ int		padding(t_flag *struc)
 	if (struc->pad_zeroes == 1 && struc->prec > 0)
 	{
 		while(struc->prec-- > 0)
-			struc->i += ft_putchar(' ');
+			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
 	else if (struc->pad_zeroes == 0 && struc->prec > 0
 		&& struc->conv == 'o')
 	{
 		while(struc->prec-- > 0)
-			struc->i += ft_putchar('0');
+			struc->i += ft_putchar_fd('0', struc->fd);
 	}
 	if (struc->pad_zeroes == 1)
 	{
 		while(struc->pad-- > 0)
-			struc->i += ft_putchar('0');
+			struc->i += ft_putchar_fd('0', struc->fd);
 	}
 	else
 	{
 		while(struc->pad-- > 0)
-			struc->i += ft_putchar(' ');
+			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
 	return (0);
 }
