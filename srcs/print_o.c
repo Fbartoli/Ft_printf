@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 09:02:09 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/14 16:35:34 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ static int		end_o(char *str, int count, t_flag *struc)
 	if ((size_t)struc->min > ft_strlen(str) &&
 		struc->prec < struc->min)
 		count = struc->min;
+	if (ft_strlen(str) == 1 && *str == '0' && !struc->prec_default
+		&& !struc->prec && !struc->force_prefix)
+		count = struc->min;
 	return (count);
 }
 
@@ -38,8 +41,11 @@ static	int		check_complet_charo(char *nb, char letter, t_flag *struc)
 			tmp = struc->min - struc->prec;
 		else
 			tmp = struc->min - ft_strlen(nb);
-		if (struc->force_prefix)
+		if (struc->force_prefix && *nb != '0' && struc->prec <= (int)ft_strlen(nb))
 			tmp--;
+		if (*nb == '0' && !struc->prec_default && !struc->prec
+			&& !struc->force_prefix)
+			tmp++;
 		while (tmp-- > 0)
 			ft_putchar_fd(letter, struc->fd);
 		if (struc->prec < struc->min)
@@ -90,7 +96,7 @@ int				ft_print_o(unsigned long nb, t_flag *struc)
 	char	*str;
 	int		count;
 
-	if ((!nb && is_default(struc)) || nb == 0)
+	if ((!nb && is_default(struc)))
 		return (ft_print_o_null(struc));
 	str = ft_itoa_base(nb, 8);
 	if (struc->min)
