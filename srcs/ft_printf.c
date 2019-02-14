@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:28:53 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 14:30:17 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 09:21:05 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ int				ft_printf(const char *format, ...)
 	char	*start;
 	va_list params;
 
-	start = (char *)format;
+	if ((start = (char *)format) == NULL)
+		return (-1);
 	struc.fd = 1;
 	nb_char = 0;
 	init_struc(&struc);
