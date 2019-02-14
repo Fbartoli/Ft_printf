@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   print_f.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 10:35:45 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 20:28:24 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 14:30:04 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <math.h>
 
 static int	check_plus_spacef(long double nb, t_flag *struc)
 {
 	int	count;
 
 	count = 0;
-	if (struc->force_sign && nb >= 0)
+	if (nb == 0 && ((1/nb) != (1/0.0)))
+		count += ft_putchar_fd('-', struc->fd);
+	else if (struc->force_sign && nb >= 0)
 		count += ft_putchar_fd('+', struc->fd);
 	else if (struc->blank_sign && nb >= 0)
 		count += ft_putchar_fd(' ', struc->fd);
@@ -34,7 +37,10 @@ static int	check_complet_charf(long double nb, int count, char letter,
 		if (letter == ' ' && struc->blank_sign && struc->force_prefix &&
 			!struc->right_pad)
 			struc->min--;
-		tmp = struc->min - ft_nbrlen(nb) - count - 1;
+		if (!(struc->right_pad))
+			tmp = struc->min - ft_nbrlen(nb) - count - 1;
+		else
+			tmp = struc->min - count;
 		while (tmp-- > 0)
 			count += ft_putchar_fd(letter, struc->fd);
 		return (struc->min);
@@ -56,7 +62,7 @@ static int	with_min_zerof(long double nb, t_flag *struc)
 		count += check_complet_charf(nb, count, '0', struc);
 	if (nb < 0)
 		nb = -nb;
-	count += ft_putflt_fd(nb, struc->prec, struc->fd, struc->prec_default);
+	count += ft_putflt_fd(nb, struc->prec, struc->fd, struc->force_prefix);
 	return (count);
 }
 
@@ -68,7 +74,7 @@ static int	with_minf(long double nb, t_flag *struc)
 	if (struc->right_pad)
 	{
 		count += check_plus_spacef(nb, struc);
-		count += ft_putflt_fd(nb, struc->prec, struc->fd, struc->prec_default);
+		count += ft_putflt_fd(nb, struc->prec, struc->fd, struc->force_prefix);
 		count += check_complet_charf(nb, count, ' ', struc);
 	}
 	else if (struc->pad_zeroes)
@@ -82,7 +88,7 @@ static int	with_minf(long double nb, t_flag *struc)
 		count += check_plus_spacef(nb, struc);
 		if ((struc->force_sign || struc->right_pad) && nb >= 0)
 			count--;
-		ft_putflt_fd(nb, struc->prec, struc->fd, struc->prec_default);
+		ft_putflt_fd(nb, struc->prec, struc->fd, struc->force_prefix);
 	}
 	return (count);
 }
@@ -92,6 +98,8 @@ int			ft_print_f(long double nb, t_flag *struc)
 	int count;
 
 	count = 0;
+	if (nb == 1.0 / 0.0 || nb == -1.0 / 0.0)
+		return(specialf_cases(struc, nb));
 	if (struc->min)
 		count = with_minf(nb, struc);
 	else
@@ -99,11 +107,17 @@ int			ft_print_f(long double nb, t_flag *struc)
 		count = check_plus_spacef(nb, struc) + ft_nbrlen(nb) + struc->prec + 1;
 		if (struc->force_sign && !struc->prec && !struc->force_prefix)
 			struc->prec_default = 1;
-		ft_putflt_fd(nb, struc->prec, struc->fd, struc->prec_default);
+		ft_putflt_fd(nb, struc->prec, struc->fd, struc->force_prefix);
 	}
-	if (nb && struc->min > ft_nbrlen(nb) + struc->prec + 1)
-		count = struc->min;
+	if (struc->min > ft_nbrlen(nb) + struc->prec + 1)
+		count = struc->min + struc->prec;
 	else
-		count = struc->prec + 1 + ft_nbrlen(nb);
+	{
+		count = struc->prec + ft_nbrlen(nb);
+		if (struc->prec || (!struc->prec && struc->force_prefix))
+			++count;
+		if (nb >= 0 && (struc->blank_sign || struc->force_sign || nb == -0))
+			++count;
+	}
 	return (count);
 }
