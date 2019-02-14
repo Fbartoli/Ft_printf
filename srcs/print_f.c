@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 10:35:45 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 15:19:15 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/14 18:23:31 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int			ft_print_f(long double nb, t_flag *struc)
 	int count;
 
 	count = 0;
-	if (nb == 1.0 / 0.0 || nb == -1.0 / 0.0)
+	if (nb == 1.0 / 0.0 || nb == -1.0 / 0.0 || nb != nb)
 		return (specialf_cases(struc, nb));
 	if (struc->min)
 		count = with_minf(nb, struc);
