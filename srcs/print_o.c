@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 18:41:27 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/14 09:02:09 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int				ft_print_o(unsigned long nb, t_flag *struc)
 	char	*str;
 	int		count;
 
-	if (!nb && is_default(struc))
+	if ((!nb && is_default(struc)) || nb == 0)
 		return (ft_print_o_null(struc));
 	str = ft_itoa_base(nb, 8);
 	if (struc->min)
