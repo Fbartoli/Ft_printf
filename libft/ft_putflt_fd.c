@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putflt_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 20:13:02 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 20:07:37 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 11:08:41 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,33 @@ int				print_decimals(long double nbr, int p, int fd)
 	count += 1;
 	if (p <= 6 && nbr > 0)
 		nbr += 0.0000001;
-	else if (p > 6 && nbr > 0)
-		nbr += 0.00000001668924;
 	while (p--)
 	{
 		nbr = nbr * 10;
 		l = (long long)nbr;
 		nbr = nbr - l;
 		if (nbr >= r && p == 0)
-			count += ft_putchar_fd(l + 48, fd);
+			count += ft_putchar_fd(l + 1 + 48, fd);
 		else
 			count += ft_putnbr_fd(l, fd);
 	}
 	return (count);
 }
 
-int				ft_putflt_fd(long double nbr, int p, int fd, int p_default)
+int				ft_putflt_fd(long double nbr, int p, int fd, int hash)
 {
 	long long	l;
 	float		r;
 	int			count;
 
 	l = (long long)nbr;
-	r = 0.5;
+	r = 0.51;
 	count = 0;
 	if ((ft_fabs(nbr - l) >= r) && (p == 0))
 		l = ((l > 0) ? l + 1 : l - 1);
 	count = ft_putnbr_fd(l, fd);
 	nbr = ft_fabs(nbr - l);
-	if (nbr >= 0 && (p_default == 0 || p == 6))
+	if (nbr >= 0 && (p || hash))
 		count += print_decimals(nbr, p, fd);
 	return (count);
 }
