@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:55:43 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 16:30:45 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:18:37 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,3 @@ int		ft_print_o_null(t_flag *struc)
 		padding(struc);
 	return (0);
 }
-/*
-int		ft_print_o_zero(t_flag *struc)
-{
-	if ((struc->prec_default == 1
-		|| (struc->prec_default == 0 && struc->prec != 0)))
-		struc->pad = struc->min - struc->prec - 1;
-	else
-		struc->pad = struc->min - struc->prec;
-	if (struc->force_prefix && struc->prec > 0)
-	{
-		struc->prec--;
-		struc->pad++;
-	}
-	if (struc->right_pad == 0)
-		padding(struc);
-	if ((struc->prec_default == 1) || (struc->min != 0 && struc->prec != 0)
-		|| struc->force_prefix == 1)
-		struc->i += ft_putnbr_fd(0, struc->fd);
-	if (struc->right_pad == 1)
-		padding(struc);
-	return (0);
-}*/
