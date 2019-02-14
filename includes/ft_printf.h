@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 13:20:15 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 13:26:32 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 17:26:25 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void			ft_print_per(char c, t_flag *struc);
 void			ft_puto(char *str, t_flag *struc);
 char			*ft_pad_hash(char *str, t_flag *struc);
 int				specialf_cases(t_flag *struc, long double nb);
-int				padding(t_flag *struc);
+void			padding(t_flag *struc);
 int				with_plus_zero(long nb, t_flag *struc);
 int				check_plus_spacel(long nb, t_flag *struc);
 char			*taille_to_int(char *str, t_flag *struc);

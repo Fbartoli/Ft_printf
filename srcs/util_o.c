@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 17:55:43 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 15:18:37 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/14 17:22:23 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	ft_puto(char *str, t_flag *struc)
 		while (i--)
 			ft_putchar_fd('0', struc->fd);
 	}
-	if (ft_strlen(str) == 1 && *str == '0' && !struc->prec_default && !struc->prec && !struc->force_prefix)
+	if (ft_strlen(str) == 1 && *str == '0'
+			&& !struc->prec_default && !struc->prec && !struc->force_prefix)
 		return ;
 	ft_putstr(str);
 }

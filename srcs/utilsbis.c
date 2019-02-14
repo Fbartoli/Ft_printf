@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 17:36:52 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 15:01:56 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 17:28:34 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,9 @@ char	*taille_to_int(char *str, t_flag *struc)
 	return (str);
 }
 
-int		padding(t_flag *struc)
+void	padding(t_flag *struc)
 {
-	if (struc->pad_zeroes == 1 && struc->prec > 0
-		&& struc->conv == 'o')
+	if (struc->pad_zeroes == 1 && struc->prec > 0 && struc->conv == 'o')
 	{
 		while (struc->prec-- > 0)
 			struc->i += ft_putchar_fd('0', struc->fd);
@@ -66,8 +65,7 @@ int		padding(t_flag *struc)
 		while (struc->prec-- > 0)
 			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
-	else if (struc->pad_zeroes == 0 && struc->prec > 0
-		&& struc->conv == 'o')
+	else if (struc->pad_zeroes == 0 && struc->prec > 0 && struc->conv == 'o')
 	{
 		while (struc->prec-- > 0)
 			struc->i += ft_putchar_fd('0', struc->fd);
@@ -82,7 +80,6 @@ int		padding(t_flag *struc)
 		while (struc->pad-- > 0)
 			struc->i += ft_putchar_fd(' ', struc->fd);
 	}
-	return (0);
 }
 
 char	*get_min(char *str, t_flag *struc, va_list *params)
