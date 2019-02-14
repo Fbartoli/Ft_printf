@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 10:35:45 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 14:30:04 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:19:15 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	check_plus_spacef(long double nb, t_flag *struc)
 	int	count;
 
 	count = 0;
-	if (nb == 0 && ((1/nb) != (1/0.0)))
+	if (nb == 0 && ((1 / nb) != (1 / 0.0)))
 		count += ft_putchar_fd('-', struc->fd);
 	else if (struc->force_sign && nb >= 0)
 		count += ft_putchar_fd('+', struc->fd);
@@ -99,7 +99,7 @@ int			ft_print_f(long double nb, t_flag *struc)
 
 	count = 0;
 	if (nb == 1.0 / 0.0 || nb == -1.0 / 0.0)
-		return(specialf_cases(struc, nb));
+		return (specialf_cases(struc, nb));
 	if (struc->min)
 		count = with_minf(nb, struc);
 	else

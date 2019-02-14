@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:09 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 18:11:14 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:15:10 by apsaint-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		with_plus_zero(long nb, t_flag *struc)
 	int tmp;
 
 	count = 0;
-	if ((struc->prec || struc->pad_zeroes) 
+	if ((struc->prec || struc->pad_zeroes)
 		&& (!struc->blank_sign || !struc->force_sign))
 		count += check_plus_spacel(nb, struc);
 	tmp = struc->min - ft_nbrlen(nb) - struc->force_sign - struc->blank_sign;
