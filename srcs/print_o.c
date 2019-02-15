@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:10:05 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 17:21:45 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/15 11:01:14 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@ static int		end_o(char *str, int count, t_flag *struc)
 {
 	if (struc->prec != 0 && (size_t)struc->prec > ft_strlen(str))
 		count += struc->prec - ft_strlen(str);
-	if (struc->prec != 0 && (size_t)struc->prec == ft_strlen(str))
+	if (struc->prec != 0 && (size_t)struc->prec == ft_strlen(str)
+		&& *str != '0' && ft_strlen(str) != 1)
 		count++;
-	if (struc->force_prefix && str[0] != '0' &&
-		struc->prec < (int)ft_strlen(str))
+	if (struc->force_prefix && str[0] != '0'
+		&& struc->prec < (int)ft_strlen(str))
 		count++;
-	if ((size_t)struc->min > ft_strlen(str) &&
-		struc->prec < struc->min)
+	if ((size_t)struc->min > ft_strlen(str)
+		&& struc->prec < struc->min)
 		count = struc->min;
 	if (ft_strlen(str) == 1 && *str == '0' && !struc->prec_default
-		&& !struc->prec && !struc->force_prefix)
+			&& !struc->prec && !struc->force_prefix)
 		count = struc->min;
 	return (count);
 }
@@ -61,8 +62,8 @@ static	int		check_complet_charo(char *nb, char letter, t_flag *struc)
 
 static void		putzero_ifsharp(char *nb, t_flag *struc)
 {
-	if (struc->force_prefix && !(ft_strlen(nb) == 1 && nb[0] == '0') &&
-		struc->prec <= (int)ft_strlen(nb))
+	if (struc->force_prefix && !(ft_strlen(nb) == 1 && nb[0] == '0')
+		&& struc->prec <= (int)ft_strlen(nb))
 		ft_putchar_fd('0', struc->fd);
 }
 

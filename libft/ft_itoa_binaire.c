@@ -6,12 +6,11 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 11:44:54 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 15:27:59 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:32:42 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_itoa_binaire(long value)
 {

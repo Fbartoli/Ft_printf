@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:07:18 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 15:21:07 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/15 11:00:22 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# include <stdarg.h>
 
 typedef struct		s_list
 {

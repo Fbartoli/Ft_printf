@@ -6,7 +6,7 @@
 /*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 14:44:49 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/13 17:45:58 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:41:53 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static int		check_complet_charul(unsigned long nb, int count,
 
 	if (ft_unbrlen(nb) < (struc->min + count))
 	{
-		if (letter == ' ' && struc->blank_sign && struc->force_prefix &&
-			!struc->right_pad)
+		if (letter == ' ' && struc->blank_sign && struc->force_prefix
+			&& !struc->right_pad)
 			struc->min--;
 		if (struc->prec >= ft_unbrlen(nb))
 			tmp = struc->min - count - struc->prec;

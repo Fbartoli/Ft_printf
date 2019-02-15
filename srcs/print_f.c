@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_f.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 10:35:45 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 18:23:31 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:44:34 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <math.h>
 
 static int	check_plus_spacef(long double nb, t_flag *struc)
 {
@@ -34,8 +33,8 @@ static int	check_complet_charf(long double nb, int count, char letter,
 
 	if (struc->min + count > ft_nbrlen(nb) + struc->prec + 1)
 	{
-		if (letter == ' ' && struc->blank_sign && struc->force_prefix &&
-			!struc->right_pad)
+		if (letter == ' ' && struc->blank_sign && struc->force_prefix
+			&& !struc->right_pad)
 			struc->min--;
 		if (!(struc->right_pad))
 			tmp = struc->min - ft_nbrlen(nb) - count - 1;
