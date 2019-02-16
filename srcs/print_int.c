@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 16:06:37 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/15 10:40:03 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/16 13:06:28 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int		with_min_zero(long nb, t_flag *struc)
 	int count;
 
 	count = 0;
-	if (struc->prec != 0)
+	if (struc->prec != 0 || struc->prec_default == 0)
 	{
 		if (struc->force_sign || struc->blank_sign
 			|| (struc->pad_zeroes && nb < 0))
@@ -66,7 +66,7 @@ static int		with_min_zero(long nb, t_flag *struc)
 	count += check_plus_spacel(nb, struc);
 	if (nb < 0)
 		ft_putchar_fd('-', struc->fd);
-	if (struc->prec == 0)
+	if (struc->prec_default == 1)
 		count = check_complet_charl(nb, count, '0', struc);
 	if (nb < 0)
 		nb = -nb;
