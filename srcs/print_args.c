@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 14:05:07 by apsaint-          #+#    #+#             */
-/*   Updated: 2019/02/13 15:27:28 by apsaint-         ###   ########.fr       */
+/*   Updated: 2019/02/16 13:01:43 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void			ft_print_str(char *str, t_flag *struc)
 		struc->i += ft_putnstr_fd(str, p, struc->fd);
 	padding(struc);
 	if (struc->right_pad == 0 && str != NULL)
-		struc->i += ft_putnstr(str, p);
+		struc->i += ft_putnstr_fd(str, p, struc->fd);
 	if ((struc->conv == 'S' && ft_strcmp(str, "\0") != 0)
 		|| (struc->conv == 'b' && ft_strcmp(str, "0") != 0)
 		|| (struc->conv == 'C' && ft_strcmp(str, "\0") != 0))

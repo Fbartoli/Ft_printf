@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flbartol <flbartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 14:44:49 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/15 10:41:53 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/16 13:03:04 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int		with_min_zero(unsigned long nb, t_flag *struc)
 	count = 0;
 	if (struc->prec != 0 || struc->prec_default == 0)
 		count = check_complet_charul(nb, count, ' ', struc);
-	if (struc->prec == 0)
+	if (struc->prec_default == 1)
 		count = check_complet_charul(nb, count, '0', struc);
 	ft_putunbrpf(nb, struc->prec, struc->fd);
 	return (count);

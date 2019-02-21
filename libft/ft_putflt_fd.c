@@ -6,11 +6,12 @@
 /*   By: flbartol <flbartol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 20:13:02 by flbartol          #+#    #+#             */
-/*   Updated: 2019/02/14 11:08:41 by flbartol         ###   ########.fr       */
+/*   Updated: 2019/02/16 13:14:24 by flbartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "float.h"
 
 static float	ft_fabs(float f)
 {
